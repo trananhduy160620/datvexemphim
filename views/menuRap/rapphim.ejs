@@ -1,0 +1,456 @@
+<!-- CSS -->
+<style>
+    .grid-cinemas-area {
+        
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 8px 8px;
+        padding: 20px 0px 0px 40px;
+        width: auto;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 17px;
+        list-style: none;
+        border-bottom-style:double;
+        border-color: white;
+    }
+
+    #cinemas-area{
+        width: 100%;
+    }
+
+    .grid-cinemas-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 8px 8px;
+        padding: 10px 0px 40px 40px;
+        font-weight: bold;
+        font-size: 15px;
+        list-style: none;
+    }
+
+    .active,
+    span:hover {  
+        cursor: pointer;  
+        color: red;
+
+    }
+
+
+    div.container {
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 10px;
+        background-image: url();
+        width: 1024px;
+        background-color:gray;
+        
+    }
+
+    .grid-cinemas-area span{
+        margin-left: 20px;
+    }
+
+    label{
+        display: block;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 50px;
+        font-weight: bold;
+        color: white;
+        border-bottom-style:double;
+        border-color: white;
+    }
+
+</style>
+
+<!-- JavaScript -->
+<script>
+    function resetCinemaList(clName) {
+        let list = document.getElementsByClassName(clName);
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].style.display === 'block') {
+                list[i].style.display = 'none';
+            }
+        }
+    }
+
+    function spanActive() {
+        let span = document.getElementById("cinemas-area").getElementsByClassName("span");
+
+        for (let i = 0; i < span.length; i++) {
+            span[i].addEventListener("click", function () {
+                let current = document.getElementsByClassName("span active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+    }
+
+    let listSpanActive = [];
+    function clickOnCinemaArea(clName) {
+        spanActive();
+        let list = document.getElementsByClassName(clName);
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].style.display === 'none') {
+                list[i].style.display = 'block';
+            }
+        }
+
+        listSpanActive.push(clName);
+        if(clName != listSpanActive[listSpanActive.length - 2]){
+            resetCinemaList(listSpanActive[listSpanActive.length - 2]);
+        }
+    }
+</script>
+
+    
+
+<h1>
+    <%-title%>
+</h1>
+
+<div class="container">
+    <div>
+        <label class="cinema-name">CGV CINEMAS</label>
+    </div>
+    <div id="cinemas-area" >
+        <ul class="grid-cinemas-area">           
+            <li>
+                <span id="cgv_city_1" class="span" onclick="clickOnCinemaArea(id)" >Hồ Chí Minh</span>
+            </li>
+            <li>
+                <span id="cgv_city_3" class="span" onclick="clickOnCinemaArea(id)">Hà Nội</span>
+            </li>
+            <li>
+                <span id="cgv_city_5" class="span" onclick="clickOnCinemaArea(id)">Đà Nẵng</span>
+            </li>
+            <li>
+                <span id="cgv_city_7" class="span" onclick="clickOnCinemaArea(id)">Cần Thơ</span>
+            </li>
+            <li>
+                <span id="cgv_city_9" class="span" onclick="clickOnCinemaArea(id)">Đồng Nai</span>
+            </li>
+            <li>
+                <span id="cgv_city_11" class="span" onclick="clickOnCinemaArea(id)">Hải Phòng</span>
+            </li>
+            <li>
+                <span id="cgv_city_13" class="span" onclick="clickOnCinemaArea(id)">Quảng Ninh</span>
+            </li>
+            <li>
+                <span id="cgv_city_15" class="span" onclick="clickOnCinemaArea(id)">Bà Rịa-Vũng Tàu</span>
+            </li>
+            <li>
+                <span id="cgv_city_17" class="span" onclick="clickOnCinemaArea(id)">Bình Định</span>
+            </li>
+            <li>
+                <span id="cgv_city_19" class="span" onclick="clickOnCinemaArea(id)">Bình Dương</span>
+            </li>
+            <li>
+                <span id="cgv_city_21" class="span" onclick="clickOnCinemaArea(id)">Đắk Lắk</span>
+            </li>
+            <li>
+                <span id="cgv_city_23" class="span" onclick="clickOnCinemaArea(id)">Trà Vinh</span>
+            </li>
+            <li>
+                <span id="cgv_city_25" class="span" onclick="clickOnCinemaArea(id)">Yên Bái</span>
+            </li>
+            <li>
+                <span id="cgv_city_27" class="span" onclick="clickOnCinemaArea(id)">Vĩnh Long</span>
+            </li>
+            <li>
+                <span id="cgv_city_29" class="span" onclick="clickOnCinemaArea(id)">Kiên Giang</span>
+            </li>
+            <li>
+                <span id="cgv_city_31" class="span" onclick="clickOnCinemaArea(id)">Hậu Giang</span>
+            </li>
+            <li>
+                <span id="cgv_city_33" class="span" onclick="clickOnCinemaArea(id)">Hà Tĩnh</span>
+            </li>
+            <li>
+                <span id="cgv_city_35" class="span" onclick="clickOnCinemaArea(id)">Phú Yên</span>
+            </li>
+            <li>
+                <span id="cgv_city_49" class="span" onclick="clickOnCinemaArea(id)">Đồng Tháp</span>
+            </li>
+            <li>
+                <span id="cgv_city_75" class="span" onclick="clickOnCinemaArea(id)">Hưng Yên</span>
+            </li>
+            <li>
+                <span id="cgv_city_77" class="span" onclick="clickOnCinemaArea(id)">Khánh Hòa</span>
+            </li>
+            <li>
+                <span id="cgv_city_79" class="span" onclick="clickOnCinemaArea(id)">Kon Tum</span>
+            </li>
+            <li>
+                <span id="cgv_city_85" class="span" onclick="clickOnCinemaArea(id)">Lạng Sơn</span>
+            </li>
+            <li>
+                <span id="cgv_city_93" class="span" onclick="clickOnCinemaArea(id)">Nghệ An</span>
+            </li>
+            <li>
+                <span id="cgv_city_105" class="span" onclick="clickOnCinemaArea(id)">Quảng Ngãi</span>
+            </li>
+            <li>
+                <span id="cgv_city_109" class="span" onclick="clickOnCinemaArea(id)">Sóc Trăng</span>
+            </li>
+            <li>
+                <span id="cgv_city_111" class="span" onclick="clickOnCinemaArea(id)">Sơn La</span>
+            </li>
+            <li>
+                <span id="cgv_city_113" class="span" onclick="clickOnCinemaArea(id)">Tây Ninh</span>
+            </li>
+            <li>
+                <span id="cgv_city_117" class="span" onclick="clickOnCinemaArea(id)">Thái Nguyên</span>
+            </li>
+            <li>
+                <span id="cgv_city_123" class="span" onclick="clickOnCinemaArea(id)">Tiền Giang</span>
+            </li>
+            <li>
+                <span id="cgv_city_0" class="span active" style="visibility: hidden;">hide</span>
+            </li>
+        </ul>
+    </div>
+
+    <div id="cinemas-list">
+        <ul class="grid-cinemas-list">
+            <li class="cgv_city_1" style="display: none;">
+                <span id="cgv_site_004">CGV Hùng Vương Plaza</span>
+            </li>
+            <li class="cgv_city_1" style="display: none;">
+                <span id="cgv_site_008">CGV Crescent Mall</span>
+            </li>
+            <li class="cgv_city_1" style="display: none;">
+                <span id="cgv_site_021">CGV Thảo Điền Pearl</span>
+            </li>
+            <li class="cgv_city_1" style="display: none;">
+                <span id="cgv_site_023">CGV Vincom Thủ Đức</span>
+            </li>
+            <li class="cgv_city_1" style="display: none;">
+                <span id="cgv_site_024">CGV Vivo City</span>
+            </li>
+            <li class="cgv_city_1" style="display: none;">
+                <span id="cgv_site_030">CGV Pearl Plaza</span>
+            </li>
+            <li class="cgv_city_3" style="display: none;">
+                <span id="cgv_site_001">CGV Vincom Center Bà Triệu</span>
+            </li>
+            <li class=" cgv_city_3" style="display: none;">
+                <span id="cgv_site_009">CGV Mipec Tower</span>
+            </li>
+            <li class="cgv_city_3" style="display: none;">
+                <span id="cgv_site_018">CGV Hồ Gươm Plaza</span>
+            </li>
+            <li class="cgv_city_3" style="display: none;">
+                <span id="cgv_site_027">CGV Aeon Long Biên</span>
+            </li>
+            <li class="cgv_city_3" style="display: none;">
+                <span id="cgv_site_028">CGV Vincom Nguyễn Chí Thanh</span>
+            </li>
+            <li class="cgv_city_3" style="display: none;">
+                <span id="cgv_site_032">CGV Indochina Plaza Hà Nội</span>
+            </li>
+            <li class="cgv_city_3" style="display: none;">
+                <span id="cgv_site_037">CGV Rice City</span>
+            </li>
+            <li class="cgv_city_5" style="display: none;">
+                <span id="cgv_site_005">CGV Vĩnh Trung Plaza</span>
+            </li>
+            <li class="cgv_city_5" style="display: none;">
+                <span id="cgv_site_025">CGV Vincom Đà Nẵng</span>
+            </li>
+            <li class="cgv_city_11" style="display: none;">
+                <span id="cgv_site_002">CGV Thùy Dương Plaza</span>
+            </li>
+            <li class="cgv_city_13" style="display: none;">
+                <span id="cgv_site_020">CGV Vincom Hạ Long</span>
+            </li>
+            <li class="cgv_city_1" style="display: none;">
+                <span id="cgv_site_022">CGV Liberty Citypoint</span>
+            </li>
+            <li class="cgv_city_1" style="display: none;">
+                <span id="cgv_site_035">CGV Vincom Đồng Khởi</span>
+            </li>
+            <li class="cgv_city_15" style="display: none;">
+                <span id="cgv_site_014">CGV Lam Sơn Square</span>
+            </li>
+            <li class="cgv_city_7" style="display: none;">
+                <span id="cgv_site_013">CGV Sense City</span>
+            </li>
+            <li class="cgv_city_7" style="display: none;">
+                <span id="cgv_site_036">CGV Vincom Xuân Khánh</span>
+            </li>
+            <li class="cgv_city_21" style="display: none;">
+                <span id="cgv_site_026">CGV Buôn Mê Thuột</span>
+            </li>
+            <li class="cgv_city_19" style="display: none;">
+                <span id="cgv_site_016">CGV Bình Dương Square</span>
+            </li>
+            <li class="cgv_city_19" style="display: none;">
+                <span id="cgv_site_017">CGV Aeon Canary</span>
+            </li>
+            <li class="cgv_city_9" style="display: none;">
+                <span id="cgv_site_003">CGV Coopmart BiênHòa</span>
+            </li>
+            <li class="cgv_city_9" style="display: none;">
+                <span id="cgv_site_019">CGV Big C Đồng Nai</span>
+            </li>
+            <li class="cgv_city_17" style="display: none;">
+                <span id="cgv_site_015">CGV Kim Cúc Plaza</span>
+            </li>
+            <li class="cgv_city_1" style="display: none;">
+                <span id="cgv_site_006">CGV Trường Sơn (CGV CT Plaza)</span>
+            </li>
+            <li class="cgv_city_1" style="display: none;">
+                <span id="cgv_site_010">CGV Pandora City</span>
+            </li>
+            <li class="cgv_city_1" style="display: none;">
+                <span id="cgv_site_012">CGV Aeon Tân Phú</span>
+            </li>
+            <li class="cgv_city_1" style="display: none;">
+                <span id="cgv_site_031">CGV Vincom Gò Vấp</span>
+            </li>
+            <li class="cgv_city_1" style="display: none;">
+                <span id="cgv_site_033">CGV Hoàng Văn Thụ</span>
+            </li>
+            <li class="cgv_city_1" style="display: none;">
+                <span id="cgv_site_034">CGV Aeon Bình Tân</span>
+            </li>
+            <li class="cgv_city_1" style="display: none;">
+                <span id="cgv_site_038">CGV Saigonres Nguyễn Xí</span>
+            </li>
+            <li class="cgv_city_25" style="display: none;">
+                <span id="cgv_site_044">CGV Vincom Yên Bái</span>
+            </li>
+            <li class="cgv_city_23" style="display: none;">
+                <span id="cgv_site_039">CGV Vincom Trà Vinh</span>
+            </li>
+            <li class="cgv_city_27" style="display: none;">
+                <span id="cgv_site_043">CGV Vincom Vĩnh Long</span>
+            </li>
+            <li class="cgv_city_29" style="display: none;">
+                <span id="cgv_site_042">CGV Vincom Rạch Giá</span>
+            </li>
+            <li class="cgv_city_31" style="display: none;">
+                <span id="cgv_site_045">CGV Vincom Vị Thanh</span>
+            </li>
+            <li class="cgv_city_7" style="display: none;">
+                <span id="cgv_site_029">CGV Vincom Hùng Vương</span>
+            </li>
+            <li class="cgv_city_3" style="display: none;">
+                <span id="cgv_site_046">CGV Hà Nội Centerpoint</span>
+            </li>
+            <li class="cgv_city_33" style="display: none;">
+                <span id="cgv_site_047">CGV Vincom Hà Tĩnh</span>
+            </li>
+            <li class="cgv_city_3" style="display: none;">
+                <span id="cgv_site_054">CGV Vincom Royal City</span>
+            </li>
+            <li class="cgv_city_3" style="display: none;">
+                <span id="cgv_site_055">CGV Vincom Times City</span>
+            </li>
+            <li class="cgv_city_1" style="display: none;">
+                <span id="cgv_site_049">CGV Parkson Đồng Khởi</span>
+            </li>
+            <li class="cgv_city_3" style="display: none;">
+                <span id="cgv_site_056">CGV Vincom Long Biên</span>
+            </li>
+            <li class="cgv_city_35" style="display: none;">
+                <span id="cgv_site_051">CGV Vincom Phú Yên</span>
+            </li>
+            <li class="cgv_city_77" style="display: none;">
+                <span id="cgv_site_072">CGV Big C Nha Trang</span>
+            </li>
+            <li class="cgv_city_1" style="display: none;">
+                <span id="cgv_site_057">CGV Sư Vạn Hạnh</span>
+            </li>
+            <li class="cgv_city_3" style="display: none;">
+                <span id="cgv_site_060">CGV Mac Plaza (Machinco)</span>
+            </li>
+            <li class="cgv_city_3" style="display: none;">
+                <span id="cgv_site_053">CGV Trương Định Plaza</span>
+            </li>
+            <li class="cgv_city_111" style="display: none;">
+                <span id="cgv_site_062">CGV Vincom Sơn La</span>
+            </li>
+            <li class="cgv_city_1" style="display: none;">
+                <span id="cgv_site_071">CGV Vincom Center Landmark 81</span>
+            </li>
+            <li class="cgv_city_117" style="display: none;">
+                <span id="cgv_site_061">CGV Vincom Thái Nguyên</span>
+            </li>
+            <li class="cgv_city_3" style="display: none;">
+                <span id="cgv_site_048">CGV Tràng Tiền Plaza</span>
+            </li>
+            <li class="cgv_city_85" style="display: none;">
+                <span id="cgv_site_067">CGV Vincom Lạng Sơn</span>
+            </li>
+            <li class="cgv_city_1" style="display: none;">
+                <span id="cgv_site_073">CGV Satra Củ Chi</span>
+            </li>
+            <li class="cgv_city_123" style="display: none;">
+                <span id="cgv_site_074">CGV GO! Mỹ Tho</span>
+            </li>
+            <li class="cgv_city_3" style="display: none;">
+                <span id="cgv_site_064">CGV Sun Grand Lương Yên </span>
+            </li>
+            <li class="cgv_city_3" style="display: none;">
+                <span id="cgv_site_075">CGV Vincom Bắc Từ Liêm </span>
+            </li>
+            <li class="cgv_city_3" style="display: none;">
+                <span id="cgv_site_070">CGV Vincom Metropolis Liễu Giai </span>
+            </li>
+            <li class="cgv_city_11" style="display: none;">
+                <span id="cgv_site_077">CGV Vincom Hải Phòng</span>
+            </li>
+            <li class="cgv_city_105" style="display: none;">
+                <span id="cgv_site_081">CGV Vincom Quảng Ngãi</span>
+            </li>
+            <li class="cgv_city_113" style="display: none;">
+                <span id="cgv_site_068">CGV Vincom Tây Ninh</span>
+            </li>
+            <li class="cgv_city_1" style="display: none;">
+                <span id="cgv_site_079">CGV Giga Mall Thủ Đức</span>
+            </li>
+            <li class="cgv_city_3" style="display: none;">
+                <span id="cgv_site_080">CGV Xuân Diệu</span>
+            </li>
+            <li class="cgv_city_3" style="display: none;">
+                <span id="cgv_site_082">CGV Vincom Sky Lake Phạm Hùng</span>
+            </li>
+            <li class="cgv_city_3" style="display: none;">
+                <span id="cgv_site_083">CGV Vincom Trần Duy Hưng</span>
+            </li>
+            <li class="cgv_city_13" style="display: none;">
+                <span id="cgv_site_091">CGV Vincom Móng Cái </span>
+            </li>
+            <li class="cgv_city_93" style="display: none;">
+                <span id="cgv_site_086">CGV Vinh Centre</span>
+            </li>
+            <li class="cgv_city_49" style="display: none;">
+                <span id="cgv_site_092">CGV Vincom Cao Lãnh</span>
+            </li>
+            <li class="cgv_city_3" style="display: none;">
+                <span id="cgv_site_090">CGV Aeon Hà Đông</span>
+            </li>
+            <li class="cgv_city_13" style="display: none;">
+                <span id="cgv_site_095">CGV Vincom Cẩm Phả</span>
+            </li>
+            <li class="cgv_city_109" style="display: none;">
+                <span id="cgv_site_097">CGV Vincom Sóc Trăng</span>
+            </li>
+            <li class="cgv_city_79" style="display: none;">
+                <span id="cgv_site_096">CGV Vincom Kon Tum</span>
+            </li>
+            <li class="cgv_city_1" style="display: none;">
+                <span id="cgv_site_088">CGV Lý Chính Thắng</span>
+            </li>
+            <li class="cgv_city_75" style="display: none;">
+                <span id="cgv_site_093">CGV Ecopark Hưng Yên</span>
+            </li>
+            <li class="cgv_city_3" style="display: none;">
+                <span id="cgv_site_099">CGV Vincom Ocean Park</span>
+            </li>
+        </ul>
+    </div>
+</div>

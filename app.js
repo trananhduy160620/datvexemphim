@@ -2,12 +2,16 @@ const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 const session = require("express-session");
-const db = require("./controllers/db")
+const db = require("./controllers/db");
+const HomeRouter = require("./routers/Homepage");
+const rapRouter = require("./routers/menuRap");
+const phimRouter = require("./routers/phim");
+const datVeRouter = require("./routers/datVe");
 
 const app = express();
 
 app.set("view engine", "ejs");
-app.set("views", "views");
+app.set("layout", "./layouts");
 
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.urlencoded({ extended: true }));
@@ -21,9 +25,12 @@ app.use(
   })
 );
 
-const Home = require("./routes/Homepage");
 
-app.use(Home);
+
+app.use(HomeRouter);
+app.use(rapRouter);
+app.use(phimRouter);
+app.use(datVeRouter);
 
 db.sync().then(function () {
   const port = process.env.PORT || 3000;
