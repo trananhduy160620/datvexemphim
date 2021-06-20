@@ -4,8 +4,9 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const db = require("./controllers/db");
 const HomeRouter = require("./routers/Homepage");
-const rapRouter = require('./routers/menuRap');
-const phimRouter = require("./routers/phim/phimDangChieu");
+const rapRouter = require("./routers/menuRap");
+const phimRouter = require("./routers/phim");
+const datVeRouter = require("./routers/datVe");
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use(
 app.use(HomeRouter);
 app.use(rapRouter);
 app.use(phimRouter);
+app.use(datVeRouter);
 
 db.sync().then(function () {
   const port = process.env.PORT || 3000;
