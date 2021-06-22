@@ -8,16 +8,11 @@ const Ve = require('../models/Ve');
 
 
 exports.getHomePage = async (req, res, next) => {
-  res.render("layouts/index", {
-    isAuthenticated: req.session.user,
-    title: "Trang chu",
-    name: "Do Tien Hiep"
-
-  });
+  res.render("layouts/index", {});
 };
 
 exports.getRegister = async (req, res, next) => {
-  res.render("register",{ title: 'Đăng ký' });
+  res.render("register");
 };
 
 
