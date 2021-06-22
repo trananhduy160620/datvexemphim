@@ -353,17 +353,26 @@
         book = 0;
       }
     });
-    var bookTwo = 1;  
+    var bookTwo = 1;
+    var checked = 0;
     $(".seat-free-two img").on('click', function(e) {
       if(bookTwo == 0) {
         $(this).attr("src","./assets/images/movie/seat02-free.png");
         bookTwo = 1;
+        checked= 0;
       }
       else if(bookTwo == 1) {
         $(this).attr("src","./assets/images/movie/seat02-booked.png");
         bookTwo = 0;
+        checked = 1;
       }
     });
+
+    $("#proceed").on('click', function(e) {
+      if(checked == 1)
+      $(".seat-free-two img").attr("src","./assets/images/movie/seat02.png");
+    });
+
     // shop cart + - start here
     var CartPlusMinus = $('.cart-plus-minus');
     CartPlusMinus.prepend('<div class="dec qtybutton">-</div>');
