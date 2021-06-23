@@ -1,11 +1,10 @@
 var express = require('express')
+var cinemaContrller = require('../controllers/cinema.controller')
 var router = express.Router()
 
 
 
-router.get(['/list-cinema'], function (req, res) {
-  res.render('list-cinema')
-})
+router.get(['/list-cinema'], cinemaContrller.listCinema)
 router.get('/add-cinema', function (req, res) {
     res.render('add-cinema')
 })

@@ -1,11 +1,10 @@
 var express = require('express')
+var phimController = require('../controllers/movie.controller')
 var router = express.Router()
 
 
 
-router.get('/list-movie', function (req, res) {
-  res.render('list-movie')
-})
+router.get('/list-movie', phimController.listMovie)
 
 
 router.get('/add-movie', function (req, res) {

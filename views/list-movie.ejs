@@ -44,6 +44,11 @@
     tr:nth-child(even) {
         background-color: #dddddd;
     }
+
+    img.img-fluid {
+        width: 250px;
+        height: auto;
+    }
 </style>
 
 <body>
@@ -333,29 +338,41 @@
             <div class="app-main__outer">
                 <div class="app-main__inner">
                     <h1>Danh sách các phim</h1><br>
-                    <table>
+                    <table class="table table-bordered table-dark">
                         <tr>
-                            <th>Tên phim</th>
-                            <th>Ngày công chiếu</th>
-                            <th>Poster/Link</th>
-                            <th>Thời lượng</th>
-                            <th>&nbsp</th>
+                            <th scope="col">Tên phim</th>
+                            <th scope="col">Ngày công chiếu</th>
+                            <th scope="col">Poster</th>
+                            <th scope="col">Thời lượng</th>
+                            <th scope="col"> Edit / Delete</th>
                         </tr>
-                        <tr>
-                            <td>Alfreds Futterkiste</td>
-                            <td>Maria Anders</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>
-                                <a name="" id="" class="btn btn-primary" href="#" role="button">
-                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                </a>
-                                <a name="" id="" class="btn btn-danger" href="#" role="button">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                </a>
 
-                            </td>
-                        </tr>
+                        <% for (let i=0; i < listOfMovie.length; i++) { %>
+                            <tr>
+                                <th scope="row">
+                                    <%= listOfMovie[i].Ten %>
+                                </th>
+                                <td>
+                                    <%= listOfMovie[i].NgayCongChieu %>
+                                </td>
+                                <td>
+                                    <img src="<%= listOfMovie[i].Poster %>" alt="" class="img-fluid">
+                                </td>
+                                <td>
+                                    <%= listOfMovie[i].ThoiLuong %>
+                                </td>
+                                <td>
+                                    <a name="" id="" class="btn btn-primary"
+                                        href="updateIdMovie=<%= listOfMovie[i].ID %>" role="button">
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                    </a>
+                                    <a name="" id="" class="btn btn-danger"
+                                        href="deleteIdMovie=<%= listOfMovie[i].ID %>" role="button">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <% } %>
                     </table>
                 </div>
             </div>

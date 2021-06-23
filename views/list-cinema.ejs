@@ -334,27 +334,31 @@
             <div class="app-main__outer">
                 <div class="app-main__inner">
                     <h2>Danh sách các rạp</h2>
-                    <table>
+                    <table class="table table-bordered table-dark">
                         <tr>
                             <th>Tên rạp</th>
-                            <th>Kích thước màn chiếu</th>
                             <th>Loại rạp</th>
-                            <th>&nbsp</th>
+                            <th>Kích thước chiều ngang (m)</th>
+                            <th>Kích thước chiều dọc (m)</th>
+                            <th>Edit / Delete</th>
                         </tr>
+                        <% for (let i=0; i < listOfCinema.length; i++) { %>
                         <tr>
-                            <td>Alfreds Futterkiste</td>
-                            <td>Maria Anders</td>
-                            <td>Germany</td>
+                            <td> <%= listOfCinema[i].Ten %> </td>
+                            <td> <%= listOfCinema[i].LoaiRap %> </td>
+                            <td> <%= listOfCinema[i].KichThuocChieuNgang / 100 %> </td>
+                            <td> <%= listOfCinema[i].KichThuocChieuDoc / 100 %> </td>
                             <td>
-                                <a name="" id="" class="btn btn-primary" href="#" role="button">
+                                <a name="" id="" class="btn btn-primary" href="updateIdCinema=<%= listOfCinema[i].ID %>" role="button">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                 </a>
-                                <a name="" id="" class="btn btn-danger" href="#" role="button">
+                                <a name="" id="" class="btn btn-danger" href="deleteIdCinema=<%= listOfCinema[i].ID %>" role="button">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </a>
 
                             </td>
                         </tr>
+                        <% } %>
                     </table>
                 </div>
             </div>
