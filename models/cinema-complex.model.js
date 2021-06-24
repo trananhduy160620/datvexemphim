@@ -15,6 +15,9 @@ const CinemaComplex = db.define('CumRap', {
         allowNull: true
     }
 }, {
-    tableName: 'CumRap'
+    tableName: 'CumRap',
+    createdAt: false,
+    freezeTableName: true,
+    updatedAt: false,
 })
 module.exports = CinemaComplex

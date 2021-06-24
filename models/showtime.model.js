@@ -23,6 +23,9 @@ const ShowTime = db.define('SuatChieu', {
         allowNull: true
     }
 }, {
-    tableName: 'SuatChieu'
+    tableName: 'SuatChieu',
+    createdAt: false,
+    freezeTableName: true,
+    updatedAt: false,
 })
 module.exports = ShowTime

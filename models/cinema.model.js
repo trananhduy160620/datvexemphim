@@ -4,7 +4,8 @@ const db = require('../database/database')
 const Cinema = db.define('Rap', {
     ID: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        primaryKey: true
     },
     Ten: {
         type: Sequelize.STRING,
@@ -26,7 +27,11 @@ const Cinema = db.define('Rap', {
         type: Sequelize.INTEGER,
         allowNull: true
     },
+    
 }, {
-    tableName: 'Rap'
+    tableName: 'Rap',
+    createdAt: false,
+    freezeTableName: true,
+    updatedAt: false,
 })
 module.exports = Cinema

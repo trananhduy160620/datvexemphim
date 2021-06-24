@@ -27,6 +27,9 @@ const Ticket = db.define('Ve', {
         allowNull: true
     }
 }, {
-    tableName: 'Ve'
+    tableName: 'Ve',
+    createdAt: false,
+    freezeTableName: true,
+    updatedAt: false,
 })
 module.exports = Ticket

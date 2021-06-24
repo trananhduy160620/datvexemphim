@@ -22,6 +22,9 @@ const Booking = db.define('DatCho', {
         allowNull: true
     }
 }, {
-    tableName: 'DatCho'
+    tableName: 'DatCho',
+    createdAt: false,
+    freezeTableName: true,
+    updatedAt: false,
 })
 module.exports = Booking

@@ -26,6 +26,9 @@ const User = db.define('NguoiDung', {
         allowNull: false
     }
 }, {
-    tableName: 'NguoiDung'
+    tableName: 'NguoiDung',
+    createdAt: false,
+    freezeTableName: true,
+    updatedAt: false,
 })
 module.exports = User

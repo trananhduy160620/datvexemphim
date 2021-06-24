@@ -24,6 +24,9 @@ const Phim = db.define('Phim', {
         allowNull: true
     }
 }, {
-    tableName: 'Phim'
+    tableName: 'Phim',
+    createdAt: false,
+    freezeTableName: true,
+    updatedAt: false,
 })
 module.exports = Phim
