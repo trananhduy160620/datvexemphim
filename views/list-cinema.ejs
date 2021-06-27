@@ -336,6 +336,7 @@
                     <h2>Danh sách các rạp</h2>
                     <table class="table table-bordered table-dark">
                         <tr>
+                            <th scope="col">STT</th>
                             <th>Tên rạp</th>
                             <th>Loại rạp</th>
                             <th>Kích thước chiều ngang (m)</th>
@@ -344,15 +345,16 @@
                         </tr>
                         <% for (let i=0; i < listOfCinema.length; i++) { %>
                         <tr>
+                            <td> <%= i + 1 %> </td>
                             <td> <%= listOfCinema[i].Ten %> </td>
                             <td> <%= listOfCinema[i].LoaiRap %> </td>
                             <td> <%= listOfCinema[i].KichThuocChieuNgang / 100 %> </td>
                             <td> <%= listOfCinema[i].KichThuocChieuDoc / 100 %> </td>
                             <td>
-                                <a name="" id="" class="btn btn-primary" href="updateIdCinema=<%= listOfCinema[i].ID %>" role="button">
+                                <a name="" id="" class="btn btn-primary" href="update-cinema?IdCinema=<%= listOfCinema[i].ID %>" role="button">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                 </a>
-                                <a name="" id="" class="btn btn-danger" href="deleteIdCinema=<%= listOfCinema[i].ID %>" role="button">
+                                <a name="" id="" class="btn btn-danger" href="delete-cinema?IdCinema=<%= listOfCinema[i].ID %>" role="button">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </a>
 

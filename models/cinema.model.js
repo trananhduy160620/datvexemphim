@@ -4,8 +4,8 @@ const db = require('../database/database')
 const Cinema = db.define('Rap', {
     ID: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        primaryKey: true
+        allowNull: true,
+        primaryKey: true,
     },
     Ten: {
         type: Sequelize.STRING,

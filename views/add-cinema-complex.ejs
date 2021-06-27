@@ -374,7 +374,7 @@
             <div class="app-main__outer">
                 <div class="app-main__inner">
                     <h1>Thêm cụm rạp chiếu phim</h1><br>
-                    <form action="">
+                    <form action="/add-cinema-complex" method="POST">
                         <div class="container">
 
                           <label for="email"><b>Tên cụm rạp</b></label>
@@ -382,7 +382,9 @@
                       
                           <label for="psw"><b>Tỉnh/ Thành phố</b></label>
                           <select name="thanh_pho" id="psw">
-                            <option value="volvo">Volvo</option>
+                            <% for(let i = 0; i < listOfCity.length; i++) { %>
+                                <option value="<%=listOfCity[i].DiaChi%>" > <%=listOfCity[i].DiaChi%> </option>
+                            <%}%>
                           </select> <br><br>
 
                           <button type="submit" class="registerbtn">Thêm cụm rạp</button>

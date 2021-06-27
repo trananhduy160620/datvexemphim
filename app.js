@@ -15,7 +15,7 @@ var showtimeMovieRoute = require('./routes/showtime-movie.route')
 app.use(express.static(__dirname + '/views'));
 app.set('view engine', 'ejs')
 
-app.use('/',indexRoute)
+app.use(indexRoute)
 app.use(cinemaRoute)
 app.use(cinemaComplexRoute)
 app.use(movieRoute)

@@ -374,7 +374,7 @@
             <div class="app-main__outer">
                 <div class="app-main__inner">
                     <h1>Thêm phim</h1><br>
-                    <form action="">
+                    <form action="/add-movie" method="POST" enctype="multipart/form-data">
                         <div class="container">
 
                           <label for="email"><b>Tên phim</b></label>
@@ -384,7 +384,7 @@
                           <input type="text" placeholder="Nhập ngay công chiếu" name="ngay_cong_chieu" id="psw" required>
 
                           <label for="psw"><b>Poster</b></label>
-                          <input type="file" placeholder="Poster" name="poster" id="psw" required>
+                          <input type="file" accept="image/*" name="poster" id="psw" required>
                           <br><br>
                           
                           <label for="psw"><b>Thời lượng</b></label>

@@ -333,27 +333,28 @@
             <div class="app-main__outer">
                 <div class="app-main__inner">
                     <h1>Danh sách các cụm rạp</h1><br>
-                    <table>
+                    <table class="table table-bordered table-dark">
                         <tr>
+                            <th>STT</th>
                             <th>Tên rạp</th>
-                            <th>Kích thước màn chiếu</th>
-                            <th>Loại rạp</th>
-                            <th>&nbsp</th>
+                            <th>Địa chỉ</th>
+                            <th>Edit / Delete</th>
                         </tr>
+                        <% for (let i = 0; i < listOfCinemaComplex.length; i++) { %>
                         <tr>
-                            <td>Alfreds Futterkiste</td>
-                            <td>Maria Anders</td>
-                            <td>Germany</td>
+                            <td> <%= i + 1 %> </td>
+                            <td> <%= listOfCinemaComplex[i].Ten %> </td>
+                            <td> <%= listOfCinemaComplex[i].DiaChi %> </td>
                             <td>
-                                <a name="" id="" class="btn btn-primary" href="#" role="button">
+                                <a name="" id="" class="btn btn-primary" href="update-cinema-complex?IdCinemaComplex=<%= listOfCinemaComplex[i].ID %>" role="button">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                 </a>
-                                <a name="" id="" class="btn btn-danger" href="#" role="button">
+                                <a name="" id="" class="btn btn-danger" href="delete-cinema-complex?IdCinemaComplex=<%= listOfCinemaComplex[i].ID %>" role="button">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </a>
-
                             </td>
                         </tr>
+                        <% } %>
                     </table>
                 </div>
             </div>

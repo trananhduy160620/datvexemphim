@@ -11,4 +11,8 @@ router.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 router.get(['/list-cinema'], cinemaController.listCinema)
 router.get('/add-cinema', cinemaController.showCinemaPage)
 router.post('/add-cinema', cinemaController.addCinema)
+
+router.get('/update-cinema', cinemaController.showOldCinema)
+router.post('/update-cinema', cinemaController.updateCinema)
+router.get('/delete-cinema', cinemaController.deleteCinema)
 module.exports = router

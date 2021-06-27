@@ -338,8 +338,10 @@
             <div class="app-main__outer">
                 <div class="app-main__inner">
                     <h1>Danh sách các phim</h1><br>
+                    <img src="../uploads/img1.png">
                     <table class="table table-bordered table-dark">
                         <tr>
+                            <th scope="col">STT</th>
                             <th scope="col">Tên phim</th>
                             <th scope="col">Ngày công chiếu</th>
                             <th scope="col">Poster</th>
@@ -349,6 +351,7 @@
 
                         <% for (let i=0; i < listOfMovie.length; i++) { %>
                             <tr>
+                                <td> <%= i + 1 %> </td>
                                 <th scope="row">
                                     <%= listOfMovie[i].Ten %>
                                 </th>
@@ -372,7 +375,7 @@
                                     </a>
                                 </td>
                             </tr>
-                            <% } %>
+                        <% } %>
                     </table>
                 </div>
             </div>
