@@ -11,4 +11,4 @@ const { Sequelize } = require('sequelize');
 // });
 
 //local
-module.exports = new Sequelize(process.env.DATABASE_URL || 'postgres://postgres:handsome1018@localhost:5432/Lotte_Name');
+module.exports = new Sequelize(process.env.DATABASE_URL || 'postgres://postgres:postgre@localhost:5432/todo');

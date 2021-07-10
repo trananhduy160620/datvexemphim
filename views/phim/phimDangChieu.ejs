@@ -1,14 +1,7 @@
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-
-<!DOCTYPE html>
-<html class=''>
-
-<head>
-	<script
+<script
 		src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script>
 	<script
 		src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script>
@@ -70,7 +63,7 @@
 			color: #6ABCEA;
 		}
 
-		.container {
+		.container-list-movie {
 			display: -webkit-box;
 			display: -ms-flexbox;
 			display: grid;
@@ -197,7 +190,7 @@
 		}
 
 
-		.container {
+		.container-list-movie {
 			display: grid;
 			grid-template-columns: 1fr 1fr 1fr 1fr;
 			grid-gap: 20px;
@@ -205,15 +198,15 @@
 		}
 
 
-		img {
+		.img-poster {
 			width: 100%;
 			height: 270px;
 			border-radius: 10px 10px 0px 0px;
 			background-size: cover;
 		}
 
-		.container:before,
-		.container:after {
+		.container-list-movie:before,
+		.container-list-movie:after {
 			display: none;
 		}
 
@@ -237,63 +230,540 @@
 
 
 	</style>
+
+
+<!DOCTYPE html>
+<!-- saved from url=(0045)http://pixner.net/boleto/demo/movie-list.html -->
+<html lang="en" class=" sizes customelements history pointerevents postmessage webgl websockets cssanimations csscolumns csscolumns-width csscolumns-span csscolumns-fill csscolumns-gap csscolumns-rule csscolumns-rulecolor csscolumns-rulestyle csscolumns-rulewidth csscolumns-breakbefore csscolumns-breakafter csscolumns-breakinside flexbox picture srcset webworkers"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="./movie-list/bootstrap.min.css">
+    <link rel="stylesheet" href="./movie-list/all.min.css">
+    <link rel="stylesheet" href="./movie-list/animate.css">
+    <link rel="stylesheet" href="./movie-list/flaticon.css">
+    <link rel="stylesheet" href="./movie-list/magnific-popup.css">
+    <link rel="stylesheet" href="./movie-list/odometer.css">
+    <link rel="stylesheet" href="./movie-list/owl.carousel.min.css">
+    <link rel="stylesheet" href="./movie-list/owl.theme.default.min.css">
+    <link rel="stylesheet" href="./movie-list/nice-select.css">
+    <link rel="stylesheet" href="./movie-list/main.css">
+
+    <link rel="shortcut icon" href="http://pixner.net/boleto/demo/assets/images/favicon.png" type="image/x-icon">
+
+
+
+    <title>Boleto  - Online Ticket Booking Website HTML Template</title>
+
 </head>
 
 <body>
-	<div class="container">	
-		<div class="movie-card">
-			<!--movie-header-->
-			<div class="movie-header">
-				<div class="header-icon-container">
-					<img src="http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"
-						alt="">
-				</div>
-			</div>
-			<!--movie-content-->
-			<div class="movie-content">
-				<div class="movie-content-header">
-					<a href="#">
-						<h3 class="movie-title">Man of Steel</h3>
-					</a>
-					<div class="imax-logo"></div>
-				</div>
-				<div class="movie-info">
-					<!--the loai-->
-					<div class="info-section">
-						<label>Thể Loại</label>
-						<span>Hành Động</span>
-					</div>
-					<!--ngay khoi chieu-->
-					<div class="info-section">
-						<label>Khởi Chiếu</label>
-						<span>01-06-2021</span>
-					</div>
-					<!--Thoi luong phim-->
-					<div class="info-section">
-						<label>Thời Lượng</label>
-						<span>120 phút</span>
-					</div>
-				</div>
-				<div class="movie-price">
-					<!--Gia-->
-					<div class="price-section">
-						<label>Giá Vé</label>
-						<span>59.000 VNĐ</span>
-					</div>
-				</div>
-			</div>
-			<!-- button-buy -->
-			<button id="buyticket" type="button" onclick="bookingTicket()">Mua Vé</button>
-		</div>
-	</div>
-</body>
+    <!-- ==========Preloader========== -->
+    <div class="preloader" style="display: none;">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- ==========Preloader========== -->
+    <!-- ==========Overlay========== -->
+    <div class="overlay"></div>
+    <a href="http://pixner.net/boleto/demo/movie-list.html#0" class="scrollToTop active">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <!-- ==========Overlay========== -->
 
-</html>
+    <!-- ==========Header-Section========== -->
+    <header class="header-section header-active">
+        <div class="container">
+            <div class="header-wrapper">
+                <div class="logo">
+                    <a href="http://pixner.net/boleto/demo/index.html">
+                        <img src="./movie-list/logo.png" alt="logo">
+                    </a>
+                </div>
+                <ul class="menu">
+                    <li class="menu-item-has-children">
+                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">Phim</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="http://pixner.net/boleto/demo/index.html">Phim Đang Chiếu</a>
+                            </li>
+                            <li>
+                                <a href="http://pixner.net/boleto/demo/index-2.html">Phim sắp chiếu</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item-has-children">
+                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">Rạp</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="http://pixner.net/boleto/demo/index.html">Tất cả rạp</a>
+                            </li>
+                            <li>
+                                <a href="http://pixner.net/boleto/demo/index-2.html">Rạp đặc biệt</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li class="header-button pr-0">
+                        <a href="http://pixner.net/boleto/demo/sign-up.html">join us</a>
+                    </li>
+                </ul>
+                <div class="header-bar d-lg-none">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+            </div>
+        </div>
+    </header>
+    <!-- ==========Header-Section========== -->
+
+    <!-- ==========Banner-Section========== -->
+    <section class="banner-section">
+        <div class="banner-bg bg_img bg-fixed" data-background="./assets/images/banner/banner02.jpg" style="background-image: url(&quot;./assets/images/banner/banner02.jpg&quot;);"></div>
+        <div class="container">
+            <div class="banner-content">
+                <h1 class="title bold">get <span class="color-theme">movie</span> tickets</h1>
+                <p>Buy movie tickets in advance, find movie times watch trailer, read movie reviews and much more</p>
+            </div>
+        </div>
+    </section>
+    <!-- ==========Banner-Section========== -->
+
+    <!-- ==========Movie-Section========== -->
+
+    <section class="container-list-movie">
+        <div >	
+            <div class="movie-card">
+                <!--movie-header-->
+                <div class="movie-header">
+                    <div class="header-icon-container">
+                        <img class="img-poster" src="http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"
+                            alt="">
+                    </div>
+                </div>
+                <!--movie-content-->
+                <div class="movie-content">
+                    <div class="movie-content-header">
+                        <a href="#">
+                            <h3 class="movie-title">Man of Steel</h3>
+                        </a>
+                        <div class="imax-logo"></div>
+                    </div>
+                    <div class="movie-info">
+                        <!--the loai-->
+                        <div class="info-section">
+                            <label>Thể Loại</label>
+                            <span>Hành Động</span>
+                        </div>
+                        <!--ngay khoi chieu-->
+                        <div class="info-section">
+                            <label>Khởi Chiếu</label>
+                            <span>01-06-2021</span>
+                        </div>
+                        <!--Thoi luong phim-->
+                        <div class="info-section">
+                            <label>Thời Lượng</label>
+                            <span>120 phút</span>
+                        </div>
+                    </div>
+                    <div class="movie-price">
+                        <!--Gia-->
+                        <div class="price-section">
+                            <label>Giá Vé</label>
+                            <span>59.000 VNĐ</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- button-buy -->
+                <button id="buyticket" type="button" onclick="bookingTicket()">Mua Vé</button>
+            </div>
+        </div>
+
+        <div >	
+            <div class="movie-card">
+                <!--movie-header-->
+                <div class="movie-header">
+                    <div class="header-icon-container">
+                        <img class="img-poster" src="http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"
+                            alt="">
+                    </div>
+                </div>
+                <!--movie-content-->
+                <div class="movie-content">
+                    <div class="movie-content-header">
+                        <a href="#">
+                            <h3 class="movie-title">Man of Steel</h3>
+                        </a>
+                        <div class="imax-logo"></div>
+                    </div>
+                    <div class="movie-info">
+                        <!--the loai-->
+                        <div class="info-section">
+                            <label>Thể Loại</label>
+                            <span>Hành Động</span>
+                        </div>
+                        <!--ngay khoi chieu-->
+                        <div class="info-section">
+                            <label>Khởi Chiếu</label>
+                            <span>01-06-2021</span>
+                        </div>
+                        <!--Thoi luong phim-->
+                        <div class="info-section">
+                            <label>Thời Lượng</label>
+                            <span>120 phút</span>
+                        </div>
+                    </div>
+                    <div class="movie-price">
+                        <!--Gia-->
+                        <div class="price-section">
+                            <label>Giá Vé</label>
+                            <span>59.000 VNĐ</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- button-buy -->
+                <button id="buyticket" type="button" onclick="bookingTicket()">Mua Vé</button>
+            </div>
+        </div>
+
+        <div >	
+            <div class="movie-card">
+                <!--movie-header-->
+                <div class="movie-header">
+                    <div class="header-icon-container">
+                        <img class="img-poster" src="http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"
+                            alt="">
+                    </div>
+                </div>
+                <!--movie-content-->
+                <div class="movie-content">
+                    <div class="movie-content-header">
+                        <a href="#">
+                            <h3 class="movie-title">Man of Steel</h3>
+                        </a>
+                        <div class="imax-logo"></div>
+                    </div>
+                    <div class="movie-info">
+                        <!--the loai-->
+                        <div class="info-section">
+                            <label>Thể Loại</label>
+                            <span>Hành Động</span>
+                        </div>
+                        <!--ngay khoi chieu-->
+                        <div class="info-section">
+                            <label>Khởi Chiếu</label>
+                            <span>01-06-2021</span>
+                        </div>
+                        <!--Thoi luong phim-->
+                        <div class="info-section">
+                            <label>Thời Lượng</label>
+                            <span>120 phút</span>
+                        </div>
+                    </div>
+                    <div class="movie-price">
+                        <!--Gia-->
+                        <div class="price-section">
+                            <label>Giá Vé</label>
+                            <span>59.000 VNĐ</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- button-buy -->
+                <button id="buyticket" type="button" onclick="bookingTicket()">Mua Vé</button>
+            </div>
+        </div>
+
+        <div >	
+            <div class="movie-card">
+                <!--movie-header-->
+                <div class="movie-header">
+                    <div class="header-icon-container">
+                        <img class="img-poster" src="http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"
+                            alt="">
+                    </div>
+                </div>
+                <!--movie-content-->
+                <div class="movie-content">
+                    <div class="movie-content-header">
+                        <a href="#">
+                            <h3 class="movie-title">Man of Steel</h3>
+                        </a>
+                        <div class="imax-logo"></div>
+                    </div>
+                    <div class="movie-info">
+                        <!--the loai-->
+                        <div class="info-section">
+                            <label>Thể Loại</label>
+                            <span>Hành Động</span>
+                        </div>
+                        <!--ngay khoi chieu-->
+                        <div class="info-section">
+                            <label>Khởi Chiếu</label>
+                            <span>01-06-2021</span>
+                        </div>
+                        <!--Thoi luong phim-->
+                        <div class="info-section">
+                            <label>Thời Lượng</label>
+                            <span>120 phút</span>
+                        </div>
+                    </div>
+                    <div class="movie-price">
+                        <!--Gia-->
+                        <div class="price-section">
+                            <label>Giá Vé</label>
+                            <span>59.000 VNĐ</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- button-buy -->
+                <button id="buyticket" type="button" onclick="bookingTicket()">Mua Vé</button>
+            </div>
+        </div>
+
+        <div >	
+            <div class="movie-card">
+                <!--movie-header-->
+                <div class="movie-header">
+                    <div class="header-icon-container">
+                        <img class="img-poster" src="http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"
+                            alt="">
+                    </div>
+                </div>
+                <!--movie-content-->
+                <div class="movie-content">
+                    <div class="movie-content-header">
+                        <a href="#">
+                            <h3 class="movie-title">Man of Steel</h3>
+                        </a>
+                        <div class="imax-logo"></div>
+                    </div>
+                    <div class="movie-info">
+                        <!--the loai-->
+                        <div class="info-section">
+                            <label>Thể Loại</label>
+                            <span>Hành Động</span>
+                        </div>
+                        <!--ngay khoi chieu-->
+                        <div class="info-section">
+                            <label>Khởi Chiếu</label>
+                            <span>01-06-2021</span>
+                        </div>
+                        <!--Thoi luong phim-->
+                        <div class="info-section">
+                            <label>Thời Lượng</label>
+                            <span>120 phút</span>
+                        </div>
+                    </div>
+                    <div class="movie-price">
+                        <!--Gia-->
+                        <div class="price-section">
+                            <label>Giá Vé</label>
+                            <span>59.000 VNĐ</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- button-buy -->
+                <button id="buyticket" type="button" onclick="bookingTicket()">Mua Vé</button>
+            </div>
+        </div>
+
+        <div >	
+            <div class="movie-card">
+                <!--movie-header-->
+                <div class="movie-header">
+                    <div class="header-icon-container">
+                        <img class="img-poster" src="http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"
+                            alt="">
+                    </div>
+                </div>
+                <!--movie-content-->
+                <div class="movie-content">
+                    <div class="movie-content-header">
+                        <a href="#">
+                            <h3 class="movie-title">Man of Steel</h3>
+                        </a>
+                        <div class="imax-logo"></div>
+                    </div>
+                    <div class="movie-info">
+                        <!--the loai-->
+                        <div class="info-section">
+                            <label>Thể Loại</label>
+                            <span>Hành Động</span>
+                        </div>
+                        <!--ngay khoi chieu-->
+                        <div class="info-section">
+                            <label>Khởi Chiếu</label>
+                            <span>01-06-2021</span>
+                        </div>
+                        <!--Thoi luong phim-->
+                        <div class="info-section">
+                            <label>Thời Lượng</label>
+                            <span>120 phút</span>
+                        </div>
+                    </div>
+                    <div class="movie-price">
+                        <!--Gia-->
+                        <div class="price-section">
+                            <label>Giá Vé</label>
+                            <span>59.000 VNĐ</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- button-buy -->
+                <button id="buyticket" type="button" onclick="bookingTicket()">Mua Vé</button>
+            </div>
+        </div>
+
+        <div >	
+            <div class="movie-card">
+                <!--movie-header-->
+                <div class="movie-header">
+                    <div class="header-icon-container">
+                        <img class="img-poster" src="http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"
+                            alt="">
+                    </div>
+                </div>
+                <!--movie-content-->
+                <div class="movie-content">
+                    <div class="movie-content-header">
+                        <a href="#">
+                            <h3 class="movie-title">Man of Steel</h3>
+                        </a>
+                        <div class="imax-logo"></div>
+                    </div>
+                    <div class="movie-info">
+                        <!--the loai-->
+                        <div class="info-section">
+                            <label>Thể Loại</label>
+                            <span>Hành Động</span>
+                        </div>
+                        <!--ngay khoi chieu-->
+                        <div class="info-section">
+                            <label>Khởi Chiếu</label>
+                            <span>01-06-2021</span>
+                        </div>
+                        <!--Thoi luong phim-->
+                        <div class="info-section">
+                            <label>Thời Lượng</label>
+                            <span>120 phút</span>
+                        </div>
+                    </div>
+                    <div class="movie-price">
+                        <!--Gia-->
+                        <div class="price-section">
+                            <label>Giá Vé</label>
+                            <span>59.000 VNĐ</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- button-buy -->
+                <button id="buyticket" type="button" onclick="bookingTicket()">Mua Vé</button>
+            </div>
+        </div>
+    </section>
+    <!-- ==========Movie-Section========== -->
+
+    <!-- ==========Newslater-Section========== -->
+    <footer class="footer-section">
+        <div class="newslater-section padding-bottom">
+            <div class="container">
+                <div class="newslater-container bg_img" data-background="./assets/images/newslater/newslater-bg01.jpg" style="background-image: url(&quot;./assets/images/newslater/newslater-bg01.jpg&quot;);">
+                    <div class="newslater-wrapper">
+                        <h5 class="cate">subscribe to Boleto </h5>
+                        <h3 class="title">to get exclusive benifits</h3>
+                        <form class="newslater-form">
+                            <input type="text" placeholder="Your Email Address">
+                            <button type="submit">subscribe</button>
+                        </form>
+                        <p>We respect your privacy, so we never share your info</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-top">
+                <div class="logo">
+                    <a href="http://pixner.net/boleto/demo/index-1.html">
+                        <img src="./movie-list/footer-logo.png" alt="footer">
+                    </a>
+                </div>
+                <ul class="social-icons">
+                    <li>
+                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://pixner.net/boleto/demo/movie-list.html#0" class="active">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
+                            <i class="fab fa-google"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-area">
+                    <div class="left">
+                        <p>Copyright © 2020.All Rights Reserved By <a href="http://pixner.net/boleto/demo/movie-list.html#0">Boleto </a></p>
+                    </div>
+                    <ul class="links">
+                        <li>
+                            <a href="http://pixner.net/boleto/demo/movie-list.html#0">About</a>
+                        </li>
+                        <li>
+                            <a href="http://pixner.net/boleto/demo/movie-list.html#0">Terms Of Use</a>
+                        </li>
+                        <li>
+                            <a href="http://pixner.net/boleto/demo/movie-list.html#0">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="http://pixner.net/boleto/demo/movie-list.html#0">FAQ</a>
+                        </li>
+                        <li>
+                            <a href="http://pixner.net/boleto/demo/movie-list.html#0">Feedback</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ==========Newslater-Section========== -->
 
 
-<!-- JavaScript -->
-<script>
-	function bookingTicket(){
-		alert("Mua vé");
-	}
-</script>
+    <script src="./movie-list/jquery-3.3.1.min.js"></script>
+    <script src="./movie-list/modernizr-3.6.0.min.js"></script>
+    <script src="./movie-list/plugins.js"></script>
+    <script src="./movie-list/bootstrap.min.js"></script>
+    <script src="./movie-list/isotope.pkgd.min.js"></script>
+    <script src="./movie-list/magnific-popup.min.js"></script>
+    <script src="./movie-list/owl.carousel.min.js"></script>
+    <script src="./movie-list/wow.min.js"></script>
+    <script src="./movie-list/countdown.min.js"></script>
+    <script src="./movie-list/odometer.min.js"></script>
+    <script src="./movie-list/viewport.jquery.js"></script>
+    <script src="./movie-list/nice-select.js"></script>
+    <script src="./movie-list/main.js"></script>
+
+
+</body><div style="position: absolute; top: 0px;"></div></html>

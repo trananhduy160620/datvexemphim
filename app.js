@@ -1,17 +1,18 @@
 const path = require("path");
 const express = require("express");
+const expressLayouts = require('express-ejs-layouts');
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const db = require("./controllers/db");
 const HomeRouter = require("./routers/Homepage");
-const rapRouter = require("./routers/menuRap");
+const rapRouter = require("./routers/rap");
 const phimRouter = require("./routers/phim");
 const datVeRouter = require("./routers/datVe");
 
 const app = express();
 
 app.set("view engine", "ejs");
-app.set("layout", "./layouts");
+app.set("layout", "./layouts/index");
 
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.urlencoded({ extended: true }));
@@ -26,7 +27,7 @@ app.use(
 );
 
 
-
+app.use(expressLayouts);
 app.use(HomeRouter);
 app.use(rapRouter);
 app.use(phimRouter);
