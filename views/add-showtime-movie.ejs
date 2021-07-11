@@ -377,24 +377,33 @@
             <div class="app-main__outer">
                 <div class="app-main__inner">
                     <h1>Thêm suất chiếu</h1><br>
-                    <form action="">
+                    <form action="/add-showtime-movie" method="POST">
                         <div class="container">
 
                             <label for="email"><b>Tên phim</b></label>
-                            <select name="ten_phim" id="psw">
-                                <option value="volvo">Volvo</option>
+                            <select name="id_phim" id="psw">
+                                <% for(let i = 0; i < listOfMovie.length; i++) { %>
+                                    <option  value="<%=listOfMovie[i].ID%>"> <%= listOfMovie[i].Ten %> </option>
+                                <%}%>
                             </select> <br><br>
 
                             <label for="email"><b>Tên rạp</b></label>
-                            <select name="ten_rap" id="psw">
-                                <option value="volvo">Volvo</option>
+                            <select name="id_rap" id="psw">
+                                <% for(let i = 0; i < listOfCinema.length; i++) { %>
+                                    <option value="<%=listOfCinema[i].ID%>"> <%= listOfCinema[i].Ten %> </option>
+                                <%}%>
                             </select> <br><br>
 
                             <label for="psw"><b>Thời điểm bắt đầu</b></label>
-                            <input type="text" placeholder="Nhập thời điểm bắt đầu" name="thoi_diem_bd" id="psw" required>
+                            <input type="datetime-local" placeholder="Nhập thời điểm bắt đầu" name="thoi_diem_bd" id="psw" required>
+                            <br><br>
 
                             <label for="psw"><b>Thời điểm kết thúc</b></label>
-                            <input type="text" placeholder="Nhập thời điểm kết thúc" name="thoi_diem_kt" id="psw" required>
+                            <input type="datetime-local" placeholder="Nhập thời điểm kết thúc" name="thoi_diem_kt" id="psw" required>
+                            <br><br>
+
+                            <label for="psw"><b>Giá vé</b></label>
+                            <input type="number" placeholder="Nhập gía vé" name="gia_ve" id="psw" required>
 
 
                             <button type="submit" class="registerbtn">Thêm suất chiếu</button>

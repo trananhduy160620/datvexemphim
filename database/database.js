@@ -1,6 +1,6 @@
 const { Sequelize, Model, DataTypes } = require('sequelize');
-//const sequelize = new Sequelize('postgres://postgres:160620@localhost:5432/DATVEXEMPHIM');
-const sequelize = new Sequelize('postgres://postgres:nkMg9Nna4fK7Mlbn@35.247.165.13:5432/cgv');
+const sequelize = new Sequelize('postgres://postgres:160620@localhost:5432/DATVEXEMPHIM');
+//const sequelize = new Sequelize('postgres://postgres:nkMg9Nna4fK7Mlbn@35.247.165.13:5432/cgv');
 // (async function () {
 //     try {
 //         await sequelize.authenticate();

@@ -5,7 +5,8 @@ const { Sequelize, Model, DataTypes } = require('sequelize');
 const Phim = db.define('Phim', {
     ID: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        primaryKey: true
     },
     Ten: {
         type: Sequelize.STRING,

@@ -3,7 +3,8 @@ const db = require('../database/database')
 const Booking = db.define('DatCho', {
     ID: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        primaryKey: true
     },
     IDNguoiDung: {
         type: Sequelize.STRING,

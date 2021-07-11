@@ -4,7 +4,8 @@ const db = require('../database/database')
 const ShowTime = db.define('SuatChieu', {
     IDPhim: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        primaryKey: true
     },
     IDRap: {
         type: Sequelize.INTEGER,

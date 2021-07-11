@@ -8,15 +8,13 @@ module.exports.listMovie = async function(req, res) {
 }
 
 module.exports.showFormAddMovie = function (req, res) {
+
   res.render('add-movie')
 }
 
 module.exports.addMovie = async function(req, res) {
-  var data = {
-
-  }
   console.log(req.file)
-  var result = `<img src="${req.file.path}"><br>`
+  var result = `<img src="/uploads/${req.file.filename}"><br>`
   console.log(req.file.path, result)
   res.send(result)
 }

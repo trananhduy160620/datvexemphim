@@ -3,19 +3,19 @@ const CinemaComplex = require('../models/cinema-complex.model')
 const { QueryTypes } = require('sequelize');
 const sequelize = require('../database/database')
 
-module.exports.showCinemaPage = async function (req, res) {
-    const listOfCity = await CinemaComplex.findAll({
-        attributes: ["ID", "Ten", "DiaChi"]
-    })
-    res.render('add-cinema', { listOfCity: listOfCity })
-}
+
 module.exports.listCinema = async function (req, res) {
     const listOfCinema = await Cinema.findAll({
         attributes: ["ID", "Ten", "LoaiRap", "KichThuocChieuNgang", "KichThuocChieuDoc"]
     })
     res.render('list-cinema', { listOfCinema: listOfCinema })
 }
-
+module.exports.showCinemaPage = async function (req, res) {
+    const listOfCity = await CinemaComplex.findAll({
+        attributes: ["ID", "Ten", "DiaChi"]
+    })
+    res.render('add-cinema', { listOfCity: listOfCity })
+}
 module.exports.addCinema = async function (req, res) {
     const listOfID = await Cinema.findAll({
         attributes: ["ID"]
@@ -37,8 +37,7 @@ module.exports.addCinema = async function (req, res) {
     const cinema = await Cinema.create(data, { 
         fields: ["ID", "Ten", "IDCumRap", "LoaiRap", "KichThuocChieuNgang", "KichThuocChieuDoc"] 
     }).then(data => {
-        var statusString = '<p>Thêm rạp thành công</p>' + '<br>' + '<a href="index">Quay lại trang chủ</a>'
-        res.send(statusString)
+        res.redirect('list-cinema')
       })
       .catch(err => {
         res.status(500).send({
@@ -78,8 +77,7 @@ module.exports.updateCinema = async function (req, res) {
           ID: parseInt(idCinema)
         }
     });
-    var statusString = '<p>Cập nhật rạp thành công</p>' + '<br>' + '<a href="index">Quay lại trang chủ</a>'
-    res.send(statusString)
+    res.redirect('list-cinema')
 }
 
 module.exports.deleteCinema = async function (req, res) {
@@ -88,6 +86,5 @@ module.exports.deleteCinema = async function (req, res) {
           ID: req.query.IdCinema
         }
     });
-    var statusString = '<p>Xoá rạp thành công</p>' + '<br>' + '<a href="index">Quay lại trang chủ</a>'
-    res.send(statusString)
+    res.redirect('list-cinema')
 }

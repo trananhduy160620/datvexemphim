@@ -37,8 +37,7 @@ module.exports.addCinemaComplex = async function (req, res) {
     const cinema = await CinemaComplex.create(data, { 
         fields: ["ID", "Ten", "DiaChi"] 
     })
-    var statusString = '<p>Thêm cụm rạp thành công</p>' + '<br>' + '<a href="index">Quay lại trang chủ</a>'
-    res.send(statusString)
+    res.redirect('list-cinema-complex')
 }
 
 module.exports.showOldCinemaComplex = async function (req, res) {
@@ -67,10 +66,15 @@ module.exports.updateCinemaComplex = async function (req, res) {
           ID: parseInt(idCinemaComplex)
         }
     });
-    var statusString = '<p>Cập nhật cụm rạp thành công</p>' + '<br>' + '<a href="index">Quay lại trang chủ</a>'
-    res.send(statusString)
+    res.redirect('list-cinema-complex')
 }
 
 module.exports.deleteCinemaComplex = async function (req, res) {
-
+    // IdCinemaComplex
+    await CinemaComplex.destroy({
+        where: {
+          ID: parseInt(req.query.IdCinemaComplex),
+        }
+    });
+    res.redirect('list-cinema-complex')
 }
