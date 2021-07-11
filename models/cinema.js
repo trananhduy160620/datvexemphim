@@ -1,34 +1,37 @@
 const { Sequelize, Model, DataTypes } = require('sequelize')
 const db = require('./db')
-const User = db.define('NguoiDung', {
-    UserID: {
+
+const Cinema = db.define('Rap', {
+    ID: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: true,
+        primaryKey: true,
     },
-    Email: {
+    Ten: {
         type: Sequelize.STRING,
         allowNull: true
     },
-    MatKhau: {
-        type: Sequelize.STRING,
-        allowNull: true
-    },
-    HoTen: {
-        type: Sequelize.STRING,
-        allowNull: true
-    },
-    SDT: {
-        type: Sequelize.STRING,
-        allowNull: true
-    },
-    VaiTro: {
+    IDCumRap: {
         type: Sequelize.INTEGER,
-        allowNull: false
-    }
+        allowNull: true
+    },
+    LoaiRap: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    KichThuocChieuNgang: {
+        type: Sequelize.INTEGER,
+        allowNull: true
+    },
+    KichThuocChieuDoc: {
+        type: Sequelize.INTEGER,
+        allowNull: true
+    },
+    
 }, {
-    tableName: 'NguoiDung',
+    tableName: 'Rap',
     createdAt: false,
     freezeTableName: true,
     updatedAt: false,
 })
-module.exports = User
+module.exports = Cinema

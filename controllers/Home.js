@@ -1,10 +1,10 @@
-const User = require('../models/User');
-const CumRap = require('../models/CumRap');
-const Rap = require('../models/Rap');
-const Phim = require('../models/Phim');
-const SuatChieu = require('../models/SuatChieu');
-const DatCho = require('../models/DatCho');
-const Ve = require('../models/Ve');
+const User = require('../models/user');
+const CinemaComplex = require('../models/cinema-complex');
+const cinema = require('../models/cinema');
+const movie = require('../models/movie');
+const showtime = require('../models/showtime');
+const booking = require('../models/booking');
+const ticker = require('../models/ticket');
 
 
 exports.getHomePage = async (req, res, next) => {

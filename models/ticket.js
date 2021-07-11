@@ -1,34 +1,35 @@
 const { Sequelize, Model, DataTypes } = require('sequelize')
 const db = require('./db')
-const User = db.define('NguoiDung', {
-    UserID: {
+
+const Ticket = db.define('Ve', {
+    ID: {
         type: Sequelize.INTEGER,
         allowNull: false
     },
-    Email: {
-        type: Sequelize.STRING,
-        allowNull: true
-    },
-    MatKhau: {
-        type: Sequelize.STRING,
-        allowNull: true
-    },
-    HoTen: {
-        type: Sequelize.STRING,
-        allowNull: true
-    },
-    SDT: {
-        type: Sequelize.STRING,
-        allowNull: true
-    },
-    VaiTro: {
+    IDDatCho: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: true
+    },
+    MaGhe: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    DiaChiNgang: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    DiaChiDoc: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    GiaTien:{
+        type: Sequelize.INTEGER,
+        allowNull: true
     }
 }, {
-    tableName: 'NguoiDung',
+    tableName: 'Ve',
     createdAt: false,
     freezeTableName: true,
     updatedAt: false,
 })
-module.exports = User
+module.exports = Ticket
