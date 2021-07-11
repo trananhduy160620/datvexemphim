@@ -47,4 +47,5 @@ User.findbyEmail = async function(email){
    User.Register = async function(name,email,password,phone,role){
     return await User.create({ name: name, email: email, password: password, phone: phone, role: role});
    };
-   module.exports = User;
+
+module.exports = User;
