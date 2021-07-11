@@ -1,3 +1,239 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script
+		src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script>
+	<script
+		src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script>
+	<script
+		src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script>
+	<meta charset='UTF-8'>
+	<meta name="robots" content="noindex">
+	<link rel="shortcut icon" type="image/x-icon"
+		href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+	<link rel="mask-icon" type=""
+		href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg"
+		color="#111" />
+	<link rel="canonical"
+		href="https://codepen.io/ryanparag/pen/LLrVbo?depth=everything&order=popularity&page=10&q=movie&show_forks=false" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+	<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+	<style class="cp-pen-styles">
+		@import url("https://fonts.googleapis.com/css?family=Arimo:400,700");
+
+		body {
+			height: 100%;
+			width: 100%;
+			background: #e9e9e9;
+			font-family: 'Arimo', Arial, sans-serif;
+			font-weight: 400;
+			font-size: 14px;
+			color: #010b26;
+		}
+
+		* {
+			-webkit-transition: 300ms;
+			transition: 300ms;
+		}
+
+		.intro {
+			text-align: center;
+		}
+
+		ul {
+			list-style-type: none;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		p {
+			font-weight: 400;
+		}
+
+		a {
+			text-decoration: none;
+			color: inherit;
+		}
+
+		a:hover {
+			color: #6ABCEA;
+		}
+
+		.container-list-movie {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: grid;
+			-ms-flex-wrap: wrap;
+			flex-wrap: wrap;
+			max-width: 100%;
+			margin-top: 10vh;
+			margin-left: auto;
+			margin-right: auto;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			justify-content: center;
+            padding-top: 150px;
+            padding-bottom: 100px;
+		}
+
+		.movie-card {
+			background: transparent;
+			box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+			width: 100%;
+			max-width: 230px;
+			margin: 16px 32px;
+			border-radius: 10px;
+			display: inline-block;
+		}
+
+		.movie-header {
+			padding: 0;
+			margin: 0;
+			height: 260px;
+			width: 100%;
+			display: block;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+		}
+
+
+		.header-icon-container {
+			position: relative;
+		}
+
+		.movie-card:hover {
+			-webkit-transform: scale(1.03);
+			transform: scale(1.03);
+			box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.08);
+		}
+
+		.movie-content {
+			padding: 20px 10px 10px 10px;
+			margin: 0;
+		}
+
+		.movie-content-header,
+		.movie-price,
+		.movie-info {
+			display: table;
+			width: 100%;
+		}
+
+		.movie-title {
+			font-size: 24px;
+			margin: 0;
+			display: table-cell;
+		}
+
+		.imax-logo {
+			width: 50px;
+			height: 15px;
+			background: url("https://6a25bbd04bd33b8a843e-9626a8b6c7858057941524bfdad5f5b0.ssl.cf5.rackcdn.com/media_kit/3e27ede823afbf139c57f1c78a03c870.jpg") no-repeat;
+			background-size: contain;
+			display: table-cell;
+			float: right;
+			position: relative;
+			margin-top: 5px;
+		}
+
+		.movie-info {
+			margin-top: 1em;
+		}
+
+		.info-section {
+			display: table-cell;
+			text-transform: uppercase;
+			text-align: center;
+		}
+
+		.info-section:first-of-type {
+			text-align: left;
+		}
+
+		.info-section:last-of-type {
+			text-align: right;
+		}
+
+		.info-section label {
+			display: block;
+			color: rgba(0, 0, 0, 0.5);
+			margin-bottom: .5em;
+			font-size: 9px;
+		}
+
+
+		.info-section span {
+			font-weight: 1000;
+			font-size: 11px;
+		}
+
+		.price-section label {
+			display: inline-table;
+			color: rgba(0, 0, 0, 0.5);
+			margin: 8px 8px;
+			font-size: 18px;
+		}
+
+		.price-section span {
+			font-weight: 700;
+			font-size: 18px;
+			margin: 8px 8px;
+			color: crimson;
+		}
+
+		.price-section {
+			display: block;
+			text-transform: uppercase;
+			text-align: center;
+		}
+
+
+		.container-list-movie {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			grid-gap: 20px;
+			width: 80%;
+		}
+
+
+		.img-poster {
+			width: 100%;
+			height: 270px;
+			border-radius: 10px 10px 0px 0px;
+			background-size: cover;
+		}
+
+		.container-list-movie:before,
+		.container-list-movie:after {
+			display: none;
+		}
+
+		#buyticket{
+			height: 30px;
+			width: 100%;
+			border: none;
+			text-transform: uppercase;
+			font-weight: bold;
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
+			background-color: red;
+			text-align: center;
+			color: white;
+		}
+
+		#buyticket:hover{
+			background-color:white;
+			color: red;
+		}
+
+
+	</style>
+
+
 <!DOCTYPE html>
 <!-- saved from url=(0045)http://pixner.net/boleto/demo/movie-list.html -->
 <html lang="en" class=" sizes customelements history pointerevents postmessage webgl websockets cssanimations csscolumns csscolumns-width csscolumns-span csscolumns-fill csscolumns-gap csscolumns-rule csscolumns-rulecolor csscolumns-rulestyle csscolumns-rulewidth csscolumns-breakbefore csscolumns-breakafter csscolumns-breakinside flexbox picture srcset webworkers"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,6 +253,8 @@
     <link rel="stylesheet" href="./movie-list/main.css">
 
     <link rel="shortcut icon" href="http://pixner.net/boleto/demo/assets/images/favicon.png" type="image/x-icon">
+
+
 
     <title>Boleto  - Online Ticket Booking Website HTML Template</title>
 
@@ -51,116 +289,29 @@
                 </div>
                 <ul class="menu">
                     <li class="menu-item-has-children">
-                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">Home</a>
+                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">Phim</a>
                         <ul class="submenu">
                             <li>
-                                <a href="http://pixner.net/boleto/demo/index.html">Home One</a>
+                                <a href="http://localhost:3000/phimdangchieu">Phim Đang Chiếu</a>
                             </li>
                             <li>
-                                <a href="http://pixner.net/boleto/demo/index-2.html">Home Two</a>
+                                <a href="http://pixner.net/boleto/demo/index-2.html">Phim Sắp chiếu</a>
                             </li>
                         </ul>
                     </li>
+
                     <li class="menu-item-has-children">
-                        <a href="http://pixner.net/boleto/demo/movie-list.html#0" class="active">movies</a>
+                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">Rạp</a>
                         <ul class="submenu">
                             <li>
-                                <a href="http://pixner.net/boleto/demo/movie-grid.html">Movie Grid</a>
+                                <a href="http://pixner.net/boleto/demo/index.html">Tất cả rạp</a>
                             </li>
                             <li>
-                                <a href="http://pixner.net/boleto/demo/movie-list.html#0" class="active">Movie List</a>
-                            </li>
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/movie-details.html">Movie Details</a>
-                            </li>
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/movie-details-2.html">Movie Details 2</a>
-                            </li>
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/movie-ticket-plan.html">Movie Ticket Plan</a>
-                            </li>
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/movie-seat-plan.html">Movie Seat Plan</a>
-                            </li>
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/movie-checkout.html">Movie Checkout</a>
-                            </li>
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/popcorn.html">Movie Food</a>
+                                <a href="http://pixner.net/boleto/demo/index-2.html">Rạp đặc biệt</a>
                             </li>
                         </ul>
                     </li>
-                    <li class="menu-item-has-children">
-                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">events</a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/events.html">Events</a>
-                            </li>
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/event-details.html">Event Details</a>
-                            </li>
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/event-speaker.html">Event Speaker</a>
-                            </li>
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/event-ticket.html">Event Ticket</a>
-                            </li>
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/event-checkout.html">Event Checkout</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">sports</a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/sports.html">Sports</a>
-                            </li>
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/sport-details.html">Sport Details</a>
-                            </li>
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/sports-ticket.html">Sport Ticket</a>
-                            </li>
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/sports-checkout.html">Sport Checkout</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">pages</a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/about.html">About Us</a>
-                            </li>
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/apps-download.html">Apps Download</a>
-                            </li>
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/sign-in.html">Sign In</a>
-                            </li>
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/sign-up.html">Sign Up</a>
-                            </li>
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/404.html">404</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">blog</a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/blog.html">Blog</a>
-                            </li>
-                            <li>
-                                <a href="http://pixner.net/boleto/demo/blog-details.html">Blog Single</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="http://pixner.net/boleto/demo/contact.html">contact</a>
-                    </li>
+                    
                     <li class="header-button pr-0">
                         <a href="http://pixner.net/boleto/demo/sign-up.html">join us</a>
                     </li>
@@ -176,7 +327,7 @@
     <!-- ==========Header-Section========== -->
 
     <!-- ==========Banner-Section========== -->
-    <section class="banner-section">
+    <!-- <section class="banner-section">
         <div class="banner-bg bg_img bg-fixed" data-background="./assets/images/banner/banner02.jpg" style="background-image: url(&quot;./assets/images/banner/banner02.jpg&quot;);"></div>
         <div class="container">
             <div class="banner-content">
@@ -184,1445 +335,56 @@
                 <p>Buy movie tickets in advance, find movie times watch trailer, read movie reviews and much more</p>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- ==========Banner-Section========== -->
 
-    <!-- ==========Ticket-Search========== -->
-    <section class="search-ticket-section padding-top pt-lg-0">
-        <div class="container">
-            <div class="search-tab bg_img" data-background="./assets/images/ticket/ticket-bg01.jpg" style="background-image: url(&quot;./assets/images/ticket/ticket-bg01.jpg&quot;);">
-                <div class="row align-items-center mb--20">
-                    <div class="col-lg-6 mb-20">
-                        <div class="search-ticket-header">
-                            <h6 class="category">welcome to Boleto </h6>
-                            <h3 class="title">what are you looking for</h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-20">
-                        <ul class="tab-menu ticket-tab-menu">
-                            <li class="active">
-                                <div class="tab-thumb">
-                                    <img src="./movie-list/ticket-tab01.png" alt="ticket">
-                                </div>
-                                <span>movie</span>
-                            </li>
-                            <li>
-                                <div class="tab-thumb">
-                                    <img src="./movie-list/ticket-tab02.png" alt="ticket">
-                                </div>
-                                <span>events</span>
-                            </li>
-                            <li>
-                                <div class="tab-thumb">
-                                    <img src="./movie-list/ticket-tab03.png" alt="ticket">
-                                </div>
-                                <span>sports</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="tab-area">
-                    <div class="tab-item active">
-                        <form class="ticket-search-form">
-                            <div class="form-group large">
-                                <input type="text" placeholder="Search fo Movies">
-                                <button type="submit"><i class="fas fa-search"></i></button>
-                            </div>
-                            <div class="form-group">
-                                <div class="thumb">
-                                    <img src="./movie-list/city.png" alt="ticket">
-                                </div>
-                                <span class="type">city</span>
-                                <select class="select-bar" style="display: none;">
-                                    <option value="london">London</option>
-                                    <option value="dhaka">dhaka</option>
-                                    <option value="rosario">rosario</option>
-                                    <option value="madrid">madrid</option>
-                                    <option value="koltaka">kolkata</option>
-                                    <option value="rome">rome</option>
-                                    <option value="khoksa">khoksa</option>
-                                </select><div class="nice-select select-bar" tabindex="0"><span class="current">London</span><ul class="list"><li data-value="london" class="option selected">London</li><li data-value="dhaka" class="option">dhaka</li><li data-value="rosario" class="option">rosario</li><li data-value="madrid" class="option">madrid</li><li data-value="koltaka" class="option">kolkata</li><li data-value="rome" class="option">rome</li><li data-value="khoksa" class="option">khoksa</li></ul></div>
-                            </div>
-                            <div class="form-group">
-                                <div class="thumb">
-                                    <img src="./movie-list/date.png" alt="ticket">
-                                </div>
-                                <span class="type">date</span>
-                                <select class="select-bar" style="display: none;">
-                                    <option value="26-12-19">23/10/2020</option>
-                                    <option value="26-12-19">24/10/2020</option>
-                                    <option value="26-12-19">25/10/2020</option>
-                                    <option value="26-12-19">26/10/2020</option>
-                                </select><div class="nice-select select-bar" tabindex="0"><span class="current">23/10/2020</span><ul class="list"><li data-value="26-12-19" class="option selected">23/10/2020</li><li data-value="26-12-19" class="option">24/10/2020</li><li data-value="26-12-19" class="option">25/10/2020</li><li data-value="26-12-19" class="option">26/10/2020</li></ul></div>
-                            </div>
-                            <div class="form-group">
-                                <div class="thumb">
-                                    <img src="./movie-list/cinema.png" alt="ticket">
-                                </div>
-                                <span class="type">cinema</span>
-                                <select class="select-bar" style="display: none;">
-                                    <option value="Awaken">Awaken</option>
-                                    <option value="dhaka">dhaka</option>
-                                    <option value="rosario">rosario</option>
-                                    <option value="madrid">madrid</option>
-                                    <option value="koltaka">kolkata</option>
-                                    <option value="rome">rome</option>
-                                    <option value="khoksa">khoksa</option>
-                                </select><div class="nice-select select-bar" tabindex="0"><span class="current">Awaken</span><ul class="list"><li data-value="Awaken" class="option selected">Awaken</li><li data-value="dhaka" class="option">dhaka</li><li data-value="rosario" class="option">rosario</li><li data-value="madrid" class="option">madrid</li><li data-value="koltaka" class="option">kolkata</li><li data-value="rome" class="option">rome</li><li data-value="khoksa" class="option">khoksa</li></ul></div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="tab-item">
-                        <form class="ticket-search-form">
-                            <div class="form-group large">
-                                <input type="text" placeholder="Search fo Events">
-                                <button type="submit"><i class="fas fa-search"></i></button>
-                            </div>
-                            <div class="form-group">
-                                <div class="thumb">
-                                    <img src="./movie-list/city.png" alt="ticket">
-                                </div>
-                                <span class="type">city</span>
-                                <select class="select-bar" style="display: none;">
-                                    <option value="london">London</option>
-                                    <option value="dhaka">dhaka</option>
-                                    <option value="rosario">rosario</option>
-                                    <option value="madrid">madrid</option>
-                                    <option value="koltaka">kolkata</option>
-                                    <option value="rome">rome</option>
-                                    <option value="khoksa">khoksa</option>
-                                </select><div class="nice-select select-bar" tabindex="0"><span class="current">London</span><ul class="list"><li data-value="london" class="option selected">London</li><li data-value="dhaka" class="option">dhaka</li><li data-value="rosario" class="option">rosario</li><li data-value="madrid" class="option">madrid</li><li data-value="koltaka" class="option">kolkata</li><li data-value="rome" class="option">rome</li><li data-value="khoksa" class="option">khoksa</li></ul></div>
-                            </div>
-                            <div class="form-group">
-                                <div class="thumb">
-                                    <img src="./movie-list/date.png" alt="ticket">
-                                </div>
-                                <span class="type">date</span>
-                                <select class="select-bar" style="display: none;">
-                                    <option value="26-12-19">23/10/2020</option>
-                                    <option value="26-12-19">24/10/2020</option>
-                                    <option value="26-12-19">25/10/2020</option>
-                                    <option value="26-12-19">26/10/2020</option>
-                                </select><div class="nice-select select-bar" tabindex="0"><span class="current">23/10/2020</span><ul class="list"><li data-value="26-12-19" class="option selected">23/10/2020</li><li data-value="26-12-19" class="option">24/10/2020</li><li data-value="26-12-19" class="option">25/10/2020</li><li data-value="26-12-19" class="option">26/10/2020</li></ul></div>
-                            </div>
-                            <div class="form-group">
-                                <div class="thumb">
-                                    <img src="./movie-list/cinema.png" alt="ticket">
-                                </div>
-                                <span class="type">event</span>
-                                <select class="select-bar" style="display: none;">
-                                    <option value="angular">angular</option>
-                                    <option value="startup">startup</option>
-                                    <option value="rosario">rosario</option>
-                                    <option value="madrid">madrid</option>
-                                    <option value="koltaka">kolkata</option>
-                                    <option value="Last-First">Last-First</option>
-                                    <option value="wish">wish</option>
-                                </select><div class="nice-select select-bar" tabindex="0"><span class="current">angular</span><ul class="list"><li data-value="angular" class="option selected">angular</li><li data-value="startup" class="option">startup</li><li data-value="rosario" class="option">rosario</li><li data-value="madrid" class="option">madrid</li><li data-value="koltaka" class="option">kolkata</li><li data-value="Last-First" class="option">Last-First</li><li data-value="wish" class="option">wish</li></ul></div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="tab-item">
-                        <form class="ticket-search-form">
-                            <div class="form-group large">
-                                <input type="text" placeholder="Search fo Sports">
-                                <button type="submit"><i class="fas fa-search"></i></button>
-                            </div>
-                            <div class="form-group">
-                                <div class="thumb">
-                                    <img src="./movie-list/city.png" alt="ticket">
-                                </div>
-                                <span class="type">city</span>
-                                <select class="select-bar" style="display: none;">
-                                    <option value="london">London</option>
-                                    <option value="dhaka">dhaka</option>
-                                    <option value="rosario">rosario</option>
-                                    <option value="madrid">madrid</option>
-                                    <option value="koltaka">kolkata</option>
-                                    <option value="rome">rome</option>
-                                    <option value="khoksa">khoksa</option>
-                                </select><div class="nice-select select-bar" tabindex="0"><span class="current">London</span><ul class="list"><li data-value="london" class="option selected">London</li><li data-value="dhaka" class="option">dhaka</li><li data-value="rosario" class="option">rosario</li><li data-value="madrid" class="option">madrid</li><li data-value="koltaka" class="option">kolkata</li><li data-value="rome" class="option">rome</li><li data-value="khoksa" class="option">khoksa</li></ul></div>
-                            </div>
-                            <div class="form-group">
-                                <div class="thumb">
-                                    <img src="./movie-list/date.png" alt="ticket">
-                                </div>
-                                <span class="type">date</span>
-                                <select class="select-bar" style="display: none;">
-                                    <option value="26-12-19">23/10/2020</option>
-                                    <option value="26-12-19">24/10/2020</option>
-                                    <option value="26-12-19">25/10/2020</option>
-                                    <option value="26-12-19">26/10/2020</option>
-                                </select><div class="nice-select select-bar" tabindex="0"><span class="current">23/10/2020</span><ul class="list"><li data-value="26-12-19" class="option selected">23/10/2020</li><li data-value="26-12-19" class="option">24/10/2020</li><li data-value="26-12-19" class="option">25/10/2020</li><li data-value="26-12-19" class="option">26/10/2020</li></ul></div>
-                            </div>
-                            <div class="form-group">
-                                <div class="thumb">
-                                    <img src="./movie-list/cinema.png" alt="ticket">
-                                </div>
-                                <span class="type">sports</span>
-                                <select class="select-bar" style="display: none;">
-                                    <option value="football">football</option>
-                                    <option value="cricket">cricket</option>
-                                    <option value="cabadi">cabadi</option>
-                                    <option value="madrid">madrid</option>
-                                    <option value="gadon">gadon</option>
-                                    <option value="rome">rome</option>
-                                    <option value="khoksa">khoksa</option>
-                                </select><div class="nice-select select-bar" tabindex="0"><span class="current">football</span><ul class="list"><li data-value="football" class="option selected">football</li><li data-value="cricket" class="option">cricket</li><li data-value="cabadi" class="option">cabadi</li><li data-value="madrid" class="option">madrid</li><li data-value="gadon" class="option">gadon</li><li data-value="rome" class="option">rome</li><li data-value="khoksa" class="option">khoksa</li></ul></div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>    
-    <!-- ==========Ticket-Search========== -->
-
     <!-- ==========Movie-Section========== -->
-    <section class="movie-section padding-top padding-bottom">
-        <div class="container">
-            <div class="row flex-wrap-reverse justify-content-center">
-                <div class="col-sm-10 col-md-8 col-lg-3">
-                    <div class="widget-1 widget-banner">
-                        <div class="widget-1-body">
-                            <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                <img src="./movie-list/banner01.jpg" alt="banner">
-                            </a>
+
+    <section class="container-list-movie">
+        <div>	
+            <div class="movie-card">
+                <!--movie-header-->
+                <div class="movie-header">
+                    <div class="header-icon-container">
+                        <img class="img-poster" src="http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"
+                            alt="">
+                    </div>
+                </div>
+                <!--movie-content-->
+                <div class="movie-content">
+                    <div class="movie-content-header">
+                        <a href="#">
+                            <h3 class="movie-title">Man of Steel</h3>
+                        </a>
+                        <div class="imax-logo"></div>
+                    </div>
+                    <div class="movie-info">
+                        <!--the loai-->
+                        <div class="info-section">
+                            <label>Thể Loại</label>
+                            <span>Hành Động</span>
+                        </div>
+                        <!--ngay khoi chieu-->
+                        <div class="info-section">
+                            <label>Khởi Chiếu</label>
+                            <span>01-06-2021</span>
+                        </div>
+                        <!--Thoi luong phim-->
+                        <div class="info-section">
+                            <label>Thời Lượng</label>
+                            <span>120 phút</span>
                         </div>
                     </div>
-                    <div class="widget-1 widget-check">
-                        <div class="widget-header">
-                            <h5 class="m-title">Filter By</h5> <a href="http://pixner.net/boleto/demo/movie-list.html#0" class="clear-check">Clear All</a>
-                        </div>
-                        <div class="widget-1-body">
-                            <h6 class="subtitle">Language</h6>
-                            <div class="check-area">
-                                <div class="form-group">
-                                    <input type="checkbox" name="lang" id="lang1"><label for="lang1">Tamil</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" name="lang" id="lang2"><label for="lang2">Telegu</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" name="lang" id="lang3"><label for="lang3">Hindi</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" name="lang" id="lang4"><label for="lang4">English</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" name="lang" id="lang5"><label for="lang5">Multiple Language</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" name="lang" id="lang6"><label for="lang6">Gujrati</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" name="lang" id="lang7"><label for="lang7">Bangla</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="widget-1 widget-check">
-                        <div class="widget-1-body">
-                            <h6 class="subtitle">experience</h6>
-                            <div class="check-area">
-                                <div class="form-group">
-                                    <input type="checkbox" name="mode" id="mode1"><label for="mode1">2d</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" name="mode" id="mode2"><label for="mode2">3d</label>
-                                </div>
-                            </div>
-                            <div class="add-check-area">
-                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">view more <i class="plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="widget-1 widget-check">
-                        <div class="widget-1-body">
-                            <h6 class="subtitle">genre</h6>
-                            <div class="check-area">
-                                <div class="form-group">
-                                    <input type="checkbox" name="genre" id="genre1"><label for="genre1">thriller</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" name="genre" id="genre2"><label for="genre2">horror</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" name="genre" id="genre3"><label for="genre3">drama</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" name="genre" id="genre4"><label for="genre4">romance</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" name="genre" id="genre5"><label for="genre5">action</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" name="genre" id="genre6"><label for="genre6">comedy</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" name="genre" id="genre7"><label for="genre7">romantic</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" name="genre" id="genre8"><label for="genre8">animation</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" name="genre" id="genre9"><label for="genre9">sci-fi</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" name="genre" id="genre10"><label for="genre10">adventure</label>
-                                </div>
-                            </div>
-                            <div class="add-check-area">
-                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">view more <i class="plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="widget-1 widget-banner">
-                        <div class="widget-1-body">
-                            <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                <img src="./movie-list/banner02.jpg" alt="banner">
-                            </a>
+                    <div class="movie-price">
+                        <!--Gia-->
+                        <div class="price-section">
+                            <label>Giá Vé</label>
+                            <span>59.000 VNĐ</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-9 mb-50 mb-lg-0">
-                    <div class="filter-tab tab">
-                        <div class="filter-area">
-                            <div class="filter-main">
-                                <div class="left">
-                                    <div class="item">
-                                        <span class="show">Show :</span>
-                                        <select class="select-bar" style="display: none;">
-                                            <option value="12">12</option>
-                                            <option value="15">15</option>
-                                            <option value="18">18</option>
-                                            <option value="21">21</option>
-                                            <option value="24">24</option>
-                                            <option value="27">27</option>
-                                            <option value="30">30</option>
-                                        </select><div class="nice-select select-bar" tabindex="0"><span class="current">12</span><ul class="list"><li data-value="12" class="option selected">12</li><li data-value="15" class="option">15</li><li data-value="18" class="option">18</li><li data-value="21" class="option">21</li><li data-value="24" class="option">24</li><li data-value="27" class="option">27</li><li data-value="30" class="option">30</li></ul></div>
-                                    </div>
-                                    <div class="item">
-                                        <span class="show">Sort By :</span>
-                                        <select class="select-bar" style="display: none;">
-                                            <option value="showing">now showing</option>
-                                            <option value="exclusive">exclusive</option>
-                                            <option value="trending">trending</option>
-                                            <option value="most-view">most view</option>
-                                        </select><div class="nice-select select-bar" tabindex="0"><span class="current">now showing</span><ul class="list"><li data-value="showing" class="option selected">now showing</li><li data-value="exclusive" class="option">exclusive</li><li data-value="trending" class="option">trending</li><li data-value="most-view" class="option">most view</li></ul></div>
-                                    </div>
-                                </div>
-                                <ul class="grid-button tab-menu">
-                                    <li>
-                                        <i class="fas fa-th"></i>
-                                    </li>                            
-                                    <li class="active">
-                                        <i class="fas fa-bars"></i>
-                                    </li>                            
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="tab-area">
-                            <div class="tab-item">
-                                <div class="row mb-10 justify-content-center">
-                                    <div class="col-sm-6 col-lg-4">
-                                        <div class="movie-grid">
-                                            <div class="movie-thumb c-thumb">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">
-                                                    <img src="./movie-list/movie01.jpg" alt="movie">
-                                                </a>
-                                            </div>
-                                            <div class="movie-content bg-one">
-                                                <h5 class="title m-0">
-                                                    <a href="http://pixner.net/boleto/demo/movie-details.html">alone</a>
-                                                </h5>
-                                                <ul class="movie-rating-percent">
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/tomato.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/cake.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                        <div class="movie-grid">
-                                            <div class="movie-thumb c-thumb">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">
-                                                    <img src="./movie-list/movie02.jpg" alt="movie">
-                                                </a>
-                                            </div>
-                                            <div class="movie-content bg-one">
-                                                <h5 class="title m-0">
-                                                    <a href="http://pixner.net/boleto/demo/movie-details.html">mars</a>
-                                                </h5>
-                                                <ul class="movie-rating-percent">
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/tomato.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/cake.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                        <div class="movie-grid">
-                                            <div class="movie-thumb c-thumb">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">
-                                                    <img src="./movie-list/movie03.jpg" alt="movie">
-                                                </a>
-                                            </div>
-                                            <div class="movie-content bg-one">
-                                                <h5 class="title m-0">
-                                                    <a href="http://pixner.net/boleto/demo/movie-details.html">venus</a>
-                                                </h5>
-                                                <ul class="movie-rating-percent">
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/tomato.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/cake.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                        <div class="movie-grid">
-                                            <div class="movie-thumb c-thumb">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">
-                                                    <img src="./movie-list/movie04.jpg" alt="movie">
-                                                </a>
-                                            </div>
-                                            <div class="movie-content bg-one">
-                                                <h5 class="title m-0">
-                                                    <a href="http://pixner.net/boleto/demo/movie-details.html">on watch</a>
-                                                </h5>
-                                                <ul class="movie-rating-percent">
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/tomato.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/cake.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                        <div class="movie-grid">
-                                            <div class="movie-thumb c-thumb">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">
-                                                    <img src="./movie-list/movie05.jpg" alt="movie">
-                                                </a>
-                                            </div>
-                                            <div class="movie-content bg-one">
-                                                <h5 class="title m-0">
-                                                    <a href="http://pixner.net/boleto/demo/movie-details.html">fury</a>
-                                                </h5>
-                                                <ul class="movie-rating-percent">
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/tomato.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/cake.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                        <div class="movie-grid">
-                                            <div class="movie-thumb c-thumb">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">
-                                                    <img src="./movie-list/movie06.jpg" alt="movie">
-                                                </a>
-                                            </div>
-                                            <div class="movie-content bg-one">
-                                                <h5 class="title m-0">
-                                                    <a href="http://pixner.net/boleto/demo/movie-details.html">trooper</a>
-                                                </h5>
-                                                <ul class="movie-rating-percent">
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/tomato.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/cake.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                        <div class="movie-grid">
-                                            <div class="movie-thumb c-thumb">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">
-                                                    <img src="./movie-list/movie07.jpg" alt="movie">
-                                                </a>
-                                            </div>
-                                            <div class="movie-content bg-one">
-                                                <h5 class="title m-0">
-                                                    <a href="http://pixner.net/boleto/demo/movie-details.html">horror night</a>
-                                                </h5>
-                                                <ul class="movie-rating-percent">
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/tomato.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/cake.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                        <div class="movie-grid">
-                                            <div class="movie-thumb c-thumb">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">
-                                                    <img src="./movie-list/movie08.jpg" alt="movie">
-                                                </a>
-                                            </div>
-                                            <div class="movie-content bg-one">
-                                                <h5 class="title m-0">
-                                                    <a href="http://pixner.net/boleto/demo/movie-details.html">the lost name</a>
-                                                </h5>
-                                                <ul class="movie-rating-percent">
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/tomato.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/cake.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                        <div class="movie-grid">
-                                            <div class="movie-thumb c-thumb">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">
-                                                    <img src="./movie-list/movie09.jpg" alt="movie">
-                                                </a>
-                                            </div>
-                                            <div class="movie-content bg-one">
-                                                <h5 class="title m-0">
-                                                    <a href="http://pixner.net/boleto/demo/movie-details.html">calm stedfast</a>
-                                                </h5>
-                                                <ul class="movie-rating-percent">
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/tomato.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/cake.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                        <div class="movie-grid">
-                                            <div class="movie-thumb c-thumb">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">
-                                                    <img src="./movie-list/movie10.jpg" alt="movie">
-                                                </a>
-                                            </div>
-                                            <div class="movie-content bg-one">
-                                                <h5 class="title m-0">
-                                                    <a href="http://pixner.net/boleto/demo/movie-details.html">criminal on party</a>
-                                                </h5>
-                                                <ul class="movie-rating-percent">
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/tomato.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/cake.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                        <div class="movie-grid">
-                                            <div class="movie-thumb c-thumb">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">
-                                                    <img src="./movie-list/movie11.jpg" alt="movie">
-                                                </a>
-                                            </div>
-                                            <div class="movie-content bg-one">
-                                                <h5 class="title m-0">
-                                                    <a href="http://pixner.net/boleto/demo/movie-details.html">halloween party</a>
-                                                </h5>
-                                                <ul class="movie-rating-percent">
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/tomato.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/cake.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                        <div class="movie-grid">
-                                            <div class="movie-thumb c-thumb">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">
-                                                    <img src="./movie-list/movie12.jpg" alt="movie">
-                                                </a>
-                                            </div>
-                                            <div class="movie-content bg-one">
-                                                <h5 class="title m-0">
-                                                    <a href="http://pixner.net/boleto/demo/movie-details.html">the most wanted</a>
-                                                </h5>
-                                                <ul class="movie-rating-percent">
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/tomato.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                    <li>
-                                                        <div class="thumb">
-                                                            <img src="./movie-list/cake.png" alt="movie">
-                                                        </div>
-                                                        <span class="content">88%</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-item active">
-                                <div class="movie-area mb-10">
-                                    <div class="movie-list">
-                                        <div class="movie-thumb c-thumb">
-                                            <a href="http://pixner.net/boleto/demo/movie-details.html" class="w-100 bg_img h-100" data-background="./assets/images/movie/movie01.jpg" style="background-image: url(&quot;./assets/images/movie/movie01.jpg&quot;);">
-                                                <img class="d-sm-none" src="./movie-list/movie01.jpg" alt="movie">
-                                            </a>
-                                        </div>
-                                        <div class="movie-content bg-one">
-                                            <h5 class="title">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">alone</a>
-                                            </h5>
-                                            <p class="duration">2hrs 50 min</p>
-                                            <div class="movie-tags">
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">action</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">adventure</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">fantasy</a>
-                                            </div>
-                                            <div class="release">
-                                                <span>Release Date : </span> <a href="http://pixner.net/boleto/demo/movie-list.html#0"> November 8 , 2020</a>
-                                            </div>
-                                            <ul class="movie-rating-percent">
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/tomato.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/cake.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                            </ul>
-                                            <div class="book-area">
-                                                <div class="book-ticket">
-                                                    <div class="react-item">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/heart.png" alt="icons">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item mr-auto">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/book.png" alt="icons">
-                                                            </div>
-                                                            <span>book ticket</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0" class="popup-video">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/play-button.png" alt="icons">
-                                                            </div>
-                                                            <span>watch trailer</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="movie-list">
-                                        <div class="movie-thumb c-thumb">
-                                            <a href="http://pixner.net/boleto/demo/movie-details.html" class="w-100 bg_img h-100" data-background="./assets/images/movie/movie02.jpg" style="background-image: url(&quot;./assets/images/movie/movie02.jpg&quot;);">
-                                                <img class="d-sm-none" src="./movie-list/movie02.jpg" alt="movie">
-                                            </a>
-                                        </div>
-                                        <div class="movie-content bg-one">
-                                            <h5 class="title">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">mars</a>
-                                            </h5>
-                                            <p class="duration">2hrs 50 min</p>
-                                            <div class="movie-tags">
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">action</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">adventure</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">fantasy</a>
-                                            </div>
-                                            <div class="release">
-                                                <span>Release Date : </span> <a href="http://pixner.net/boleto/demo/movie-list.html#0"> November 8 , 2020</a>
-                                            </div>
-                                            <ul class="movie-rating-percent">
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/tomato.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/cake.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                            </ul>
-                                            <div class="book-area">
-                                                <div class="book-ticket">
-                                                    <div class="react-item">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/heart.png" alt="icons">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item mr-auto">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/book.png" alt="icons">
-                                                            </div>
-                                                            <span>book ticket</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item">
-                                                            <a href="http://pixner.net/boleto/demo/movie-list.html#0" class="popup-video">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/play-button.png" alt="icons">
-                                                            </div>
-                                                            <span>watch trailer</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="movie-list">
-                                        <div class="movie-thumb c-thumb">
-                                            <a href="http://pixner.net/boleto/demo/movie-details.html" class="w-100 bg_img h-100" data-background="./assets/images/movie/movie03.jpg" style="background-image: url(&quot;./assets/images/movie/movie03.jpg&quot;);">
-                                                <img class="d-sm-none" src="./movie-list/movie03.jpg" alt="movie">
-                                            </a>
-                                        </div>
-                                        <div class="movie-content bg-one">
-                                            <h5 class="title">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">venus</a>
-                                            </h5>
-                                            <p class="duration">2hrs 50 min</p>
-                                            <div class="movie-tags">
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">action</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">adventure</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">fantasy</a>
-                                            </div>
-                                            <div class="release">
-                                                <span>Release Date : </span> <a href="http://pixner.net/boleto/demo/movie-list.html#0"> November 8 , 2020</a>
-                                            </div>
-                                            <ul class="movie-rating-percent">
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/tomato.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/cake.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                            </ul>
-                                            <div class="book-area">
-                                                <div class="book-ticket">
-                                                    <div class="react-item">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/heart.png" alt="icons">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item mr-auto">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/book.png" alt="icons">
-                                                            </div>
-                                                            <span>book ticket</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item">
-                                                            <a href="http://pixner.net/boleto/demo/movie-list.html#0" class="popup-video">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/play-button.png" alt="icons">
-                                                            </div>
-                                                            <span>watch trailer</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="movie-list">
-                                        <div class="movie-thumb c-thumb">
-                                            <a href="http://pixner.net/boleto/demo/movie-details.html" class="w-100 bg_img h-100" data-background="./assets/images/movie/movie04.jpg" style="background-image: url(&quot;./assets/images/movie/movie04.jpg&quot;);">
-                                                <img class="d-sm-none" src="./movie-list/movie04.jpg" alt="movie">
-                                            </a>
-                                        </div>
-                                        <div class="movie-content bg-one">
-                                            <h5 class="title">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">on watch</a>
-                                            </h5>
-                                            <p class="duration">2hrs 50 min</p>
-                                            <div class="movie-tags">
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">action</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">adventure</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">fantasy</a>
-                                            </div>
-                                            <div class="release">
-                                                <span>Release Date : </span> <a href="http://pixner.net/boleto/demo/movie-list.html#0"> November 8 , 2020</a>
-                                            </div>
-                                            <ul class="movie-rating-percent">
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/tomato.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/cake.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                            </ul>
-                                            <div class="book-area">
-                                                <div class="book-ticket">
-                                                    <div class="react-item">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/heart.png" alt="icons">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item mr-auto">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/book.png" alt="icons">
-                                                            </div>
-                                                            <span>book ticket</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item">
-                                                            <a href="http://pixner.net/boleto/demo/movie-list.html#0" class="popup-video">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/play-button.png" alt="icons">
-                                                            </div>
-                                                            <span>watch trailer</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="movie-list">
-                                        <div class="movie-thumb c-thumb">
-                                            <a href="http://pixner.net/boleto/demo/movie-details.html" class="w-100 bg_img h-100" data-background="./assets/images/movie/movie05.jpg" style="background-image: url(&quot;./assets/images/movie/movie05.jpg&quot;);">
-                                                <img class="d-sm-none" src="./movie-list/movie05.jpg" alt="movie">
-                                            </a>
-                                        </div>
-                                        <div class="movie-content bg-one">
-                                            <h5 class="title">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">fury</a>
-                                            </h5>
-                                            <p class="duration">2hrs 50 min</p>
-                                            <div class="movie-tags">
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">action</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">adventure</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">fantasy</a>
-                                            </div>
-                                            <div class="release">
-                                                <span>Release Date : </span> <a href="http://pixner.net/boleto/demo/movie-list.html#0"> November 8 , 2020</a>
-                                            </div>
-                                            <ul class="movie-rating-percent">
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/tomato.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/cake.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                            </ul>
-                                            <div class="book-area">
-                                                <div class="book-ticket">
-                                                    <div class="react-item">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/heart.png" alt="icons">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item mr-auto">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/book.png" alt="icons">
-                                                            </div>
-                                                            <span>book ticket</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item">
-                                                            <a href="http://pixner.net/boleto/demo/movie-list.html#0" class="popup-video">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/play-button.png" alt="icons">
-                                                            </div>
-                                                            <span>watch trailer</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="movie-list">
-                                        <div class="movie-thumb c-thumb">
-                                            <a href="http://pixner.net/boleto/demo/movie-details.html" class="w-100 bg_img h-100" data-background="./assets/images/movie/movie06.jpg" style="background-image: url(&quot;./assets/images/movie/movie06.jpg&quot;);">
-                                                <img class="d-sm-none" src="./movie-list/movie06.jpg" alt="movie">
-                                            </a>
-                                        </div>
-                                        <div class="movie-content bg-one">
-                                            <h5 class="title">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">trooper</a>
-                                            </h5>
-                                            <p class="duration">2hrs 50 min</p>
-                                            <div class="movie-tags">
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">action</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">adventure</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">fantasy</a>
-                                            </div>
-                                            <div class="release">
-                                                <span>Release Date : </span> <a href="http://pixner.net/boleto/demo/movie-list.html#0"> November 8 , 2020</a>
-                                            </div>
-                                            <ul class="movie-rating-percent">
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/tomato.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/cake.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                            </ul>
-                                            <div class="book-area">
-                                                <div class="book-ticket">
-                                                    <div class="react-item">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/heart.png" alt="icons">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item mr-auto">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/book.png" alt="icons">
-                                                            </div>
-                                                            <span>book ticket</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item">
-                                                            <a href="http://pixner.net/boleto/demo/movie-list.html#0" class="popup-video">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/play-button.png" alt="icons">
-                                                            </div>
-                                                            <span>watch trailer</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="movie-list">
-                                        <div class="movie-thumb c-thumb">
-                                            <a href="http://pixner.net/boleto/demo/movie-details.html" class="w-100 bg_img h-100" data-background="./assets/images/movie/movie07.jpg" style="background-image: url(&quot;./assets/images/movie/movie07.jpg&quot;);">
-                                                <img class="d-sm-none" src="./movie-list/movie07.jpg" alt="movie">
-                                            </a>
-                                        </div>
-                                        <div class="movie-content bg-one">
-                                            <h5 class="title">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">horror night</a>
-                                            </h5>
-                                            <p class="duration">2hrs 50 min</p>
-                                            <div class="movie-tags">
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">action</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">adventure</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">fantasy</a>
-                                            </div>
-                                            <div class="release">
-                                                <span>Release Date : </span> <a href="http://pixner.net/boleto/demo/movie-list.html#0"> November 8 , 2020</a>
-                                            </div>
-                                            <ul class="movie-rating-percent">
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/tomato.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/cake.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                            </ul>
-                                            <div class="book-area">
-                                                <div class="book-ticket">
-                                                    <div class="react-item">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/heart.png" alt="icons">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item mr-auto">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/book.png" alt="icons">
-                                                            </div>
-                                                            <span>book ticket</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item">
-                                                            <a href="http://pixner.net/boleto/demo/movie-list.html#0" class="popup-video">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/play-button.png" alt="icons">
-                                                            </div>
-                                                            <span>watch trailer</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="movie-list">
-                                        <div class="movie-thumb c-thumb">
-                                            <a href="http://pixner.net/boleto/demo/movie-details.html" class="w-100 bg_img h-100" data-background="./assets/images/movie/movie08.jpg" style="background-image: url(&quot;./assets/images/movie/movie08.jpg&quot;);">
-                                                <img class="d-sm-none" src="./movie-list/movie08.jpg" alt="movie">
-                                            </a>
-                                        </div>
-                                        <div class="movie-content bg-one">
-                                            <h5 class="title">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">the lost name</a>
-                                            </h5>
-                                            <p class="duration">2hrs 50 min</p>
-                                            <div class="movie-tags">
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">action</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">adventure</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">fantasy</a>
-                                            </div>
-                                            <div class="release">
-                                                <span>Release Date : </span> <a href="http://pixner.net/boleto/demo/movie-list.html#0"> November 8 , 2020</a>
-                                            </div>
-                                            <ul class="movie-rating-percent">
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/tomato.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/cake.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                            </ul>
-                                            <div class="book-area">
-                                                <div class="book-ticket">
-                                                    <div class="react-item">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/heart.png" alt="icons">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item mr-auto">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/book.png" alt="icons">
-                                                            </div>
-                                                            <span>book ticket</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item">
-                                                            <a href="http://pixner.net/boleto/demo/movie-list.html#0" class="popup-video">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/play-button.png" alt="icons">
-                                                            </div>
-                                                            <span>watch trailer</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="movie-list">
-                                        <div class="movie-thumb c-thumb">
-                                            <a href="http://pixner.net/boleto/demo/movie-details.html" class="w-100 bg_img h-100" data-background="./assets/images/movie/movie09.jpg" style="background-image: url(&quot;./assets/images/movie/movie09.jpg&quot;);">
-                                                <img class="d-sm-none" src="./movie-list/movie09.jpg" alt="movie">
-                                            </a>
-                                        </div>
-                                        <div class="movie-content bg-one">
-                                            <h5 class="title">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">calm stedfast</a>
-                                            </h5>
-                                            <p class="duration">2hrs 50 min</p>
-                                            <div class="movie-tags">
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">action</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">adventure</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">fantasy</a>
-                                            </div>
-                                            <div class="release">
-                                                <span>Release Date : </span> <a href="http://pixner.net/boleto/demo/movie-list.html#0"> November 8 , 2020</a>
-                                            </div>
-                                            <ul class="movie-rating-percent">
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/tomato.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/cake.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                            </ul>
-                                            <div class="book-area">
-                                                <div class="book-ticket">
-                                                    <div class="react-item">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/heart.png" alt="icons">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item mr-auto">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/book.png" alt="icons">
-                                                            </div>
-                                                            <span>book ticket</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item">
-                                                            <a href="http://pixner.net/boleto/demo/movie-list.html#0" class="popup-video">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/play-button.png" alt="icons">
-                                                            </div>
-                                                            <span>watch trailer</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="movie-list">
-                                        <div class="movie-thumb c-thumb">
-                                            <a href="http://pixner.net/boleto/demo/movie-details.html" class="w-100 bg_img h-100" data-background="./assets/images/movie/movie10.jpg" style="background-image: url(&quot;./assets/images/movie/movie10.jpg&quot;);">
-                                                <img class="d-sm-none" src="./movie-list/movie10.jpg" alt="movie">
-                                            </a>
-                                        </div>
-                                        <div class="movie-content bg-one">
-                                            <h5 class="title">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">criminal on party</a>
-                                            </h5>
-                                            <p class="duration">2hrs 50 min</p>
-                                            <div class="movie-tags">
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">action</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">adventure</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">fantasy</a>
-                                            </div>
-                                            <div class="release">
-                                                <span>Release Date : </span> <a href="http://pixner.net/boleto/demo/movie-list.html#0"> November 8 , 2020</a>
-                                            </div>
-                                            <ul class="movie-rating-percent">
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/tomato.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/cake.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                            </ul>
-                                            <div class="book-area">
-                                                <div class="book-ticket">
-                                                    <div class="react-item">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/heart.png" alt="icons">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item mr-auto">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/book.png" alt="icons">
-                                                            </div>
-                                                            <span>book ticket</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item">
-                                                            <a href="http://pixner.net/boleto/demo/movie-list.html#0" class="popup-video">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/play-button.png" alt="icons">
-                                                            </div>
-                                                            <span>watch trailer</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="movie-list">
-                                        <div class="movie-thumb c-thumb">
-                                            <a href="http://pixner.net/boleto/demo/movie-details.html" class="w-100 bg_img h-100" data-background="./assets/images/movie/movie11.jpg" style="background-image: url(&quot;./assets/images/movie/movie11.jpg&quot;);">
-                                                <img class="d-sm-none" src="./movie-list/movie11.jpg" alt="movie">
-                                            </a>
-                                        </div>
-                                        <div class="movie-content bg-one">
-                                            <h5 class="title">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">halloween party</a>
-                                            </h5>
-                                            <p class="duration">2hrs 50 min</p>
-                                            <div class="movie-tags">
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">action</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">adventure</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">fantasy</a>
-                                            </div>
-                                            <div class="release">
-                                                <span>Release Date : </span> <a href="http://pixner.net/boleto/demo/movie-list.html#0"> November 8 , 2020</a>
-                                            </div>
-                                            <ul class="movie-rating-percent">
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/tomato.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/cake.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                            </ul>
-                                            <div class="book-area">
-                                                <div class="book-ticket">
-                                                    <div class="react-item">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/heart.png" alt="icons">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item mr-auto">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/book.png" alt="icons">
-                                                            </div>
-                                                            <span>book ticket</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item">
-                                                            <a href="http://pixner.net/boleto/demo/movie-list.html#0" class="popup-video">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/play-button.png" alt="icons">
-                                                            </div>
-                                                            <span>watch trailer</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="movie-list">
-                                        <div class="movie-thumb c-thumb">
-                                            <a href="http://pixner.net/boleto/demo/movie-details.html" class="w-100 bg_img h-100" data-background="./assets/images/movie/movie12.jpg" style="background-image: url(&quot;./assets/images/movie/movie12.jpg&quot;);">
-                                                <img class="d-sm-none" src="./movie-list/movie12.jpg" alt="movie">
-                                            </a>
-                                        </div>
-                                        <div class="movie-content bg-one">
-                                            <h5 class="title">
-                                                <a href="http://pixner.net/boleto/demo/movie-details.html">the most wanted</a>
-                                            </h5>
-                                            <p class="duration">2hrs 50 min</p>
-                                            <div class="movie-tags">
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">action</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">adventure</a>
-                                                <a href="http://pixner.net/boleto/demo/movie-list.html#0">fantasy</a>
-                                            </div>
-                                            <div class="release">
-                                                <span>Release Date : </span> <a href="http://pixner.net/boleto/demo/movie-list.html#0"> November 8 , 2020</a>
-                                            </div>
-                                            <ul class="movie-rating-percent">
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/tomato.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="./movie-list/cake.png" alt="movie">
-                                                    </div>
-                                                    <span class="content">88%</span>
-                                                </li>
-                                            </ul>
-                                            <div class="book-area">
-                                                <div class="book-ticket">
-                                                    <div class="react-item">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/heart.png" alt="icons">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item mr-auto">
-                                                        <a href="http://pixner.net/boleto/demo/movie-list.html#0">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/book.png" alt="icons">
-                                                            </div>
-                                                            <span>book ticket</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="react-item">
-                                                            <a href="http://pixner.net/boleto/demo/movie-list.html#0" class="popup-video">
-                                                            <div class="thumb">
-                                                                <img src="./movie-list/play-button.png" alt="icons">
-                                                            </div>
-                                                            <span>watch trailer</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pagination-area text-center">
-                            <a href="http://pixner.net/boleto/demo/movie-list.html#0"><i class="fas fa-angle-double-left"></i><span>Prev</span></a>
-                            <a href="http://pixner.net/boleto/demo/movie-list.html#0">1</a>
-                            <a href="http://pixner.net/boleto/demo/movie-list.html#0">2</a>
-                            <a href="http://pixner.net/boleto/demo/movie-list.html#0" class="active">3</a>
-                            <a href="http://pixner.net/boleto/demo/movie-list.html#0">4</a>
-                            <a href="http://pixner.net/boleto/demo/movie-list.html#0">5</a>
-                            <a href="http://pixner.net/boleto/demo/movie-list.html#0"><span>Next</span><i class="fas fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+                <!-- button-buy -->
+                <button id="buyticket" type="button" onclick="bookingTicket()">Mua Vé</button>
             </div>
         </div>
     </section>
