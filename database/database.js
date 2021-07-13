@@ -1,42 +1,12 @@
 const { Sequelize, Model, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('postgres://postgres:160620@localhost:5432/DATVEXEMPHIM');
-//const sequelize = new Sequelize('postgres://postgres:nkMg9Nna4fK7Mlbn@35.247.165.13:5432/cgv');
-// (async function () {
-//     try {
-//         await sequelize.authenticate();
-//         console.log('Connection has been established successfully.');
-//         const Phim = sequelize.define('Phim', {
-//             ID: {
-//                 type: Sequelize.INTEGER,
-//                 allowNull: false
-//             },
-//             Ten: {
-//                 type: Sequelize.STRING,
-//                 allowNull: true
-//             },
-//             NgayCongChieu: {
-//                 type: Sequelize.STRING,
-//                 allowNull: true
-//             },
-//             Poster: {
-//                 type: Sequelize.STRING,
-//                 allowNull: true
-//             },
-//             ThoiLuong: {
-//                 type: Sequelize.STRING,
-//                 allowNull: true
-//             }
-//         });
-//         await sequelize.sync()
+//const sequelize = new Sequelize('postgres://postgres:160620@localhost:5432/DATVEXEMPHIM');
+const sequelize = new Sequelize('postgres://thcstzzyafncxn:e32901d757cbf8cb77c83dea1b618fa4d24ad206b6e397d7629d8f2320691c51@ec2-18-214-140-149.compute-1.amazonaws.com:5432/d24dldfpkmk6gb', {
+    dialect: 'postgres',
+    dialectOptions: {
+        ssl: {
+            rejectUnauthorized: false,
+        }
+    }
+});
 
-//         const phims = await Phim.findAll()
-//         console.log(phims)
-//     } catch (error) {
-//         console.error('Unable to connect to the database:', error);
-//     }
-// })().catch(console.error)
 module.exports = sequelize;
-// chiều x
-// chiều y isBooking = true || false
-//  a b c d
-//  e f g h

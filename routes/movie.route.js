@@ -17,9 +17,9 @@ var storage = diskStorage({
 })
 var upload = multer({ storage: storage })
 router.get('/add-movie', movieController.showFormAddMovie)
-router.post('/add-movie', upload.single('poster'),movieController.addMovie)
+router.post('/add-movie', upload.single('poster'), movieController.addMovie)
 router.get('/update-movie', movieController.showOldMovie)
-router.post('/update-movie', movieController.updateMovie)
+router.post('/update-movie', upload.single('poster'), movieController.updateMovie)
 router.get('/delete-movie', movieController.deleteMovie)
 
 module.exports = router
