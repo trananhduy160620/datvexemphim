@@ -109,100 +109,12 @@
         <label class="cinema-name">CGV CINEMAS</label>
     </div>
     <div id="cinemas-area" >
-        <ul class="grid-cinemas-area">           
-            <li>
-                <span id="cgv_city_1" class="span" onclick="clickOnCinemaArea(id)" >Hồ Chí Minh</span>
-            </li>
-            <li>
-                <span id="cgv_city_3" class="span" onclick="clickOnCinemaArea(id)">Hà Nội</span>
-            </li>
-            <li>
-                <span id="cgv_city_5" class="span" onclick="clickOnCinemaArea(id)">Đà Nẵng</span>
-            </li>
-            <li>
-                <span id="cgv_city_7" class="span" onclick="clickOnCinemaArea(id)">Cần Thơ</span>
-            </li>
-            <li>
-                <span id="cgv_city_9" class="span" onclick="clickOnCinemaArea(id)">Đồng Nai</span>
-            </li>
-            <li>
-                <span id="cgv_city_11" class="span" onclick="clickOnCinemaArea(id)">Hải Phòng</span>
-            </li>
-            <li>
-                <span id="cgv_city_13" class="span" onclick="clickOnCinemaArea(id)">Quảng Ninh</span>
-            </li>
-            <li>
-                <span id="cgv_city_15" class="span" onclick="clickOnCinemaArea(id)">Bà Rịa-Vũng Tàu</span>
-            </li>
-            <li>
-                <span id="cgv_city_17" class="span" onclick="clickOnCinemaArea(id)">Bình Định</span>
-            </li>
-            <li>
-                <span id="cgv_city_19" class="span" onclick="clickOnCinemaArea(id)">Bình Dương</span>
-            </li>
-            <li>
-                <span id="cgv_city_21" class="span" onclick="clickOnCinemaArea(id)">Đắk Lắk</span>
-            </li>
-            <li>
-                <span id="cgv_city_23" class="span" onclick="clickOnCinemaArea(id)">Trà Vinh</span>
-            </li>
-            <li>
-                <span id="cgv_city_25" class="span" onclick="clickOnCinemaArea(id)">Yên Bái</span>
-            </li>
-            <li>
-                <span id="cgv_city_27" class="span" onclick="clickOnCinemaArea(id)">Vĩnh Long</span>
-            </li>
-            <li>
-                <span id="cgv_city_29" class="span" onclick="clickOnCinemaArea(id)">Kiên Giang</span>
-            </li>
-            <li>
-                <span id="cgv_city_31" class="span" onclick="clickOnCinemaArea(id)">Hậu Giang</span>
-            </li>
-            <li>
-                <span id="cgv_city_33" class="span" onclick="clickOnCinemaArea(id)">Hà Tĩnh</span>
-            </li>
-            <li>
-                <span id="cgv_city_35" class="span" onclick="clickOnCinemaArea(id)">Phú Yên</span>
-            </li>
-            <li>
-                <span id="cgv_city_49" class="span" onclick="clickOnCinemaArea(id)">Đồng Tháp</span>
-            </li>
-            <li>
-                <span id="cgv_city_75" class="span" onclick="clickOnCinemaArea(id)">Hưng Yên</span>
-            </li>
-            <li>
-                <span id="cgv_city_77" class="span" onclick="clickOnCinemaArea(id)">Khánh Hòa</span>
-            </li>
-            <li>
-                <span id="cgv_city_79" class="span" onclick="clickOnCinemaArea(id)">Kon Tum</span>
-            </li>
-            <li>
-                <span id="cgv_city_85" class="span" onclick="clickOnCinemaArea(id)">Lạng Sơn</span>
-            </li>
-            <li>
-                <span id="cgv_city_93" class="span" onclick="clickOnCinemaArea(id)">Nghệ An</span>
-            </li>
-            <li>
-                <span id="cgv_city_105" class="span" onclick="clickOnCinemaArea(id)">Quảng Ngãi</span>
-            </li>
-            <li>
-                <span id="cgv_city_109" class="span" onclick="clickOnCinemaArea(id)">Sóc Trăng</span>
-            </li>
-            <li>
-                <span id="cgv_city_111" class="span" onclick="clickOnCinemaArea(id)">Sơn La</span>
-            </li>
-            <li>
-                <span id="cgv_city_113" class="span" onclick="clickOnCinemaArea(id)">Tây Ninh</span>
-            </li>
-            <li>
-                <span id="cgv_city_117" class="span" onclick="clickOnCinemaArea(id)">Thái Nguyên</span>
-            </li>
-            <li>
-                <span id="cgv_city_123" class="span" onclick="clickOnCinemaArea(id)">Tiền Giang</span>
-            </li>
-            <li>
-                <span id="cgv_city_0" class="span active" style="visibility: hidden;">hide</span>
-            </li>
+        <ul class="grid-cinemas-area">
+            <% for (let i = 0; i < cinemaComplexs.length; i++) { %>
+                <li>
+                    <span id="cgv_city_<%= cinemaComplexs[i].ID %>" class="span" onclick="clickOnCinemaArea(id)" ><%= cinemaComplexs[i].Ten %></span>
+                </li>    
+            <% } %>
         </ul>
     </div>
 

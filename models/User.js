@@ -31,4 +31,29 @@ const User = db.define('NguoiDung', {
     freezeTableName: true,
     updatedAt: false,
 })
-module.exports = User
+
+User.ResetCode = async function(id){
+User.update({code:null},{
+    where:{
+    id,
+}
+});
+}
+
+User.findbyEmail = async function(email){
+    return User.findOne({
+        where:{
+            email,
+        },
+    });
+};
+
+User.findbyId = async function(id){
+    return User.findByPk(id);
+};
+
+User.Register = async function(Email , MatKhau, HoTen, SDT, VaiTro){
+    return await User.create({Email:Email, MatKhau:MatKhau, HoTen:HoTen, SDT:SDT, VaiTro:VaiTro});
+};
+
+module.exports = User;
