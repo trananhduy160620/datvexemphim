@@ -1,31 +1,35 @@
-const { Sequelize, Model, DataTypes } = require('sequelize')
-const db = require('./db')
-const ShowTime = db.define('SuatChieu', {
+const { Sequelize, Model, DataTypes } = require("sequelize");
+const db = require("./db");
+const ShowTime = db.define(
+  "SuatChieu",
+  {
     IDPhim: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        primaryKey: true
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      primaryKey: true,
     },
     IDRap: {
-        type: Sequelize.INTEGER,
-        allowNull: true
+      type: Sequelize.INTEGER,
+      allowNull: true,
     },
     ThoiDiemBatDau: {
-        type: Sequelize.STRING,
-        allowNull: true
+      type: Sequelize.STRING,
+      allowNull: true,
     },
     ThoiDiemKetThuc: {
-        type: Sequelize.STRING,
-        allowNull: true
+      type: Sequelize.STRING,
+      allowNull: true,
     },
     GiaVe: {
-        type: Sequelize.INTEGER,
-        allowNull: true
-    }
-}, {
-    tableName: 'SuatChieu',
+      type: Sequelize.INTEGER,
+      allowNull: true,
+    },
+  },
+  {
+    tableName: "SuatChieu",
     createdAt: false,
     freezeTableName: true,
     updatedAt: false,
-})
-module.exports = ShowTime
+  }
+);
+module.exports = ShowTime;

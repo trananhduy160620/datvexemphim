@@ -341,12 +341,13 @@
     <!-- ==========Movie-Section========== -->
 
     <section class="container-list-movie">
+        <% for (let i = 0; i < showTimeList.length; i++) { %>
         <div>	
             <div class="movie-card">
                 <!--movie-header-->
                 <div class="movie-header">
                     <div class="header-icon-container">
-                        <img class="img-poster" src="http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"
+                        <img class="img-poster" src="<%= showTimeList[i].Poster %>"
                             alt="">
                     </div>
                 </div>
@@ -354,7 +355,7 @@
                 <div class="movie-content">
                     <div class="movie-content-header">
                         <a href="#">
-                            <h3 class="movie-title">Man of Steel</h3>
+                            <h3 class="movie-title"><%= showTimeList[i].Ten %></h3>
                         </a>
                         <div class="imax-logo"></div>
                     </div>
@@ -367,19 +368,19 @@
                         <!--ngay khoi chieu-->
                         <div class="info-section">
                             <label>Khởi Chiếu</label>
-                            <span>01-06-2021</span>
+                            <span><%= showTimeList[i].NgayCongChieu %></span>
                         </div>
                         <!--Thoi luong phim-->
                         <div class="info-section">
                             <label>Thời Lượng</label>
-                            <span>120 phút</span>
+                            <span><%= showTimeList[i].ThoiLuong %></span>
                         </div>
                     </div>
                     <div class="movie-price">
                         <!--Gia-->
                         <div class="price-section">
                             <label>Giá Vé</label>
-                            <span>59.000 VNĐ</span>
+                            <span><%= showTimeList[i].GiaVe %> VNĐ</span>
                         </div>
                     </div>
                 </div>
@@ -387,6 +388,7 @@
                 <button id="buyticket" type="button" onclick="bookingTicket()">Mua Vé</button>
             </div>
         </div>
+        <% } %>
     </section>
     <!-- ==========Movie-Section========== -->
 
