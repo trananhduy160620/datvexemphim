@@ -345,47 +345,55 @@
         <div>	
             <div class="movie-card">
                 <!--movie-header-->
-                <div class="movie-header">
-                    <div class="header-icon-container">
-                        <img class="img-poster" src="<%= showTimeList[i].Poster %>"
-                            alt="">
-                    </div>
-                </div>
-                <!--movie-content-->
-                <div class="movie-content">
-                    <div class="movie-content-header">
-                        <a href="#">
-                            <h3 class="movie-title"><%= showTimeList[i].Ten %></h3>
-                        </a>
-                        <div class="imax-logo"></div>
-                    </div>
-                    <div class="movie-info">
-                        <!--the loai-->
-                        <div class="info-section">
-                            <label>Thể Loại</label>
-                            <span>Hành Động</span>
-                        </div>
-                        <!--ngay khoi chieu-->
-                        <div class="info-section">
-                            <label>Khởi Chiếu</label>
-                            <span><%= showTimeList[i].NgayCongChieu %></span>
-                        </div>
-                        <!--Thoi luong phim-->
-                        <div class="info-section">
-                            <label>Thời Lượng</label>
-                            <span><%= showTimeList[i].ThoiLuong %></span>
+                <a href="/chi-tiet-phim">
+                    <div class="movie-header">
+                        <div class="header-icon-container">
+                            <img class="img-poster" src="<%= showTimeList[i].Poster %>"
+                                alt="">
                         </div>
                     </div>
-                    <div class="movie-price">
-                        <!--Gia-->
-                        <div class="price-section">
-                            <label>Giá Vé</label>
-                            <span><%= showTimeList[i].GiaVe %> VNĐ</span>
+                    <!--movie-content-->
+                    <div class="movie-content">
+                        <div class="movie-content-header">
+                            <a href="#">
+                                <h3 class="movie-title"><%= showTimeList[i].Ten %></h3>
+                            </a>
+                            <div class="imax-logo"></div>
+                        </div>
+                        <div class="movie-info">
+                            <!--the loai-->
+                            <div class="info-section">
+                                <label>Thể Loại</label>
+                                <span>Hành Động</span>
+                            </div>
+                            <!--ngay khoi chieu-->
+                            <div class="info-section">
+                                <label>Khởi Chiếu</label>
+                                <span><%= showTimeList[i].NgayCongChieu %></span>
+                            </div>
+                            <!--Thoi luong phim-->
+                            <div class="info-section">
+                                <label>Thời Lượng</label>
+                                <span><%= showTimeList[i].ThoiLuong %></span>
+                            </div>
+                        </div>
+                        <div class="movie-price">
+                            <!--Gia-->
+                            <div class="price-section">
+                                <label>Giá Vé</label>
+                                <span><%= showTimeList[i].GiaVe %> VNĐ</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
+                
                 <!-- button-buy -->
-                <button id="buyticket" type="button" onclick="bookingTicket()">Mua Vé</button>
+                <form method="GET" action="/datve">
+                    <input type="hidden" name="rap" value="<%= showTimeList[i].IDRap %>" /> 
+                    <input type="hidden" name="phim" value="<%= showTimeList[i].IDPhim %>" /> 
+                    <button id="buyticket" type="submit" onclick="bookingTicket()">Mua Vé</button>
+                </form>
+            
             </div>
         </div>
         <% } %>

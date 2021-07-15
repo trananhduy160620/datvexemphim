@@ -3,14 +3,20 @@ const db = require("./db");
 const ShowTime = db.define(
   "SuatChieu",
   {
+    IDSuatChieu: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
     IDPhim: {
       type: Sequelize.INTEGER,
       allowNull: false,
-      primaryKey: true,
+      primaryKey: true
     },
     IDRap: {
       type: Sequelize.INTEGER,
       allowNull: true,
+      primaryKey: true
     },
     ThoiDiemBatDau: {
       type: Sequelize.STRING,

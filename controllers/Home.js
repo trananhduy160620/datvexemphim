@@ -2,7 +2,7 @@
 // const CinemaComplex = require('../models/cinema-complex');
 // const cinema = require('../models/cinema');
 // const movie = require('../models/movie');
-// const showtime = require('../models/showtime');
+const showtime = require('../models/showtime');
 // const booking = require('../models/booking');
 // const ticker = require('../models/ticket');
 

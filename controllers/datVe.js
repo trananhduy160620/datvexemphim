@@ -1,3 +1,6 @@
+const ShowTime = require("../models/showtime");
+
 exports.getDatVe = async (req, res, next) => {
-    res.render('datve');
+    const arrDate = []
+    res.render('datve', {arrDate: arrDate});
 };
