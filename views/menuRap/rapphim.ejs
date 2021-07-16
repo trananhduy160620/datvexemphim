@@ -43,7 +43,7 @@
         border-radius: 10px;
         background-image: url();
         width: 1024px;
-        background-color:gray;
+        /* background-color:gray; */
         
     }
 
@@ -57,7 +57,7 @@
         text-transform: uppercase;
         font-size: 50px;
         font-weight: bold;
-        color: white;
+        color: #e7e9ec;
         border-bottom-style:double;
         border-color: white;
     }
@@ -103,33 +103,40 @@
         }
     }
 </script>
+ <!-- ==========Banner-Section========== -->
+ <section class="banner-section">
+    <div class="banner-bg bg_img bg-fixed" data-background="./assets/images/banner/banner01.jpg"></div>
+    <div class="container">
+        <div class="banner-content">
+            <div>
+                <label class="cinema-name">CGV CINEMAS</label>
+            </div>
+            <div id="cinemas-area" >
+                <ul class="grid-cinemas-area">
+                    <% for (let i = 0; i < cinemaComplexs.length; i++) { %>
+                        <a style="text-decoration: none; color: #e7e9ec;" href="/cum-rap/<%= cinemaComplexs[i].ID %>" >
+                            <li>
+                                <span id="cgv_city_<%= cinemaComplexs[i].ID %>" class="span" ><%= cinemaComplexs[i].Ten %></span>
+                            </li>   
+                        </a>
+                         
+                    <% } %>
+                </ul>
+            </div>
+        
+            <div id="cinemas-list">
+                <ul class="grid-cinemas-list">
+                    <% for (let i = 0; i < cinemaList.length; i++) { %>
+                        <a style="text-decoration: none;" href="/phimdangchieu?rap=<%= cinemaList[i].ID %>" >
+                            <li class="cgv_city_1">
+                                <span id="<%= cinemaList[i].ID %>"><%= cinemaList[i].Ten %></span>
+                            </li>  
+                        </a>               
+                    <% } %>     
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ==========Banner-Section========== -->
 
-<div class="container">
-    <div>
-        <label class="cinema-name">CGV CINEMAS</label>
-    </div>
-    <div id="cinemas-area" >
-        <ul class="grid-cinemas-area">
-            <% for (let i = 0; i < cinemaComplexs.length; i++) { %>
-                <a style="text-decoration: none;" href="/cum-rap/<%= cinemaComplexs[i].ID %>" >
-                    <li>
-                        <span id="cgv_city_<%= cinemaComplexs[i].ID %>" class="span" ><%= cinemaComplexs[i].Ten %></span>
-                    </li>   
-                </a>
-                 
-            <% } %>
-        </ul>
-    </div>
-
-    <div id="cinemas-list">
-        <ul class="grid-cinemas-list">
-            <% for (let i = 0; i < cinemaList.length; i++) { %>
-                <a style="text-decoration: none;" href="/phimdangchieu?rap=<%= cinemaList[i].ID %>" >
-                    <li class="cgv_city_1">
-                        <span id="<%= cinemaList[i].ID %>"><%= cinemaList[i].Ten %></span>
-                    </li>  
-                </a>               
-            <% } %>     
-        </ul>
-    </div>
-</div>

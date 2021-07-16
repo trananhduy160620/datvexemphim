@@ -1623,9 +1623,9 @@ input[type="submit"] {
 
 /*Banner-Section Starts Here*/
 .banner-content {
-  margin: 0 auto;
+  margin: auto;
   text-align: center;
-  max-width: 840px;
+  max-width: 500px;
 }
 
 .banner-content .title {
