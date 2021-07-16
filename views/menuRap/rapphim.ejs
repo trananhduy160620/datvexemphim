@@ -1,11 +1,10 @@
 <!-- CSS -->
 <style>
     .grid-cinemas-area {
-        
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        grid-gap: 8px 8px;
-        padding: 20px 0px 0px 40px;
+        grid-gap: 8px 10px;
+        padding: 20px 0px 20px 0px; 
         width: auto;
         text-transform: uppercase;
         font-weight: bold;
@@ -13,11 +12,15 @@
         list-style: none;
         border-bottom-style:double;
         border-color: white;
+        border-top-style:double;
+        text-align:center;
+    }
+    #cinemas-area{
+        border-radius: 10px;
+        width: 1080px;
+        margin-left: -110px;
     }
 
-    #cinemas-area{
-        width: 100%;
-    }
 
     .grid-cinemas-list {
         display: grid;
@@ -29,27 +32,17 @@
         list-style: none;
     }
 
+    #cinemas-list{
+        border-radius: 10px;
+        width: 1080px;
+        margin-left: -110px;
+    }
+
     .active,
     span:hover {  
         cursor: pointer;  
         color: red;
-
-    }
-
-
-    div.container {
-        margin-left: auto;
-        margin-right: auto;
-        border-radius: 10px;
-        background-image: url();
-        width: 1024px;
-        /* background-color:gray; */
-        
-    }
-
-    .grid-cinemas-area span{
-        margin-left: 20px;
-    }
+    }   
 
     label{
         display: block;
@@ -58,51 +51,15 @@
         font-size: 50px;
         font-weight: bold;
         color: #e7e9ec;
-        border-bottom-style:double;
-        border-color: white;
+        padding-bottom: 50px;
+    }
+
+    span{
+        margin: 5px;
     }
 
 </style>
 
-<!-- JavaScript -->
-<script>
-    function resetCinemaList(clName) {
-        let list = document.getElementsByClassName(clName);
-        for (let i = 0; i < list.length; i++) {
-            if (list[i].style.display === 'block') {
-                list[i].style.display = 'none';
-            }
-        }
-    }
-
-    function spanActive() {
-        let span = document.getElementById("cinemas-area").getElementsByClassName("span");
-
-        for (let i = 0; i < span.length; i++) {
-            span[i].addEventListener("click", function () {
-                let current = document.getElementsByClassName("span active");
-                current[0].className = current[0].className.replace(" active", "");
-                this.className += " active";
-            });
-        }
-    }
-
-    let listSpanActive = [];
-    function clickOnCinemaArea(clName) {
-        spanActive();
-        let list = document.getElementsByClassName(clName);
-        for (let i = 0; i < list.length; i++) {
-            if (list[i].style.display === 'none') {
-                list[i].style.display = 'block';
-            }
-        }
-
-        listSpanActive.push(clName);
-        if(clName != listSpanActive[listSpanActive.length - 2]){
-            resetCinemaList(listSpanActive[listSpanActive.length - 2]);
-        }
-    }
-</script>
  <!-- ==========Banner-Section========== -->
  <section class="banner-section">
     <div class="banner-bg bg_img bg-fixed" data-background="./assets/images/banner/banner01.jpg"></div>
@@ -111,6 +68,7 @@
             <div>
                 <label class="cinema-name">CGV CINEMAS</label>
             </div>
+
             <div id="cinemas-area" >
                 <ul class="grid-cinemas-area">
                     <% for (let i = 0; i < cinemaComplexs.length; i++) { %>
@@ -135,6 +93,7 @@
                     <% } %>     
                 </ul>
             </div>
+
         </div>
     </div>
 </section>
