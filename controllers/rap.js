@@ -6,7 +6,7 @@ exports.getRap = async (req, res, next) => {
     attributes: ["ID", "Ten", "DiaChi"],
   });
   const cinemaList = [];
-  res.render("menuRap/rapphim", {
+  res.render("menuRap/cumrap", {
     cinemaList: cinemaList,
     cinemaComplexs: cinemaComplexs,
   });
