@@ -5,7 +5,7 @@ const express = require("express");
 const asyncHandler = require("express-async-handler");
 
 exports.getHomePage = async (req, res, next) => {
-  res.render("layouts/index", {});
+  res.render("home", {});
 };
 
 exports.getRegister = async (req, res, next) => {
