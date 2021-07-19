@@ -2,25 +2,13 @@ const { Sequelize, Model, DataTypes } = require('sequelize')
 const db = require('./db')
 
 const Ticket = db.define('Ve', {
-    ID: {
+    IDDatCho: {
         type: Sequelize.INTEGER,
         allowNull: false
     },
-    IDDatCho: {
-        type: Sequelize.INTEGER,
-        allowNull: true
-    },
     MaGhe: {
         type: Sequelize.STRING,
-        allowNull: true
-    },
-    DiaChiNgang: {
-        type: Sequelize.STRING,
-        allowNull: true
-    },
-    DiaChiDoc: {
-        type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
     },
     GiaTien:{
         type: Sequelize.INTEGER,
@@ -28,8 +16,8 @@ const Ticket = db.define('Ve', {
     }
 }, {
     tableName: 'Ve',
-    createdAt: false,
+    createdAt: true,
     freezeTableName: true,
-    updatedAt: false,
+    updatedAt: true,
 })
 module.exports = Ticket

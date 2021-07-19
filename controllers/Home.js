@@ -3,13 +3,14 @@ const Email = require("../models/email");
 const randomString = require("random-base64-string");
 const express = require("express");
 const asyncHandler = require("express-async-handler");
+const Booking = require("../models/booking");
 
 exports.getHomePage = async (req, res, next) => {
-  res.render("home", {});
+  res.render("home", {isAuthenticated: req.session.userId,});
 };
 
 exports.getRegister = async (req, res, next) => {
-  res.render("register");
+  res.render("register", {isAuthenticated: req.session.userId});
 };
 
 exports.postRegister = async (req, res, next) => {
@@ -28,10 +29,10 @@ exports.postRegister = async (req, res, next) => {
         "&userId=" +
         found.id;
       Email.send(email, "Register", context);
-      res.render("register");
+      res.render("register", {isAuthenticated: req.session.userId});
     } else {
       error = "Can not register . Try again";
-      res.render("register");
+      res.render("register", {isAuthenticated: req.session.userId});
     }
   }
 };
@@ -40,11 +41,11 @@ exports.verifyUser = asyncHandler(async function (req, res) {
   const { userId } = req.query;
   User.resetCode(userId);
   req.session.userId = userId;
-  res.redirect("/cum-rap");
+  res.redirect("/");
 });
 
 exports.getLogin = async (req, res, next) => {
-  res.render("login");
+  res.render("login", {isAuthenticated: req.session.userId});
 };
 
 exports.postLogin = asyncHandler(async function (req, res) {
@@ -53,8 +54,14 @@ exports.postLogin = asyncHandler(async function (req, res) {
   console.log(found);
   if (found && found.MatKhau === password && found.Code == null) {
     req.session.userId = found.id;
-    res.redirect("/cum-rap");
+    
+    res.redirect('..');
   } else {
-    res.render("login");
+    res.render("login", {isAuthenticated: req.session.userId});
   };
 });
+
+exports.logout = (req, res) => {
+  delete req.session.userId ;
+  res.redirect("/");
+};

@@ -7,15 +7,15 @@ const Booking = db.define('DatCho', {
         primaryKey: true
     },
     IDNguoiDung: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: true
     },
     IDSuatChieu: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: true
     },
     ThoiDiemDatVe: {
-        type: Sequelize.STRING,
+        type: Sequelize.DATE,
         allowNull: true
     },
     TongTien: {

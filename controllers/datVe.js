@@ -9,6 +9,10 @@ exports.getDatVe = async (req, res, next) => {
     const idMovie = req.query.phim;
     const idCinema = req.query.rap;
 
+    if(!req.session.userId){
+        res.redirect("/login");
+    }
+
     const movie = await Movie.findOne({
         where: {ID: idMovie}
     });
@@ -29,5 +33,15 @@ exports.getDatVe = async (req, res, next) => {
         }
     }
 
-    res.render('datve', {showTimeList: showTime, movieName: movie.Ten, seats: seats});
+    res.render('datve', {isAuthenticated: req.session.userId, showTime: showTime, movieName: movie.Ten, seats: seats});
+};
+
+exports.postDatVe = async (req, res, next) => {
+    const idMovie = req.query.phim;
+    const idCinema = req.query.rap;
+
+    const a = req.body;
+    console.log(,a);
+
+    res.redirect("/");
 };

@@ -11,5 +11,6 @@ router.post("/register", home.postRegister);
 router.get("/send", home.verifyUser);
 router.get("/login", home.getLogin);
 router.post("/login", home.postLogin);
+router.get("/logout", home.logout);
 
 module.exports = router;

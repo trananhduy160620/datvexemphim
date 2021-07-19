@@ -50,7 +50,7 @@
     <div class="container">
       <div class="header-wrapper">
         <div class="logo">
-          <a href="/cum-rap">
+          <a href="/">
             <img src="./movie-list/logo.png" alt="logo">
           </a>
         </div>
@@ -78,13 +78,22 @@
               </li>
             </ul>
           </li>
+          <% if (!isAuthenticated) { %>
           <li class="menu-item-has-children">
             <a href="/login">Đăng nhập</a>
           </li>
-
           <li class="header-button pr-0">
             <a href="/register">Đăng ký</a>
           </li>
+          <% } else {%>
+            <li class="menu-item-has-children">
+              <a href="/logout">Đăng Xuất</a>
+            </li>
+            <li class="header-button pr-0">
+              <a href="#">Profile</a>
+            </li>
+          <% } %>
+
         </ul>
 
       </div>

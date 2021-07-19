@@ -7,6 +7,7 @@ exports.getRap = async (req, res, next) => {
   });
   const cinemaList = [];
   res.render("menuRap/cumrap", {
+    isAuthenticated: req.session.userId,
     cinemaList: cinemaList,
     cinemaComplexs: cinemaComplexs,
   });
@@ -21,6 +22,7 @@ exports.getListRap = async (req, res, next) => {
     attributes: ["ID", "Ten", "DiaChi"],
   });
   res.render("menuRap/rapphim", {
+    isAuthenticated: req.session.userId,
     cinemaList: cinemaList,
     cinemaComplexs: cinemaComplexs,
   });
