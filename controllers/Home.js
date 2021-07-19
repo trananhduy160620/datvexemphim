@@ -28,10 +28,10 @@ exports.postRegister = async (req, res, next) => {
         "&userId=" +
         found.id;
       Email.send(email, "Register", context);
-      res.render("user/register");
+      res.render("register");
     } else {
       error = "Can not register . Try again";
-      res.render("user/register");
+      res.render("register");
     }
   }
 };
