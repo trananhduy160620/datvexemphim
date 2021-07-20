@@ -41,7 +41,7 @@ exports.postDatVe = async (req, res, next) => {
     const idCinema = req.query.rap;
 
     const a = req.body;
-    console.log(,a);
+    console.log(a);
 
     res.redirect("/");
 };

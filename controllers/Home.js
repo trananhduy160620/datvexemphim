@@ -55,7 +55,7 @@ exports.postLogin = asyncHandler(async function (req, res) {
   if (found && found.MatKhau === password && found.Code == null) {
     req.session.userId = found.id;
     
-    res.redirect('..');
+    res.redirect('/');
   } else {
     res.render("login", {isAuthenticated: req.session.userId});
   };

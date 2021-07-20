@@ -525,5 +525,10 @@
     	// Reset FormData after Posting
     	// resetData();
     }
+
+    $("#select-bar").click(function(){
+      var selected = $("#select-bar option:selected" ).val();
+      console.log(selected);
+    });
   });
 })(jQuery);
