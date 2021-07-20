@@ -103,11 +103,18 @@
                         %>                        
                         <li class="seat-line">
                             <ul class="seat--area"> 
-                            <% for (let j = increase; j < 14*(i+1); j++) { %>
-                                <li class="single-seat seat-free" data-value="<%= seats[j].code %>">
-                                    <img src="./assets/images/movie/seat01-free.png" alt="seat">
-                                    <span class="sit-num"><%= seats[j].code %></span>
-                                </li>
+                            <% for (let j = increase; j < 14*(i+1); j++) { 
+                                if (seats[j].isAvailable) { %>
+                                    <li class="single-seat seat-free" data-value="<%= seats[j].code %>">
+                                        <img src="./assets/images/movie/seat01-free.png" alt="seat">
+                                        <span class="sit-num"><%= seats[j].code %></span>
+                                    </li>
+                                <% } else { %>
+                                    <li class="single-seat">
+                                        <img src="./assets/images/movie/seat01.png" alt="seat">
+                                        <span class="sit-num"><%= seats[j].code %></span>
+                                    </li>
+                                <% } %>
                             <% } %>
                             </ul>  
                         </li>
@@ -190,7 +197,7 @@
                     </div>
                     <div class="book-item">
                         <span>total price</span>
-                        <h3 class="total-price">$0</h3>
+                        <h3 class="total-price">0Đ</h3>
                     </div>
                     <div class="book-item">
                         <a href="#" class="custom-button" id="proceed">proceed</a>

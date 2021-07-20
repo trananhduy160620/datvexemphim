@@ -472,7 +472,8 @@
         owlB.trigger('prev.owl.carousel', [300]);
     })
     var seats = [];
-    var totalPrice = "";
+    var totalPrice = 0;
+    var total = "";
     $(".seat-area").on("click", "img", function(e){
       e.preventDefault();
       var $this = $(this).parent();
@@ -488,8 +489,9 @@
         }
       }
       $("#book-seats").text(seats);
-      totalPrice = (parseInt($("#price").text())*seats.length).toString() + "Đ";
-      $(".total-price").text(totalPrice);
+      totalPrice = parseInt($("#price").text())*seats.length;
+      total = totalPrice.toString() + "Đ";
+      $(".total-price").text(total);
       
     });
 
@@ -501,6 +503,12 @@
       return arr;
     }
 
+    var selected_showtime = "";
+    $("#select-bar").click(function(){
+      selected_showtime = $("#select-bar option:selected" ).val();
+      console.log(selected_showtime);
+    });
+
     $("#proceed").on('click', function(e) {
       e.preventDefault();
 		  ajaxPost();
@@ -510,14 +518,16 @@
     	
     	// PREPARE FORM DATA
     	var formData = {
+        selected_showtime: selected_showtime,
     		seats : seats,
+        totalPrice: totalPrice,
     	}
     	
     	// DO POST
     	$.ajax({
 			type : "POST",
 			contentType : "application/json",
-			url : window.location + "datve",
+			url : window.location,
 			data : JSON.stringify(formData),
 			dataType : 'json',
 			
@@ -525,10 +535,6 @@
     	// Reset FormData after Posting
     	// resetData();
     }
-
-    $("#select-bar").click(function(){
-      var selected = $("#select-bar option:selected" ).val();
-      console.log(selected);
-    });
+    
   });
 })(jQuery);

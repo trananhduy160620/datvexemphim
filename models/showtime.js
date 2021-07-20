@@ -1,7 +1,6 @@
 const { Sequelize, Model, DataTypes } = require("sequelize");
 const db = require("./db");
-const ShowTime = db.define(
-  "SuatChieu",
+const ShowTime = db.define("SuatChieu",
   {
     IDSuatChieu: {
         type: Sequelize.INTEGER,

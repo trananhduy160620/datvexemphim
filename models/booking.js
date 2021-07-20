@@ -3,7 +3,7 @@ const db = require('./db')
 const Booking = db.define('DatCho', {
     ID: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        autoIncrement: true,
         primaryKey: true
     },
     IDNguoiDung: {
@@ -16,7 +16,7 @@ const Booking = db.define('DatCho', {
     },
     ThoiDiemDatVe: {
         type: Sequelize.DATE,
-        allowNull: true
+        defaultValue: Sequelize.fn('now'),
     },
     TongTien: {
         type: Sequelize.INTEGER,

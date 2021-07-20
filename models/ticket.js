@@ -2,6 +2,11 @@ const { Sequelize, Model, DataTypes } = require('sequelize')
 const db = require('./db')
 
 const Ticket = db.define('Ve', {
+    ID: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
     IDDatCho: {
         type: Sequelize.INTEGER,
         allowNull: false
@@ -14,8 +19,7 @@ const Ticket = db.define('Ve', {
         type: Sequelize.INTEGER,
         allowNull: true
     }
-}, {
-    tableName: 'Ve',
+}, {    tableName: 'Ve',
     createdAt: true,
     freezeTableName: true,
     updatedAt: true,

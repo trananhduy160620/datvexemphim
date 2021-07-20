@@ -4,6 +4,7 @@ const randomString = require("random-base64-string");
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 const Booking = require("../models/booking");
+const Ticket = require("../models/ticket");
 
 exports.getHomePage = async (req, res, next) => {
   res.render("home", {isAuthenticated: req.session.userId,});
