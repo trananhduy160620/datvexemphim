@@ -1,17 +1,13 @@
 const { Sequelize, Model, DataTypes } = require('sequelize')
 const db = require('./db')
 const User = db.define('NguoiDung', {
-    UserID: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-    },
     Email: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
     },
     MatKhau: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
     },
     HoTen: {
         type: Sequelize.STRING,
@@ -23,27 +19,31 @@ const User = db.define('NguoiDung', {
     },
     VaiTro: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        defaultValue: 0
+    },
+    Code: {
+        type: Sequelize.STRING,
+        allowNull: true
     }
 }, {
     tableName: 'NguoiDung',
-    createdAt: false,
+    createdAt: true,
     freezeTableName: true,
-    updatedAt: false,
+    updatedAt: true,
 })
 
-User.ResetCode = async function(id){
-User.update({code:null},{
-    where:{
-    id,
-}
-});
-}
+User.resetCode = async function(id){
+    return await User.update({Code: null},{
+        where:{
+          id: id
+        }
+  });
+};
 
-User.findbyEmail = async function(email){
+User.findByEmail = async function(email){
     return User.findOne({
         where:{
-            email,
+            Email: email,
         },
     });
 };
@@ -52,8 +52,8 @@ User.findbyId = async function(id){
     return User.findByPk(id);
 };
 
-User.Register = async function(Email , MatKhau, HoTen, SDT, VaiTro){
-    return await User.create({Email:Email, MatKhau:MatKhau, HoTen:HoTen, SDT:SDT, VaiTro:VaiTro});
+User.register = async function(Email , MatKhau, HoTen, Code){
+    return await User.create({Email:Email, MatKhau:MatKhau, HoTen:HoTen, Code:Code});
 };
 
 module.exports = User;

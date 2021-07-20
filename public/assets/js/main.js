@@ -353,26 +353,7 @@
         book = 0;
       }
     });
-    var bookTwo = 1;
-    var checked = 0;
-    $(".seat-free-two img").on('click', function(e) {
-      if(bookTwo == 0) {
-        $(this).attr("src","./assets/images/movie/seat02-free.png");
-        bookTwo = 1;
-        checked= 0;
-      }
-      else if(bookTwo == 1) {
-        $(this).attr("src","./assets/images/movie/seat02-booked.png");
-        bookTwo = 0;
-        checked = 1;
-      }
-    });
-
-    $("#proceed").on('click', function(e) {
-      if(checked == 1)
-      $(".seat-free-two img").attr("src","./assets/images/movie/seat02.png");
-    });
-
+    
     // shop cart + - start here
     var CartPlusMinus = $('.cart-plus-minus');
     CartPlusMinus.prepend('<div class="dec qtybutton">-</div>');
@@ -490,5 +471,59 @@
     $('.blog-prev').on('click', function() {
         owlB.trigger('prev.owl.carousel', [300]);
     })
+    var seats = [];
+    var totalPrice = "";
+    $(".seat-area").on("click", "img", function(e){
+      e.preventDefault();
+      var $this = $(this).parent();
+      $this.addClass("select").siblings().removeClass("select");
+      var value = $this.data("value");
+      console.log($(this).attr("src"));
+      if(!seats.includes(value) && $(this).attr("src") == "./assets/images/movie/seat01-booked.png"){
+        seats.push(value);
+      }
+      else{
+        if($(this).attr("src") != "./assets/images/movie/seat01-booked.png"){
+          seats = removeItemOnce(seats, value);
+        }
+      }
+      $("#book-seats").text(seats);
+      totalPrice = (parseInt($("#price").text())*seats.length).toString() + "Đ";
+      $(".total-price").text(totalPrice);
+      
+    });
+
+    function removeItemOnce(arr, value) {
+      var index = arr.indexOf(value);
+      if (index > -1) {
+        arr.splice(index, 1);
+      }
+      return arr;
+    }
+
+    $("#proceed").on('click', function(e) {
+      e.preventDefault();
+		  ajaxPost();
+    });
+
+    function ajaxPost(){
+    	
+    	// PREPARE FORM DATA
+    	var formData = {
+    		seats : seats,
+    	}
+    	
+    	// DO POST
+    	$.ajax({
+			type : "POST",
+			contentType : "application/json",
+			url : window.location + "datve",
+			data : JSON.stringify(formData),
+			dataType : 'json',
+			
+		});
+    	// Reset FormData after Posting
+    	// resetData();
+    }
   });
 })(jQuery);

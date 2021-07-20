@@ -4,12 +4,11 @@ const db = require('../models/db');
 
 exports.getPhimDangChieu = async (req, res, next) => {
   const idCinema = req.query.rap;
-  console.log(idCinema);
   var sql = 'select * from "SuatChieu" join "Phim" on "SuatChieu"."IDPhim" = "Phim"."ID" where "SuatChieu"."IDRap" = ' + String(idCinema)
   const showTimeList = await db.query(sql, { type: QueryTypes.SELECT });
-  res.render("phim/PhimDangChieu", { showTimeList: showTimeList });
+  res.render("phim/PhimDangChieu", {isAuthenticated: req.session.userId, showTimeList: showTimeList });
 };
 
 exports.getChiTietPhim = async (req, res, next) => {
-  res.render("phim/chiTietPhim");
+  res.render("phim/chiTietPhim", {isAuthenticated: req.session.userId});
 };
