@@ -344,6 +344,7 @@
     });
     var book = 0;
     $(".seat-free img").on('click', function(e) {
+      console.log("test");
       if(book == 0) {
         $(this).attr("src","./assets/images/movie/seat01-free.png");
         book = 1;
@@ -503,17 +504,56 @@
       return arr;
     }
 
-    var selected_showtime = "";
-    $("#select-bar").click(function(){
+    var selected_showtime = $("#select-bar option:selected" ).val();
+    console.log(selected_showtime);
+    $("#select-bar").on('change', function(event){
       selected_showtime = $("#select-bar option:selected" ).val();
       console.log(selected_showtime);
+      
+      event.preventDefault();
+      seatsAjaxPost();
+      
     });
+
+    function seatsAjaxPost(){
+    	var idCinema = GetURLParameter('rap');
+      var idMovie = GetURLParameter('phim');
+      console.log(idCinema, idMovie);
+    	// PREPARE FORM DATA
+    	var formData = {
+    		selected_showtime : selected_showtime,
+        idMovie : idMovie,
+        idCinema : idCinema,
+    	}
+    	
+    	// DO POST
+    	$.ajax({
+			type : "POST",
+			contentType : "application/json",
+			url : "/api/seats",
+			data : JSON.stringify(formData),
+			dataType : 'json',
+			success : function(seats) {
+
+        $(".seat--area").html(function() {
+          var str = '<li class="single-seat seat-free" >' + '<img src="./assets/images/movie/seat01-free.png" alt="seat"></img>' + '</li>';
+          return str;
+        });
+			},
+			error : function(e) {
+				alert("Error!")
+				console.log("ERROR: ", e);
+			}
+		});
+    	
+    
+    }
 
     $("#proceed").on('click', function(e) {
       e.preventDefault();
 		  ajaxPost();
     });
-
+    
     function ajaxPost(){
     	
     	// PREPARE FORM DATA
@@ -536,5 +576,16 @@
     	// resetData();
     }
     
+    function GetURLParameter(sParam) {
+      var sPageURL = window.location.search.substring(1);
+      var sURLVariables = sPageURL.split('&');
+      for (var i = 0; i < sURLVariables.length; i++){
+          var sParameterName = sURLVariables[i].split('=');
+          if (sParameterName[0] == sParam)
+          {
+              return sParameterName[1];
+          }
+      }
+    }
   });
 })(jQuery);

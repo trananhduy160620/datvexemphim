@@ -77,8 +77,11 @@
                     <!-- <h5 class="title">05:00</h5>
                     <p>Mins Left</p> -->
                     <select id="select-bar" aria-label=".form-select-sm example">                       
-                            <option value="<%= showTime.ThoiDiemBatDau %>" ><%= showTime.ThoiDiemBatDau %></option>
-                            <option value="2" >123</option>                      
+                            <option value="<%= showTimeList[0].ThoiDiemBatDau %>" selected><%= showTimeList[0].ThoiDiemBatDau %></option>
+                        <% for (let i = 1; i < showTimeList.length; i++) { %>
+                            <option value="<%= showTimeList[i].ThoiDiemBatDau %>" ><%= showTimeList[i].ThoiDiemBatDau %></option>  
+                        <% } %>
+                                                
                     </select>
                 </div>
             </div>
@@ -95,7 +98,7 @@
                     <img src="./assets/images/movie/screen-thumb.png" alt="movie">
                 </div>
                 <h5 class="subtitle">silver plus</h5>
-                <p id="price" hidden><%= showTime.GiaVe %></p>
+                <p id="price" hidden><%= showTimeList[0].GiaVe %></p>
                 <div class="screen-wrapper">
                     <ul class="seat-area">
                         <% for (let i = 0; i < 7; i++) {
