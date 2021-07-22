@@ -27,3 +27,4 @@ exports.getListRap = async (req, res, next) => {
     cinemaComplexs: cinemaComplexs,
   });
 };
+

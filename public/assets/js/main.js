@@ -509,6 +509,7 @@
       console.log(selected_showtime);
     });
 
+
     $("#proceed").on('click', function(e) {
       e.preventDefault();
 		  ajaxPost();
