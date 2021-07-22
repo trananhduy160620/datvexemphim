@@ -13,9 +13,9 @@ exports.getDatVe = async (req, res, next) => {
   const idMovie = req.query.phim;
   const idCinema = req.query.rap;
 
-  if (!req.session.userId) {
-    res.redirect("/login");
-  }
+  // if (!req.session.userId) {
+  //   res.redirect("/login");
+  // }
 
   const movie = await Movie.findOne({
     where: { ID: idMovie },
@@ -62,7 +62,7 @@ exports.postDatVe = async (req, res, next) => {
   const idCinema = req.query.rap;
   const thoiDiemBatDau = req.body.selected_showtime;
   const bookingTicket = req.body.seats;
-  console.log(idMovie, idCinema);
+
   const showTime = await ShowTime.findOne({
     where: { IDPhim: idMovie, IDRap: idCinema, ThoiDiemBatDau: thoiDiemBatDau },
   });
@@ -82,6 +82,29 @@ exports.postDatVe = async (req, res, next) => {
       updatedAt: Date.now(),
     });
   }
+  const seats = [];
+  var sql =
+    'select "Ve"."MaGhe" from "Ve" join "DatCho" on "Ve"."IDDatCho" = "DatCho"."ID" where "DatCho"."IDSuatChieu" = ' +
+    String(showTime.IDSuatChieu);
+  const seatBooked = await db.query(sql, { type: QueryTypes.SELECT });
+
+  for (let x = 0; x < SEATS_ROWS; x++) {
+    const row = alphabet[x].toUpperCase();
+    for (let y = 0; y < SEATS_COLUMNS; y++) {
+      const dict = {};
+      dict["code"] = row + (y + 1).toString();
+      dict["isAvailable"] = true;
+      for (let i = 0; i < seatBooked.length; i++) {
+          if (dict["code"] == seatBooked[i].MaGhe) {
+            dict["isAvailable"] = false;
+            break;
+          } 
+      }
+      seats.push(dict);
+    }
+  }
+  
+  return res.send(seats);
 };
 
 exports.postSeats = async (req, res, next) => {

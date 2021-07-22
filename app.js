@@ -8,6 +8,7 @@ const HomeRouter = require("./routers/Homepage");
 const rapRouter = require("./routers/rap");
 const phimRouter = require("./routers/phim");
 const datVeRouter = require("./routers/datVe");
+const lichSuDatVeRouter = require("./routers/lichSuDatVe");
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use(HomeRouter);
 app.use(rapRouter);
 app.use(phimRouter);
 app.use(datVeRouter);
+app.use(lichSuDatVeRouter);
 
 db.sync().then(function () {
   const port = process.env.PORT || 3000;

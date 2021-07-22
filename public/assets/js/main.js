@@ -342,18 +342,19 @@
           }
       }
     });
-    var book = 0;
-    $(".seat-free img").on('click', function(e) {
-      console.log("test");
-      if(book == 0) {
-        $(this).attr("src","./assets/images/movie/seat01-free.png");
-        book = 1;
-      }
-      else if(book == 1) {
-        $(this).attr("src","./assets/images/movie/seat01-booked.png");
-        book = 0;
-      }
-    });
+    
+    // $(".seat-free img").on('click', function(e) {
+    //   e.preventDefault();
+    //   console.log("test");
+    //   if(book == 0) {
+    //     $(this).attr("src","./assets/images/movie/seat01-free.png");
+    //     book = 1;
+    //   }
+    //   else if(book == 1) {
+    //     $(this).attr("src","./assets/images/movie/seat01-booked.png");
+    //     book = 0;
+    //   }
+    // });
     
     // shop cart + - start here
     var CartPlusMinus = $('.cart-plus-minus');
@@ -472,23 +473,33 @@
     $('.blog-prev').on('click', function() {
         owlB.trigger('prev.owl.carousel', [300]);
     })
+
+    var book = 0;
     var seats = [];
     var totalPrice = 0;
     var total = "";
+
     $(".seat-area").on("click", "img", function(e){
       e.preventDefault();
+      
       var $this = $(this).parent();
       $this.addClass("select").siblings().removeClass("select");
       var value = $this.data("value");
       console.log($(this).attr("src"));
-      if(!seats.includes(value) && $(this).attr("src") == "./assets/images/movie/seat01-booked.png"){
-        seats.push(value);
+      if(book == 0 && $(this).attr("src") != "./assets/images/movie/seat01.png") {
+        $(this).attr("src","./assets/images/movie/seat01-free.png");
+        seats = removeItemOnce(seats, value);
+        book = 1;
       }
-      else{
-        if($(this).attr("src") != "./assets/images/movie/seat01-booked.png"){
-          seats = removeItemOnce(seats, value);
+      else if(book == 1 && $(this).attr("src") != "./assets/images/movie/seat01.png") {
+        $(this).attr("src","./assets/images/movie/seat01-booked.png");
+        if(!seats.includes(value)) {
+          seats.push(value);
         }
+        
+        book = 0;
       }
+      
       $("#book-seats").text(seats);
       totalPrice = parseInt($("#price").text())*seats.length;
       total = totalPrice.toString() + "Đ";
@@ -534,9 +545,23 @@
 			data : JSON.stringify(formData),
 			dataType : 'json',
 			success : function(seats) {
-
-        $(".seat--area").html(function() {
-          var str = '<li class="single-seat seat-free" >' + '<img src="./assets/images/movie/seat01-free.png" alt="seat"></img>' + '</li>';
+        $(".seat-area").html(function() {
+          var str = "";
+          for (let i=0; i < 7; i++) { 
+            let increase=14*i;
+            str += '<li class="seat-line"><ul class="seat--area">';
+            for (let j=increase; j < 14*(i+1); j++) { 
+              if (seats[j].isAvailable) {
+                str += ('<li class="single-seat seat-free" data-value="' + seats[j].code + '">' + '<img src="./assets/images/movie/seat01-free.png" alt="seat"></img>'
+                  + '<span class="sit-num">' + seats[j].code + '</span></li>'
+                );
+              }
+              else {
+                str += '<li class="single-seat"><img src="./assets/images/movie/seat01.png" alt="seat"><span class="sit-num">' + seats[j].code + '</span></li>'
+              }
+            }
+            str += '</ul></li>'
+          }
           return str;
         });
 			},
@@ -570,7 +595,34 @@
 			url : window.location,
 			data : JSON.stringify(formData),
 			dataType : 'json',
-			
+			success : function(seats) {
+				$(".seat-area").html(function() {
+          var str = "";
+          for (let i=0; i < 7; i++) { 
+            let increase=14*i;
+            str += '<li class="seat-line"><ul class="seat--area">';
+            for (let j=increase; j < 14*(i+1); j++) { 
+              if (seats[j].isAvailable) {
+                str += ('<li class="single-seat seat-free" data-value="' + seats[j].code + '">' + '<img src="./assets/images/movie/seat01-free.png" alt="seat"></img>'
+                  + '<span class="sit-num">' + seats[j].code + '</span></li>'
+                );
+              }
+              else {
+                str += '<li class="single-seat"><img src="./assets/images/movie/seat01.png" alt="seat"><span class="sit-num">' + seats[j].code + '</span></li>'
+              }
+            }
+            str += '</ul></li>'
+          }
+          return str;
+        });
+
+        $("#book-seats").text("");
+        $(".total-price").text("0Đ");
+			},
+			error : function(e) {
+				alert("Error!")
+				console.log("ERROR: ", e);
+			}
 		});
     	// Reset FormData after Posting
     	// resetData();
