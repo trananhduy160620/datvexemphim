@@ -3,6 +3,7 @@
 
 
 <!-- Mirrored from pixner.net/boleto/demo/movie-seat-plan.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Dec 2020 12:40:25 GMT -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +22,7 @@
 
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-icon">
 
-    <title>Boleto  - Online Ticket Booking Website HTML Template</title>
+    <title>Boleto - Online Ticket Booking Website HTML Template</title>
 
 
 </head>
@@ -45,11 +46,12 @@
     <!-- ==========Overlay========== -->
 
     <!-- ==========Banner-Section========== -->
-    <section class="details-banner hero-area bg_img seat-plan-banner" data-background="assets/images/banner/banner04.jpg">
+    <section class="details-banner hero-area bg_img seat-plan-banner"
+        data-background="assets/images/banner/banner04.jpg">
         <div class="container">
             <div class="details-banner-wrapper">
                 <div class="details-banner-content style-two">
-                    <h3 class="title">Venus</h3>
+                    <h3 class="title"><%= movieName %></h3>
                     <div class="tags">
                         <a href="#0">City Walk</a>
                         <a href="#0">English - 2D</a>
@@ -64,24 +66,25 @@
     <section class="page-title bg-one">
         <div class="container">
             <div class="page-title-area">
-                
+
                 <div class="item md-order-1">
                     <button class="custom-button back-button" onclick="history.back()">
                         <i class="flaticon-double-right-arrows-angles"></i>back
                     </button>
                 </div>
-                <div class="item date-item">                   
-                   <h3><%= movieName %></h3>
-                </div>
                 <div class="item date-item">
-                    <!-- <h5 class="title">05:00</h5>
-                    <p>Mins Left</p> -->
+                    <h3>
+                        <%= showTime.ThoiDiemBatDau %>
+                    </h3>
+                </div>  
+                <div class="item date-item">
+                
                     <select id="select-bar" aria-label=".form-select-sm example">                       
                             <option value="<%= showTimeList[0].ThoiDiemBatDau %>" selected><%= showTimeList[0].ThoiDiemBatDau %></option>
                         <% for (let i = 1; i < showTimeList.length; i++) { %>
                             <option value="<%= showTimeList[i].ThoiDiemBatDau %>" ><%= showTimeList[i].ThoiDiemBatDau %></option>  
                         <% } %>
-                                                
+                                            
                     </select>
                 </div>
             </div>
@@ -101,94 +104,29 @@
                 <p id="price" hidden><%= showTimeList[0].GiaVe %></p>
                 <div class="screen-wrapper">
                     <ul class="seat-area">
-                        <% for (let i = 0; i < 7; i++) {
-                                let increase = 14*i;             
-                        %>                        
-                        <li class="seat-line">
-                            <ul class="seat--area"> 
-                            <% for (let j = increase; j < 14*(i+1); j++) { 
-                                if (seats[j].isAvailable) { %>
-                                    <li class="single-seat seat-free" data-value="<%= seats[j].code %>">
-                                        <img src="./assets/images/movie/seat01-free.png" alt="seat">
-                                        <span class="sit-num"><%= seats[j].code %></span>
-                                    </li>
-                                <% } else { %>
-                                    <li class="single-seat">
-                                        <img src="./assets/images/movie/seat01.png" alt="seat">
-                                        <span class="sit-num"><%= seats[j].code %></span>
-                                    </li>
-                                <% } %>
+                        <% for (let i=0; i < 7; i++) { let increase=14*i; %>
+                            <li class="seat-line">
+                                <ul class="seat--area">
+                                    <% for (let j=increase; j < 14*(i+1); j++) { if (seats[j].isAvailable) { %>
+                                        <li class="single-seat seat-free" data-value="<%= seats[j].code %>">
+                                            <img src="./assets/images/movie/seat01-free.png" alt="seat">
+                                            <span class="sit-num">
+                                                <%= seats[j].code %>
+                                            </span>
+                                        </li>
+                                        <% } else { %>
+                                            <li class="single-seat">
+                                                <img src="./assets/images/movie/seat01.png" alt="seat">
+                                                <span class="sit-num">
+                                                    <%= seats[j].code %>
+                                                </span>
+                                            </li>
+                                            <% } %>
+                                                <% } %>
+                                </ul>
+                            </li>
                             <% } %>
-                            </ul>  
-                        </li>
-                        <% } %>
-                    
-                        <!-- <li class="seat-line">
-                            <span>B</span>
-                            <ul class="seat--area">
-                                <li class="front-seat">
-                                    <ul>
-                                        <li class="single-seat">
-                                            <img src="./assets/images/movie/seat01.png" alt="seat">
-                                        </li>
-                                        <li class="single-seat">
-                                            <img src="./assets/images/movie/seat01.png" alt="seat">
-                                        </li>
-                                        <li class="single-seat">
-                                            <img src="./assets/images/movie/seat01.png" alt="seat">
-                                        </li>
-                                        <li class="single-seat">
-                                            <img src="./assets/images/movie/seat01.png" alt="seat">
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="front-seat">
-                                    <ul>
-                                        <li class="single-seat">
-                                            <img src="./assets/images/movie/seat01.png" alt="seat">
-                                        </li>
-                                        <li class="single-seat seat-free">
-                                            <img src="./assets/images/movie/seat01-free.png" alt="seat">
-                                            <span class="sit-num">f7</span>
-                                        </li>
-                                        <li class="single-seat seat-free">
-                                            <img src="./assets/images/movie/seat01-free.png" alt="seat">
-                                            <span class="sit-num">f8</span>
-                                        </li>
-                                        <li class="single-seat">
-                                            <img src="./assets/images/movie/seat01.png" alt="seat">
-                                            <span class="sit-num">f9</span>
-                                        </li>
-                                        <li class="single-seat">
-                                            <img src="./assets/images/movie/seat01.png" alt="seat">
-                                        </li>
-                                        <li class="single-seat">
-                                            <img src="./assets/images/movie/seat01.png" alt="seat">
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="front-seat">
-                                    <ul>
-                                        <li class="single-seat seat-free">
-                                            <img src="./assets/images/movie/seat01-booked.png" alt="seat">
-                                            <span class="sit-num">f9</span>
-                                        </li>
-                                        <li class="single-seat seat-free">
-                                            <img src="./assets/images/movie/seat01-free.png" alt="seat">
-                                            <span class="sit-num">f10</span>
-                                        </li>
-                                        <li class="single-seat seat-free">
-                                            <img src="./assets/images/movie/seat01-free.png" alt="seat">
-                                            <span class="sit-num">f11</span>
-                                        </li>
-                                        <li class="single-seat">
-                                            <img src="./assets/images/movie/seat01.png" alt="seat">
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <span>B</span>
-                        </li> -->
+
                     </ul>
                 </div>
             </div>
@@ -217,7 +155,7 @@
             <div class="container">
                 <div class="newslater-container bg_img" data-background="assets/images/newslater/newslater-bg01.jpg">
                     <div class="newslater-wrapper">
-                       
+
                     </div>
                 </div>
             </div>
@@ -269,4 +207,5 @@
 
 
 <!-- Mirrored from pixner.net/boleto/demo/movie-seat-plan.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Dec 2020 12:40:31 GMT -->
+
 </html>
