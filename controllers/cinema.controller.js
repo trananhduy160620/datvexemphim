@@ -6,7 +6,8 @@ const sequelize = require('../database/database')
 
 module.exports.listCinema = async function (req, res) {
     const listOfCinema = await Cinema.findAll({
-        attributes: ["ID", "Ten", "LoaiRap", "KichThuocChieuNgang", "KichThuocChieuDoc"]
+        attributes: ["ID", "Ten", "LoaiRap", "KichThuocChieuNgang", "KichThuocChieuDoc"],
+        order: sequelize.col('ID')
     })
     res.render('list-cinema', { listOfCinema: listOfCinema })
 }

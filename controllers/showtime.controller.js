@@ -26,7 +26,7 @@ function encodeDateTimeString(datetimeString) {
     return time + " " + day + "/" + month + "/" + year 
 }
 module.exports.listShowTime = async function(req, res) {
-    var sql = 'SELECT "Phim"."Ten" AS "TenPhim", "Rap"."Ten" AS "TenRap", "SuatChieu".* from "SuatChieu" join "Rap" on "SuatChieu"."IDRap" = "Rap"."ID" join "Phim" on "SuatChieu"."IDPhim" = "Phim"."ID";'
+    var sql = 'SELECT "Phim"."Ten" AS "TenPhim", "Rap"."Ten" AS "TenRap", "SuatChieu".* from "SuatChieu" join "Rap" on "SuatChieu"."IDRap" = "Rap"."ID" join "Phim" on "SuatChieu"."IDPhim" = "Phim"."ID" ORDER BY "SuatChieu"."IDSuatChieu";'
     const listOfShowTime = await sequelize.query(sql, { type: QueryTypes.SELECT });
     res.render('list-showtime-movie', {listOfShowTime: listOfShowTime})
 }

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Admin Page</title>
+    <title>Doanh thu theo tháng</title>
     <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
@@ -23,6 +23,72 @@
     -->
     <link href="./main.css" rel="stylesheet">
 </head>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: black;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    /* Add padding to containers */
+    .container {
+        padding: 16px;
+        background-color: white;
+    }
+
+    /* Full-width input fields */
+    input[type=text],
+    input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+    }
+
+    input[type=text]:focus,
+    input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+
+    /* Overwrite default styles of hr */
+    hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+    }
+
+    /* Set a style for the submit button */
+    .registerbtn {
+        background-color: #04AA6D;
+        color: white;
+        padding: 16px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+
+    .registerbtn:hover {
+        opacity: 1;
+    }
+
+    /* Add a blue text color to links */
+    a {
+        color: dodgerblue;
+    }
+
+    /* Set a grey background color and center the text of the "sign in" section */
+    .signin {
+        background-color: #f1f1f1;
+        text-align: center;
+    }
+</style>
 
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -175,11 +241,11 @@
                             <li>
                                 <a href="index" class="mm-active">
                                     <i class="metismenu-icon pe-7s-rocket"></i>
-                                    Dashboard 
+                                    Dashboard
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">Danh mục</li>
-                            
+
                             <li>
                                 <a href="#">
                                     <i class="metismenu-icon pe-7s-diamond"></i>
@@ -199,10 +265,10 @@
                                             </i>Thêm thông tin rạp mới
                                         </a>
                                     </li>
-                                    
+
                                 </ul>
                             </li>
-                            
+
                             <li>
                                 <a href="#">
                                     <i class="metismenu-icon pe-7s-car"></i>
@@ -310,78 +376,45 @@
 
             <div class="app-main__outer">
                 <div class="app-main__inner">
-                    <h1>Quản lý các danh mục</h1><br>
-                    <div class="row">
-                        <div class="col-md-6 col-xl-4">
-                            <div class="card mb-3 widget-content bg-midnight-bloom">
-                                <div class="widget-content-wrapper text-white">
-                                    <div class="widget-content-left">
-                                        <div class="widget-heading">Quản lý rạp</div>
-                                        <div class="widget-subheading">Go to page</div>
-                                    </div>
-                                </div>
-                            </div>
+                    <h1>Doanh thu theo cụm rạp</h1><br>
+                    <form action="/doanh-thu-theo-cum-rap" method="POST">
+                        <div class="container">
+
+                            <label for="email"><b>Cụm rạp</b></label>
+                            <select name="cum_rap" id="psw">
+                                <% for(let i = 0; i < listOfCinemaComplex.length; i++) { %>
+                                    <option value="<%=listOfCinemaComplex[i].ID%>"> <%=listOfCinemaComplex[i].Ten%> </option>
+                                <% } %>
+                            </select> <br><br>
+
+                            <button type="submit" class="registerbtn">Thống kê doanh thu</button>
                         </div>
-                        <div class="col-md-6 col-xl-4">
-                            <div class="card mb-3 widget-content bg-arielle-smile">
-                                <div class="widget-content-wrapper text-white">
-                                    <div class="widget-content-left">
-                                        <div class="widget-heading">Quản lý cụm rạp</div>
-                                        <div class="widget-subheading">Go to page</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-4">
-                            <div class="card mb-3 widget-content bg-grow-early">
-                                <div class="widget-content-wrapper text-white">
-                                    <div class="widget-content-left">
-                                        <div class="widget-heading">Quản lý suất chiếu</div>
-                                        <div class="widget-subheading">Go to page</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-xl-4">
-                            <div class="card mb-3 widget-content">
-                                <div class="widget-content-outer">
-                                    <div class="widget-content-wrapper">
-                                        <div class="widget-content-left">
-                                            <div class="widget-heading">Quản lý phim</div>
-                                            <div class="widget-subheading">Go to page</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-4">
-                            <div class="card mb-3 widget-content">
-                                <div class="widget-content-outer">
-                                    <div class="widget-content-wrapper">
-                                        <div class="widget-content-left">
-                                            <div class="widget-heading">Thống kê doanh thu theo cụm rạp</div>
-                                            <div class="widget-subheading">Go to page</div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-4">
-                            <div class="card mb-3 widget-content">
-                                <div class="widget-content-outer">
-                                    <div class="widget-content-wrapper">
-                                        <div class="widget-content-left">
-                                            <div class="widget-heading">Thống kê doanh thu theo phim</div>
-                                            <div class="widget-subheading">Go to page</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </form>
+
+                    <% if (isShowTable) { %>
+                        <table class="table table-bordered table-dark">
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên cụm rạp</th>
+                                <th>Tên phim</th>
+                                <th>Tiền vé</th>
+                            </tr>
+                            <% for (let i = 0; i < chitietdoanhthu.length; i++) { %>
+                            <tr>
+                                <td> <%= i + 1 %> </td>
+                                <td> <%= chitietdoanhthu[i].tencumrap %> </td>
+                                <td> <%= chitietdoanhthu[i].tenphim %> </td>
+                                <td> <%= chitietdoanhthu[i].tienve %> </td>
+                            </tr>
+                            <% } %>
+                            <tr>
+                                <td colspan='3'>Tổng doanh thu: </td>
+                                <td> <%= tongdoanhthu %> </td>
+                              </tr>
+                        </table>
+                    <% } else { %>
+                        
+                    <% } %>
                 </div>
             </div>
             <script src="http://maps.google.com/maps/api/js?sensor=true"></script>

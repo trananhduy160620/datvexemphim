@@ -2,6 +2,11 @@ const { Sequelize, Model, DataTypes } = require('sequelize')
 const db = require('../database/database')
 
 const ShowTime = db.define('SuatChieu', {
+    IDSuatChieu: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
     IDPhim: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -9,7 +14,7 @@ const ShowTime = db.define('SuatChieu', {
     },
     IDRap: {
         type: Sequelize.INTEGER,
-        allowNull: true
+        allowNull: false
     },
     ThoiDiemBatDau: {
         type: Sequelize.STRING,

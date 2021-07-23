@@ -6,11 +6,10 @@ const { promisify } = require('util')
 
 const unlinkAsync = promisify(fs.unlink)
 module.exports.listMovie = async function (req, res) {
-  // const listOfMovie = await Movie.findAll({
-  //   attributes: ["ID", "Ten", "NgayCongChieu", "Poster", "ThoiLuong"]
-  // })
-  var sql = ' SELECT * FROM "Phim" ORDER BY "Phim"."ID" ' 
-  const listOfMovie = await sequelize.query(sql, { type: QueryTypes.SELECT });
+  const listOfMovie = await Movie.findAll({
+    attributes: ["ID", "Ten", "NgayCongChieu", "Poster", "ThoiLuong"],
+    order: sequelize.col('ID')
+  })
   res.render('list-movie', { listOfMovie: listOfMovie })
 }
 

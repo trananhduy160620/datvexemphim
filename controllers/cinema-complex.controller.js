@@ -4,9 +4,12 @@ const sequelize = require('../database/database')
 
 
 module.exports.listCinemaComplex = async function(req, res) {
-    const listOfCinemaComplex = await CinemaComplex.findAll({
-      attributes: ["ID", "Ten", "DiaChi"]
-    })
+    const listOfCinemaComplex = await CinemaComplex.findAll(
+        {
+            attributes: ["ID", "Ten", "DiaChi"],
+            order: sequelize.col('ID')
+        }
+    )
     res.render('list-cinema-complex' ,{listOfCinemaComplex: listOfCinemaComplex})
 }
 
