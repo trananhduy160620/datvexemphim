@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)http://pixner.net/boleto/demo/movie-list.html -->
 <html lang="en"
   class=" sizes customelements history pointerevents postmessage webgl websockets cssanimations csscolumns csscolumns-width csscolumns-span csscolumns-fill csscolumns-gap csscolumns-rule csscolumns-rulecolor csscolumns-rulestyle csscolumns-rulewidth csscolumns-breakbefore csscolumns-breakafter csscolumns-breakinside flexbox picture srcset webworkers">
 
@@ -19,11 +18,25 @@
   <link rel="stylesheet" href="./movie-list/nice-select.css">
   <link rel="stylesheet" href="./movie-list/main.css">
 
+  <link rel="stylesheet" href="/public/assets/css/main.css">
+  <link rel="stylesheet" href="/public/movie-list/flaticon.css">
+
   <link rel="shortcut icon" href="http://pixner.net/boleto/demo/assets/images/favicon.png" type="image/x-icon">
 
 
 
   <title>Boleto - Online Ticket Booking Website HTML Template</title>
+
+  <style>
+    .sports-grid .movie-content .title,
+    .event-grid .movie-content .title,
+    .movie-grid .movie-content .title {
+      padding: 23px 0;
+      text-transform: capitalize;
+      border-bottom: 1px dashed #11326f;
+      height: 110px;
+    }
+  </style>
 
 </head>
 
@@ -38,12 +51,7 @@
     </div>
   </div>
   <!-- ==========Preloader========== -->
-  <!-- ==========Overlay========== -->
-  <div class="overlay"></div>
-  <a href="http://pixner.net/boleto/demo/movie-list.html#0" class="scrollToTop active">
-    <i class="fas fa-angle-up"></i>
-  </a>
-  <!-- ==========Overlay========== -->
+
 
   <!-- ==========Header-Section========== -->
   <header class="header-section header-active">
@@ -56,43 +64,43 @@
         </div>
         <ul class="menu">
           <li class="menu-item-has-children">
-            <a href="http://pixner.net/boleto/demo/movie-list.html#0">Phim</a>
+            <a href="#">Movies</a>
             <ul class="submenu">
               <li>
-                <a href="http://pixner.net/boleto/demo/index.html">Phim Đang Chiếu</a>
+                <a href="http://pixner.net/boleto/demo/index-2.html">Now Showing</a>
               </li>
               <li>
-                <a href="http://pixner.net/boleto/demo/index-2.html">Phim sắp chiếu</a>
+                <a href="http://pixner.net/boleto/demo/index-2.html">Coming Soon</a>
               </li>
             </ul>
           </li>
 
           <li class="menu-item-has-children">
-            <a href="http://pixner.net/boleto/demo/movie-list.html#0">Rạp</a>
+            <a href="#">Theaters</a>
             <ul class="submenu">
               <li>
-                <a href="http://pixner.net/boleto/demo/index.html">Tất cả rạp</a>
+                <a href="/cum-rap">All Cinemas</a>
               </li>
               <li>
-                <a href="http://pixner.net/boleto/demo/index-2.html">Rạp đặc biệt</a>
+                <a href="http://pixner.net/boleto/demo/index-2.html">Special Cinemas</a>
               </li>
             </ul>
           </li>
           <% if (!isAuthenticated) { %>
-          <li class="menu-item-has-children">
-            <a href="/login">Đăng nhập</a>
-          </li>
-          <li class="header-button pr-0">
-            <a href="/register">Đăng ký</a>
-          </li>
-          <% } else {%>
             <li class="menu-item-has-children">
-              <a href="/logout">Đăng Xuất</a>
+              <a href="/login">Login</a>
             </li>
             <li class="header-button pr-0">
-              <a href="#">Profile</a>
+              <a href="/register">Register</a>
             </li>
-          <% } %>
+            <% } else {%>
+              <li class="menu-item-has-children">
+                <a href="/logout">Logout</a>
+              </li>
+              <li class="header-button pr-0">
+                <a href="#">Profile</a>
+              </li>
+              <% } %>
 
         </ul>
 
@@ -104,68 +112,66 @@
 
   <%-body%>
 
-  <!-- ==========Footer-Section========== -->
-  <footer class="footer-section">
-    <div class="newslater-section padding-bottom">
+    <!-- ==========Footer-Section========== -->
+    <footer class="footer-section">
+      <div class="newslater-section padding-bottom">
+        <div class="container">
+          <div class="newslater-container bg_img" data-background="./assets/images/newslater/newslater-bg01.jpg"
+            style="background-image: url(&quot;./assets/images/newslater/newslater-bg01.jpg&quot;);">
+            <div class="newslater-wrapper">
+              <h5 class="cate">subscribe to Boleto </h5>
+              <h3 class="title">to get exclusive benifits</h3>
+              <form class="newslater-form">
+                <input type="text" placeholder="Your Email Address">
+                <button type="submit">subscribe</button>
+              </form>
+              <p>We respect your privacy, so we never share your info</p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="container">
-        <div class="newslater-container bg_img" data-background="./assets/images/newslater/newslater-bg01.jpg"
-          style="background-image: url(&quot;./assets/images/newslater/newslater-bg01.jpg&quot;);">
-          <div class="newslater-wrapper">
-            <h5 class="cate">subscribe to Boleto </h5>
-            <h3 class="title">to get exclusive benifits</h3>
-            <form class="newslater-form">
-              <input type="text" placeholder="Your Email Address">
-              <button type="submit">subscribe</button>
-            </form>
-            <p>We respect your privacy, so we never share your info</p>
+
+        <div class="footer-bottom">
+          <div class="footer-bottom-area">
+            <div class="left">
+            </div>
+            <ul class="links">
+              <li>
+                <a href="#">About</a>
+              </li>
+              <li>
+                <a href="#">Terms Of Use</a>
+              </li>
+              <li>
+                <a href="#">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="#">FAQ</a>
+              </li>
+              <li>
+                <a href="#">Feedback</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-    </div>
-    <div class="container">
+    </footer>
+    <!-- ==========Footer-Section========== -->
 
-      <div class="footer-bottom">
-        <div class="footer-bottom-area">
-          <div class="left">
-            <p>Copyright © 2020.All Rights Reserved By <a href="http://pixner.net/boleto/demo/movie-list.html#0">Boleto
-              </a></p>
-          </div>
-          <ul class="links">
-            <li>
-              <a href="http://pixner.net/boleto/demo/movie-list.html#0">About</a>
-            </li>
-            <li>
-              <a href="http://pixner.net/boleto/demo/movie-list.html#0">Terms Of Use</a>
-            </li>
-            <li>
-              <a href="http://pixner.net/boleto/demo/movie-list.html#0">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="http://pixner.net/boleto/demo/movie-list.html#0">FAQ</a>
-            </li>
-            <li>
-              <a href="http://pixner.net/boleto/demo/movie-list.html#0">Feedback</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- ==========Footer-Section========== -->
-
-  <script src="./movie-list/jquery-3.3.1.min.js"></script>
-  <script src="./movie-list/modernizr-3.6.0.min.js"></script>
-  <script src="./movie-list/plugins.js"></script>
-  <script src="./movie-list/bootstrap.min.js"></script>
-  <script src="./movie-list/isotope.pkgd.min.js"></script>
-  <script src="./movie-list/magnific-popup.min.js"></script>
-  <script src="./movie-list/owl.carousel.min.js"></script>
-  <script src="./movie-list/wow.min.js"></script>
-  <script src="./movie-list/countdown.min.js"></script>
-  <script src="./movie-list/odometer.min.js"></script>
-  <script src="./movie-list/viewport.jquery.js"></script>
-  <script src="./movie-list/nice-select.js"></script>
-  <script src="./movie-list/main.js"></script>
+    <script src="./movie-list/jquery-3.3.1.min.js"></script>
+    <script src="./movie-list/modernizr-3.6.0.min.js"></script>
+    <script src="./movie-list/plugins.js"></script>
+    <script src="./movie-list/bootstrap.min.js"></script>
+    <script src="./movie-list/isotope.pkgd.min.js"></script>
+    <script src="./movie-list/magnific-popup.min.js"></script>
+    <script src="./movie-list/owl.carousel.min.js"></script>
+    <script src="./movie-list/wow.min.js"></script>
+    <script src="./movie-list/countdown.min.js"></script>
+    <script src="./movie-list/odometer.min.js"></script>
+    <script src="./movie-list/viewport.jquery.js"></script>
+    <script src="./movie-list/nice-select.js"></script>
+    <script src="./movie-list/main.js"></script>
 
 
 </body>
