@@ -1,147 +1,151 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)http://pixner.net/boleto/demo/movie-list.html -->
-<html lang="en"
-  class=" sizes customelements history pointerevents postmessage webgl websockets cssanimations csscolumns csscolumns-width csscolumns-span csscolumns-fill csscolumns-gap csscolumns-rule csscolumns-rulecolor csscolumns-rulestyle csscolumns-rulewidth csscolumns-breakbefore csscolumns-breakafter csscolumns-breakinside flexbox picture srcset webworkers">
+<html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <link rel="stylesheet" href="/movie-list/bootstrap.min.css">
-  <link rel="stylesheet" href="/movie-list/all.min.css">
-  <link rel="stylesheet" href="/movie-list/animate.css">
-  <link rel="stylesheet" href="/movie-list/flaticon.css">
-  <link rel="stylesheet" href="/movie-list/magnific-popup.css">
-  <link rel="stylesheet" href="/movie-list/odometer.css">
-  <link rel="stylesheet" href="/movie-list/owl.carousel.min.css">
-  <link rel="stylesheet" href="/movie-list/owl.theme.default.min.css">
-  <link rel="stylesheet" href="/movie-list/nice-select.css">
-  <link rel="stylesheet" href="/movie-list/main.css">
+    <link rel="stylesheet" href="/movie-list/bootstrap.min.css">
+    <link rel="stylesheet" href="/movie-list/all.min.css">
+    <link rel="stylesheet" href="/movie-list/animate.css">
+    <link rel="stylesheet" href="/movie-list/flaticon.css">
+    <link rel="stylesheet" href="/movie-list/magnific-popup.css">
+    <link rel="stylesheet" href="/movie-list/odometer.css">
+    <link rel="stylesheet" href="/movie-list/owl.carousel.min.css">
+    <link rel="stylesheet" href="/movie-list/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/movie-list/nice-select.css">
+    <link rel="stylesheet" href="/movie-list/main.css">
 
-  <link rel="shortcut icon" href="http://pixner.net/boleto/demo/assets/images/favicon.png" type="image/x-icon">
-
-
-
-  <title>Boleto - Online Ticket Booking Website HTML Template</title>
-  <!-- CSS -->
-<style>
-  .grid-cinemas-area {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-      grid-gap: 8px 10px;
-      padding: 20px 0px 20px 0px; 
-      width: auto;
-      text-transform: uppercase;
-      font-weight: bold;
-      font-size: 17px;
-      list-style: none;
-      text-align:left;
-  }
-  #cinemas-area{
-      border-radius: 10px;
-      width: 1080px;
-      margin-left: -100px;
-  }
+    <link rel="shortcut icon" href="http://pixner.net/boleto/demo/assets/images/favicon.png" type="image/x-icon">
 
 
-  .grid-cinemas-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-gap: 8px 8px;
-      padding: 10px 0px 40px 40px;
-      font-weight: bold;
-      font-size: 15px;
-      list-style: none;
-      width: 1200px;
-      text-align:left;
-  }
+    <title>Boleto - Online Ticket Booking Website HTML Template</title>
+    <!-- CSS -->
+    <style>
+        .grid-cinemas-area {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-gap: 8px 10px;
+            padding: 20px 0px 20px 0px;
+            width: auto;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 17px;
+            list-style: none;
+            text-align: left;
+        }
 
-  #cinemas-list{
-      border-radius: 10px;
-      width: 1080px;
-      margin-left: -160px;
-      
-  }
+        #cinemas-area {
+            border-radius: 10px;
+            width: 1080px;
+            margin-left: -100px;
+        }
 
-  .active,
-  span:hover {  
-      cursor: pointer;  
-      color: red;
-  }   
 
-  label{
-      display: block;
-      text-align: center;
-      text-transform: uppercase;
-      font-size: 50px;
-      font-weight: bold;
-      color: #ee3535;
-      padding-bottom: 50px;
-  }
+        .grid-cinemas-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-gap: 8px 8px;
+            padding: 10px 0px 40px 40px;
+            font-weight: bold;
+            font-size: 15px;
+            list-style: none;
+            width: 1200px;
+            text-align: left;
+        }
 
-  span{
-      margin: 5px;
-  }
+        #cinemas-list {
+            border-radius: 10px;
+            width: 1080px;
+            margin-left: -160px;
 
-</style>
+        }
+
+        .active,
+        span:hover {
+            cursor: pointer;
+            color: red;
+        }
+
+        label {
+            display: block;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 60px;
+            font-weight: bold;
+            color: #31d7a9;
+            padding-bottom: 50px;
+            margin-top: -80px;
+        }
+
+        span {
+            margin: 5px;
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- ==========Header-Section========== -->
-  <section class="banner-section">
-    <div class="banner-bg bg_img bg-fixed" data-background="/assets/images/banner/banner01.jpg"></div>
-    <div class="container">
-        <div class="banner-content">
-            <div>
-                <label class="cinema-name">CGV CINEMAS</label>
-            </div>
-            <hr>
+    <!-- ==========Header-Section========== -->
+    <section class="banner-section">
+        <div class="banner-bg bg_img bg-fixed" data-background="/assets/images/banner/banner01.jpg"></div>
+        <div class="container">
+            <div class="banner-content">
+                <div>
+                    <label class="cinema-name">CGV CINEMAS</label>
+                </div>
+                <hr>
 
-            <div id="cinemas-area" >
-                <ul class="grid-cinemas-area">
-                    <% for (let i = 0; i < cinemaComplexs.length; i++) { %>
-                        <a style="text-decoration: none; color: #e7e9ec;" href="/cum-rap/<%= cinemaComplexs[i].ID %>" >
-                            <li>
-                                <span id="cgv_city_<%= cinemaComplexs[i].ID %>" class="span" ><%= cinemaComplexs[i].Ten %></span>
-                            </li>   
-                        </a>
-                         
-                    <% } %>
-                </ul>
-            </div>
-            <hr>
-        
-            <div id="cinemas-list">
-                <ul class="grid-cinemas-list">
-                    <% for (let i = 0; i < cinemaList.length; i++) { %>
-                        <a style="text-decoration: none; color: #e7e9ec;" href="/phimdangchieu?rap=<%= cinemaList[i].ID %>" >
-                            <li class="cgv_city_1">
-                                <span id="<%= cinemaList[i].ID %>"><%= cinemaList[i].Ten %></span>
-                            </li>  
-                        </a>               
-                    <% } %>     
-                </ul>
-            </div>
+                <div id="cinemas-area">
+                    <ul class="grid-cinemas-area">
+                        <% for (let i=0; i < cinemaComplexs.length; i++) { %>
+                            <a style="text-decoration: none; color: #e7e9ec;"
+                                href="/cum-rap/<%= cinemaComplexs[i].ID %>">
+                                <li>
+                                    <span id="cgv_city_<%= cinemaComplexs[i].ID %>" class="span">
+                                        <%= cinemaComplexs[i].Ten %>
+                                    </span>
+                                </li>
+                            </a>
 
+                            <% } %>
+                    </ul>
+                </div>
+                <hr>
+
+                <div id="cinemas-list">
+                    <ul class="grid-cinemas-list">
+                        <% for (let i=0; i < cinemaList.length; i++) { %>
+                            <a style="text-decoration: none; color: #e7e9ec;"
+                                href="/phimdangchieu?rap=<%= cinemaList[i].ID %>">
+                                <li class="cgv_city_1">
+                                    <span id="<%= cinemaList[i].ID %>">
+                                        <%= cinemaList[i].Ten %>
+                                    </span>
+                                </li>
+                            </a>
+                            <% } %>
+                    </ul>
+                </div>
+
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-  <script src="/movie-list/jquery-3.3.1.min.js"></script>
-  <script src="/movie-list/modernizr-3.6.0.min.js"></script>
-  <script src="/movie-list/plugins.js"></script>
-  <script src="/movie-list/bootstrap.min.js"></script>
-  <script src="/movie-list/isotope.pkgd.min.js"></script>
-  <script src="/movie-list/magnific-popup.min.js"></script>
-  <script src="/movie-list/owl.carousel.min.js"></script>
-  <script src="/movie-list/wow.min.js"></script>
-  <script src="/movie-list/countdown.min.js"></script>
-  <script src="/movie-list/odometer.min.js"></script>
-  <script src="/movie-list/viewport.jquery.js"></script>
-  <script src="/movie-list/nice-select.js"></script>
-  <script src="/movie-list/main.js"></script>
+    <script src="/movie-list/jquery-3.3.1.min.js"></script>
+    <script src="/movie-list/modernizr-3.6.0.min.js"></script>
+    <script src="/movie-list/plugins.js"></script>
+    <script src="/movie-list/bootstrap.min.js"></script>
+    <script src="/movie-list/isotope.pkgd.min.js"></script>
+    <script src="/movie-list/magnific-popup.min.js"></script>
+    <script src="/movie-list/owl.carousel.min.js"></script>
+    <script src="/movie-list/wow.min.js"></script>
+    <script src="/movie-list/countdown.min.js"></script>
+    <script src="/movie-list/odometer.min.js"></script>
+    <script src="/movie-list/viewport.jquery.js"></script>
+    <script src="/movie-list/nice-select.js"></script>
+    <script src="/movie-list/main.js"></script>
 </body>
 <div style="position: absolute; top: 0px;"></div>
 

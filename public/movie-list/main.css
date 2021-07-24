@@ -1615,7 +1615,7 @@ input[type="submit"] {
 }
 
 .menu-item-has-children > a::after {
-  content: "\f107";
+  content: none;
   font-weight: 600;
   font-family: "Font Awesome 5 Free";
   margin-left: 5px;

@@ -3001,7 +3001,8 @@ input[type="submit"] {
 .movie-grid .movie-content .title {
   padding: 23px 0;
   text-transform: capitalize;
-  border-bottom: 1px dashed #11326f;
+  /* border-bottom: 1px dashed #11326f; */
+  /* width: 150px; */
 }
 
 .sports-grid .movie-thumb,
