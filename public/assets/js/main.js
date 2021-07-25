@@ -522,6 +522,7 @@
       console.log(selected_showtime);
       
       event.preventDefault();
+      $("#item-time").text(selected_showtime);
       seatsAjaxPost();
       
     });

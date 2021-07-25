@@ -13,9 +13,9 @@ exports.getDatVe = async (req, res, next) => {
   const idMovie = req.query.phim;
   const idCinema = req.query.rap;
 
-  // if (!req.session.userId) {
-  //   res.redirect("/login");
-  // }
+  if (!req.session.userId) {
+    res.redirect("/login");
+  }
 
   const movie = await Movie.findOne({
     where: { ID: idMovie },

@@ -3,11 +3,22 @@ const Email = require("../models/email");
 const randomString = require("random-base64-string");
 const express = require("express");
 const asyncHandler = require("express-async-handler");
-const Booking = require("../models/booking");
-const Ticket = require("../models/ticket");
+const Movies = require("../models/movie");
+const { Op } = require("sequelize");
+const { format } = require("date-fns");
 
 exports.getHomePage = async (req, res, next) => {
-  res.render("home", {isAuthenticated: req.session.userId,});
+  const nowShowing = await Movies.findAll();
+  const now = format(new Date(), "dd/MM/yyyy");
+  const comingSoon = await Movies.findAll({
+    where: {
+      NgayCongChieu: {
+        [Op.gt]: now
+      }
+    }
+  });
+  console.log(comingSoon);
+  res.render("home", {isAuthenticated: req.session.userId, nowShowing: nowShowing, comingSoon: comingSoon});
 };
 
 exports.getRegister = async (req, res, next) => {

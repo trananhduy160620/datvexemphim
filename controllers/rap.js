@@ -4,6 +4,9 @@ const Cinema = require("../models/cinema");
 exports.getRap = async (req, res, next) => {
   const cinemaComplexs = await CinemaComplex.findAll({
     attributes: ["ID", "Ten", "DiaChi"],
+    order: [
+      ['ID', 'ASC'],
+    ],
   });
   const cinemaList = [];
   res.render("menuRap/cumrap", {
@@ -20,6 +23,9 @@ exports.getListRap = async (req, res, next) => {
   });
   const cinemaComplexs = await CinemaComplex.findAll({
     attributes: ["ID", "Ten", "DiaChi"],
+    order: [
+      ['ID', 'ASC'],
+    ],
   });
   res.render("menuRap/rapphim", {
     isAuthenticated: req.session.userId,

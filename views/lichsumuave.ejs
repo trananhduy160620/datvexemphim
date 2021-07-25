@@ -41,98 +41,30 @@
 <section class="abanner-section">
     <div class="banner-bg bg_img bg-fixed" data-background="./assets/images/banner/banner01.jpg"></div>
     <div class="container">
+    <% for (let i = 0; i < ticketBooked.length; i++) { %>
         <div class="history-ticket">
             <ul class="info">
                 <li>
                     <span class="col-left">Cinema: </span>
-                    <span class="col-right">CGV Cộng Hòa</span>
+                    <span class="col-right"><%= ticketBooked[i].TenRap %></span>
                 </li>
 
                 <li>
                     <span class="col-left">Movie: </span>
-                    <span class="col-right">Liệt dương thiên đạo</span>
+                    <span class="col-right"><%= ticketBooked[i].TenPhim %></span>
                 </li>
 
                 <li>
                     <span class="col-left">Time: </span>
-                    <span class="col-right">17:00 19/07/2021</span>
+                    <span class="col-right"><%= ticketBooked[i].ThoiDiemBatDau %></span>
                 </li>
 
                 <li>
                     <span class="col-left">Seats: </span>
-                    <span class="col-right">A1, A2, A3</span>
+                    <span class="col-right"><%= ticketBooked[i].seats %></span>
                 </li>
             </ul>
         </div>
-
-        <div class="history-ticket">
-            <ul class="info">
-                <li>
-                    <span class="col-left">Cinema: </span>
-                    <span class="col-right">CGV Cộng Hòa</span>
-                </li>
-
-                <li>
-                    <span class="col-left">Movie: </span>
-                    <span class="col-right">Liệt dương thiên đạo</span>
-                </li>
-
-                <li>
-                    <span class="col-left">Time: </span>
-                    <span class="col-right">17:00 19/07/2021</span>
-                </li>
-
-                <li>
-                    <span class="col-left">Seats: </span>
-                    <span class="col-right">A1, A2, A3</span>
-                </li>
-            </ul>
-        </div>
-        <div class="history-ticket">
-            <ul class="info">
-                <li>
-                    <span class="col-left">Cinema: </span>
-                    <span class="col-right">CGV Cộng Hòa</span>
-                </li>
-
-                <li>
-                    <span class="col-left">Movie: </span>
-                    <span class="col-right">Liệt dương thiên đạo</span>
-                </li>
-
-                <li>
-                    <span class="col-left">Time: </span>
-                    <span class="col-right">17:00 19/07/2021</span>
-                </li>
-
-                <li>
-                    <span class="col-left">Seats: </span>
-                    <span class="col-right">A1, A2, A3</span>
-                </li>
-            </ul>
-        </div>
-        <div class="history-ticket">
-            <ul class="info">
-                <li>
-                    <span class="col-left">Cinema: </span>
-                    <span class="col-right">CGV Cộng Hòa</span>
-                </li>
-
-                <li>
-                    <span class="col-left">Movie: </span>
-                    <span class="col-right">Liệt dương thiên đạo</span>
-                </li>
-
-                <li>
-                    <span class="col-left">Time: </span>
-                    <span class="col-right">17:00 19/07/2021</span>
-                </li>
-
-                <li>
-                    <span class="col-left">Seats: </span>
-                    <span class="col-right">A1, A2, A3</span>
-                </li>
-            </ul>
-        </div>
+    <% } %>  
     </div>
 </section>
