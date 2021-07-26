@@ -2,6 +2,7 @@ const ShowTime = require("../models/showtime");
 const Movie = require("../models/movie");
 const Booking = require("../models/booking");
 const Ticket = require("../models/ticket");
+const Cinema = require("../models/cinema");
 const { QueryTypes } = require("sequelize");
 const db = require("../models/db");
 
@@ -21,6 +22,10 @@ exports.getDatVe = async (req, res, next) => {
     where: { ID: idMovie },
   });
 
+  const cinema = await Cinema.findOne({
+    where: { ID: idCinema },
+  });
+
   const showTimeList = await ShowTime.findAll({
     where: { IDRap: idCinema, IDPhim: idMovie },
   });
@@ -29,8 +34,7 @@ exports.getDatVe = async (req, res, next) => {
     'select "Ve"."MaGhe" from "Ve" join "DatCho" on "Ve"."IDDatCho" = "DatCho"."ID" where "DatCho"."IDSuatChieu" = ' +
     String(showTimeList[0].IDSuatChieu);
   const seatBooked = await db.query(sql, { type: QueryTypes.SELECT });
-  console.log(seatBooked);
-
+  
   const seats = [];
 
   for (let x = 0; x < SEATS_ROWS; x++) {
@@ -53,6 +57,7 @@ exports.getDatVe = async (req, res, next) => {
     isAuthenticated: req.session.userId,
     showTimeList: showTimeList,
     movieName: movie.Ten,
+    cinemaName: cinema.Ten,
     seats: seats,
   });
 };

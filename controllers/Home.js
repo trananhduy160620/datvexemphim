@@ -17,7 +17,6 @@ exports.getHomePage = async (req, res, next) => {
     order: [["ID", "DESC"]],
   });
 
-  console.log(comingSoon);
   res.render("home", {
     isAuthenticated: req.session.userId,
     nowShowing: nowShowing,
@@ -67,7 +66,7 @@ exports.getLogin = async (req, res, next) => {
 exports.postLogin = asyncHandler(async function (req, res) {
   const { email, password } = req.body;
   const found = await User.findByEmail(email);
-  console.log(found);
+
   if (found && found.MatKhau === password && found.Code == null) {
     req.session.userId = found.id;
 

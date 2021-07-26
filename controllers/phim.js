@@ -19,7 +19,6 @@ exports.getPhimDangChieu = async (req, res, next) => {
 exports.getDetailMovie = asyncHandler(async (req, res) => {
   const idMovie = req.params.idPhim;
   const idCinema = req.query.rap;
-  console.log(idCinema);
   const movie = await Movie.findOne({
     where: { ID: idMovie },
   });
@@ -33,7 +32,6 @@ exports.getDetailMovie = asyncHandler(async (req, res) => {
 exports.getDatVe = async function (req, res) {
   idCinema = req.query.rap;
   idMovie = req.query.phim;
-  console.log(idMovie, idCinema);
   str = 'datve?rap=' + idCinema + "&phim=" + idMovie;
   res.redirect(str);
 };
