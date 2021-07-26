@@ -1,12 +1,11 @@
-
 <style>
-    .abanner-section{
+    .abanner-section {
         padding: 150px 0 100px;
     }
 
-    .history-ticket{
+    .history-ticket {
         background-color: rgb(233, 224, 224);
-        border-style:none;
+        border-style: none;
         border-radius: 10px;
         padding: 16px;
         margin: 30px;
@@ -14,57 +13,78 @@
         box-shadow: 5px 5px 5px rgb(138, 130, 130);
     }
 
-    .col-left{
+    .col-left {
         font-weight: bold;
         color: #000000;
         font-size: 28px;
         text-align: right;
-        margin-left: 250px;
+        margin-left: 230px;
         width: 200px;
     }
 
-    .col-right{
+    .col-right {
         color: #000000;
-        text-transform:capitalize;
+        text-transform: capitalize;
         font-weight: bold;
         font-size: 28px;
         text-align: left;
-        /* margin-left: -50px; */
+        margin-left: -20px;
     }
 
-    .info li{
+    .info li {
         display: grid;
         grid-template-columns: 1fr 1fr;
+    }
+
+    .menu-item-has-children>a::after {
+        content: none;
+        font-weight: 600;
+        font-family: "Font Awesome 5 Free";
+        margin-left: 5px;
+    }
+
+    .info .col-right{
+        word-break: break-word;
+        width: 350px;
     }
 </style>
 
 <section class="abanner-section">
     <div class="banner-bg bg_img bg-fixed" data-background="./assets/images/banner/banner01.jpg"></div>
     <div class="container">
-    <% for (let i = 0; i < ticketBooked.length; i++) { %>
-        <div class="history-ticket">
-            <ul class="info">
-                <li>
-                    <span class="col-left">Cinema: </span>
-                    <span class="col-right"><%= ticketBooked[i].TenRap %></span>
-                </li>
+        <% for (let i=0; i < ticketBooked.length; i++) { %>
+            <div class="history-ticket">
+                <ul class="info">
+                    <li>
+                        <span class="col-left">Cinema: </span>
+                        <span class="col-right">
+                            <%= ticketBooked[i].TenRap %>
+                        </span>
+                    </li>
 
-                <li>
-                    <span class="col-left">Movie: </span>
-                    <span class="col-right"><%= ticketBooked[i].TenPhim %></span>
-                </li>
+                    <li>
+                        <span class="col-left">Movie: </span>
+                        <span class="col-right">
+                            <%= ticketBooked[i].TenPhim %>
+                        </span>
+                    </li>
 
-                <li>
-                    <span class="col-left">Time: </span>
-                    <span class="col-right"><%= ticketBooked[i].ThoiDiemBatDau %></span>
-                </li>
+                    <li>
+                        <span class="col-left">Time: </span>
+                        <span class="col-right">
+                            <%= ticketBooked[i].ThoiDiemBatDau %>
+                        </span>
+                    </li>
 
-                <li>
-                    <span class="col-left">Seats: </span>
-                    <span class="col-right"><%= ticketBooked[i].seats %></span>
-                </li>
-            </ul>
-        </div>
-    <% } %>  
+                    <li>
+                        <span class="col-left">Seats: </span>
+                        <span class="col-right">
+                            <%= ticketBooked[i].seats %>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <% } %>
     </div>
+    
 </section>

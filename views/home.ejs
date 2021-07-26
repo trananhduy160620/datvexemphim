@@ -33,6 +33,15 @@
             font-family: "Font Awesome 5 Free";
             margin-left: 5px;
         }
+
+        h2 {
+            color: #31d7a9;
+        }
+
+        .img-poster {
+            width: 230px;
+            height: 350px;
+        }
     </style>
 
 
@@ -56,6 +65,8 @@
         </div>
     </section>
     <!-- ==========Banner-Section========== -->
+
+
     <!-- ==========Movie-Section========== -->
     <section class="movie-section padding-top padding-bottom">
         <div class="container">
@@ -69,26 +80,28 @@
                 <div class="tab-area mb-30-none">
                     <div class="tab-item active">
                         <div class="owl-carousel owl-theme tab-slider">
-                        <% for (let i = 0; i < nowShowing.length; i++) { %>
-                            <div class="item">
-                                <div class="movie-grid">
-                                    <div class="movie-thumb c-thumb">
-                                        <a href="#0">
-                                            <img src="<%= nowShowing[i].Poster %>" alt="movie">
-                                        </a>
-                                    </div>
-                                    <div class="movie-content bg-one">
-                                        <h5 class="title m-0">
-                                            <a href="#"><%= nowShowing[i].Ten %></a>
-                                        </h5>
+                            <% for (let i=0; i < nowShowing.length; i++) { %>
+                                <div class="item">
+                                    <div class="movie-grid">
+                                        <div class="movie-thumb c-thumb">
+                                            <a href="#0">
+                                                <img class="img-poster" src="<%= nowShowing[i].Poster %>" alt="movie">
+                                            </a>
+                                        </div>
+                                        <div class="movie-content bg-one">
+                                            <h5 class="title m-0">
+                                                <a href="#">
+                                                    <%= nowShowing[i].Ten %>
+                                                </a>
+                                            </h5>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        <% } %>
+                                <% } %>
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </section>
@@ -105,25 +118,27 @@
                 <div class="tab-area mb-30-none">
                     <div class="tab-item active">
                         <div class="owl-carousel owl-theme tab-slider">
-                        <% for (let i = 0; i < comingSoon.length; i++) { %>
-                            <div class="item">
-                                <div class="movie-grid">
-                                    <div class="movie-thumb c-thumb">
-                                        <a href="#0">
-                                            <img src="<%= comingSoon[i].Poster %>" alt="movie">
-                                        </a>
-                                    </div>
-                                    <div class="movie-content bg-one">
-                                        <h5 class="title m-0">
-                                            <a href="#0"><%= comingSoon[i].Ten %></a>
-                                        </h5>
+                            <% for (let i=0; i < comingSoon.length; i++) { %>
+                                <div class="item">
+                                    <div class="movie-grid">
+                                        <div class="movie-thumb c-thumb">
+                                            <a href="#0">
+                                                <img class="img-poster" src="<%= comingSoon[i].Poster %>" alt="movie">
+                                            </a>
+                                        </div>
+                                        <div class="movie-content bg-one">
+                                            <h5 class="title m-0">
+                                                <a href="#0">
+                                                    <%= comingSoon[i].Ten %>
+                                                </a>
+                                            </h5>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        <% } %>
+                                <% } %>
                         </div>
                     </div>
-                </div>  
+                </div>
             </div>
         </div>
     </section>

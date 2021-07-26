@@ -1,18 +1,18 @@
-
 <style>
     .grid-cinemas-area {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-gap: 8px 10px;
-        padding: 20px 0px 20px 0px; 
+        padding: 20px 0px 20px 0px;
         width: auto;
         text-transform: uppercase;
         font-weight: bold;
         font-size: 17px;
         list-style: none;
-        text-align:left;
+        text-align: left;
     }
-    #cinemas-area{
+
+    #cinemas-area {
         border-radius: 10px;
         width: 1080px;
         margin-left: -100px;
@@ -29,19 +29,19 @@
         list-style: none;
     }
 
-    #cinemas-list{
+    #cinemas-list {
         border-radius: 10px;
         width: 1080px;
         margin-left: -160px;
     }
 
     .active,
-    span:hover {  
-        cursor: pointer;  
+    span:hover {
+        cursor: pointer;
         color: red;
-    }   
+    }
 
-    label{
+    label {
         display: block;
         text-align: center;
         text-transform: uppercase;
@@ -52,14 +52,20 @@
         margin-top: -80px;
     }
 
-    span{
+    span {
         margin: 5px;
     }
 
+    .menu-item-has-children>a::after {
+        content: none;
+        font-weight: 600;
+        font-family: "Font Awesome 5 Free";
+        margin-left: 5px;
+    }
 </style>
 
 
- <section class="banner-section">
+<section class="banner-section">
     <div class="banner-bg bg_img bg-fixed" data-background="./assets/images/banner/banner01.jpg"></div>
     <div class="container">
         <div class="banner-content">
@@ -68,33 +74,36 @@
             </div>
             <hr>
 
-            <div id="cinemas-area" >
+            <div id="cinemas-area">
                 <ul class="grid-cinemas-area">
-                    <% for (let i = 0; i < cinemaComplexs.length; i++) { %>
-                        <a style="text-decoration: none; color: #e7e9ec;" href="/cum-rap/<%= cinemaComplexs[i].ID %>" >
+                    <% for (let i=0; i < cinemaComplexs.length; i++) { %>
+                        <a style="text-decoration: none; color: #e7e9ec;" href="/cum-rap/<%= cinemaComplexs[i].ID %>">
                             <li>
-                                <span id="cgv_city_<%= cinemaComplexs[i].ID %>" class="span" ><%= cinemaComplexs[i].Ten %></span>
-                            </li>   
+                                <span id="cgv_city_<%= cinemaComplexs[i].ID %>" class="span">
+                                    <%= cinemaComplexs[i].Ten %>
+                                </span>
+                            </li>
                         </a>
-                         
-                    <% } %>
+
+                        <% } %>
                 </ul>
             </div>
             <hr>
-        
+
             <div id="cinemas-list">
                 <ul class="grid-cinemas-list">
-                    <% for (let i = 0; i < cinemaList.length; i++) { %>
-                        <a style="text-decoration: none;" href="/phimdangchieu?rap=<%= cinemaList[i].ID %>" >
+                    <% for (let i=0; i < cinemaList.length; i++) { %>
+                        <a style="text-decoration: none;" href="/phimdangchieu?rap=<%= cinemaList[i].ID %>">
                             <li class="cgv_city_1">
-                                <span id="<%= cinemaList[i].ID %>"><%= cinemaList[i].Ten %></span>
-                            </li>  
-                        </a>               
-                    <% } %>     
+                                <span id="<%= cinemaList[i].ID %>">
+                                    <%= cinemaList[i].Ten %>
+                                </span>
+                            </li>
+                        </a>
+                        <% } %>
                 </ul>
             </div>
 
         </div>
     </div>
 </section>
-

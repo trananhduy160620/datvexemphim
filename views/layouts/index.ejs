@@ -36,6 +36,13 @@
       border-bottom: 1px dashed #11326f;
       height: 110px;
     }
+
+    .menu-item-has-children>a::after {
+      content: none;
+      font-weight: 600;
+      font-family: "Font Awesome 5 Free";
+      margin-left: 5px;
+    }
   </style>
 
 </head>
@@ -63,7 +70,7 @@
           </a>
         </div>
         <ul class="menu">
-          
+
           <li class="menu-item-has-children">
             <a href="#">Theaters</a>
             <ul class="submenu">
@@ -77,7 +84,7 @@
           </li>
 
           <li class="menu-item-has-children">
-            <a href="/lichsudatve">Ticket Booked</a>        
+            <a href="/lichsudatve">Ticket Booked</a>
           </li>
           <% if (!isAuthenticated) { %>
             <li class="menu-item-has-children">
