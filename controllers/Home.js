@@ -5,24 +5,28 @@ const express = require("express");
 const asyncHandler = require("express-async-handler");
 const Movies = require("../models/movie");
 const { Op } = require("sequelize");
-const { format } = require("date-fns");
+const { format, addMonths } = require("date-fns");
 
 exports.getHomePage = async (req, res, next) => {
-  const nowShowing = await Movies.findAll();
-  const now = format(new Date(), "dd/MM/yyyy");
-  const comingSoon = await Movies.findAll({
-    where: {
-      NgayCongChieu: {
-        [Op.gt]: now
-      }
-    }
+  const nowShowing = await Movies.findAll({
+    limit: 10,
+    order: [["ID", "ASC"]],
   });
+  const comingSoon = await Movies.findAll({
+    limit: 10,
+    order: [["ID", "DESC"]],
+  });
+
   console.log(comingSoon);
-  res.render("home", {isAuthenticated: req.session.userId, nowShowing: nowShowing, comingSoon: comingSoon});
+  res.render("home", {
+    isAuthenticated: req.session.userId,
+    nowShowing: nowShowing,
+    comingSoon: comingSoon,
+  });
 };
 
 exports.getRegister = async (req, res, next) => {
-  res.render("register", {isAuthenticated: req.session.userId});
+  res.render("register", { isAuthenticated: req.session.userId });
 };
 
 exports.postRegister = async (req, res, next) => {
@@ -41,10 +45,10 @@ exports.postRegister = async (req, res, next) => {
         "&userId=" +
         found.id;
       Email.send(email, "Register", context);
-      res.render("register", {isAuthenticated: req.session.userId});
+      res.render("register", { isAuthenticated: req.session.userId });
     } else {
       error = "Can not register . Try again";
-      res.render("register", {isAuthenticated: req.session.userId});
+      res.render("register", { isAuthenticated: req.session.userId });
     }
   }
 };
@@ -57,7 +61,7 @@ exports.verifyUser = asyncHandler(async function (req, res) {
 });
 
 exports.getLogin = async (req, res, next) => {
-  res.render("login", {isAuthenticated: req.session.userId});
+  res.render("login", { isAuthenticated: req.session.userId });
 };
 
 exports.postLogin = asyncHandler(async function (req, res) {
@@ -66,14 +70,14 @@ exports.postLogin = asyncHandler(async function (req, res) {
   console.log(found);
   if (found && found.MatKhau === password && found.Code == null) {
     req.session.userId = found.id;
-    
-    res.redirect('/');
+
+    res.redirect("/");
   } else {
-    res.render("login", {isAuthenticated: req.session.userId});
-  };
+    res.render("login", { isAuthenticated: req.session.userId });
+  }
 });
 
 exports.logout = (req, res) => {
-  delete req.session.userId ;
+  delete req.session.userId;
   res.redirect("/");
 };

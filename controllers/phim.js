@@ -1,5 +1,6 @@
 const { QueryTypes } = require('sequelize');
 const ShowTime = require("../models/showtime");
+const Movie = require("../models/movie");
 const db = require('../models/db');
 
 exports.getPhimDangChieu = async (req, res, next) => {
@@ -12,3 +13,11 @@ exports.getPhimDangChieu = async (req, res, next) => {
 exports.getChiTietPhim = async (req, res, next) => {
   res.render("phim/chiTietPhim", {isAuthenticated: req.session.userId});
 };
+
+exports.getDetailMovie = async (req, res, next) => {
+  const idMovie = req.params.idPhim;
+  const movie = await Movie.findOne({
+    where: {ID: idMovie},
+  })
+  res.render("phim/chiTietPhim", {isAuthenticated: req.session.userId, movie: movie})
+}
