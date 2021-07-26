@@ -20,9 +20,9 @@ exports.getLichSuDatVe = async (req, res, next) => {
       seatList.push(seats[j].MaGhe);
     }
 
-    ticketBooked[i]["seats"] = seatList.join();
+    ticketBooked[i]["seats"] = seatList.join(", ");
   }
-
+  console.log(ticketBooked);
   res.render("lichsumuave", {
     isAuthenticated: req.session.userId, ticketBooked: ticketBooked,
   });

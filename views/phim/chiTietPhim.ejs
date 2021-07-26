@@ -4,31 +4,24 @@
     <div class="details-banner-wrapper">
       <div class="details-banner-thumb">
         <img class="poster" src="<%= movie.Poster %>" alt="movie" />
-        <a href="https://www.youtube.com/embed/zDqk1JhmyvE" target=_blank class="video-popup">
+        <!-- <a href="https://www.youtube.com/embed/zDqk1JhmyvE" target=_blank class="video-popup">
           <img src="/movie-detail/video-button.png" alt="movie" />
-        </a>
+        </a> -->
       </div>
 
       <div class="details-banner-content offset-lg-3">
-        <h3 class="title">
-          <%= movie.Ten %>
-        </h3>
-        <br>
-        <a href="#" class="button">Hành Động</a>
+        <h3 class="title"><%= movie.Ten %></h3>
+        <br />
+        <a href="#" class="button"><%= movie.TheLoai %></a>
         <div class="social-and-duration">
           <div class="duration-area">
             <div class="item">
-              <span>
-                <%= movie.NgayCongChieu %>
-              </span>
+              <span> <%= movie.NgayCongChieu %> </span>
             </div>
             <div class="item">
-              <span>
-                <%= movie.ThoiLuong %>
-              </span>
+              <span> <%= movie.ThoiLuong %> </span>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -36,26 +29,25 @@
 </section>
 <!-- ==========Banner-Section========== -->
 
-
 <!-- ==========Book-Section========== -->
 <section class="book-section bg-one">
   <div class="container">
     <div class="book-wrapper offset-lg-3">
       <div class="left-side">
         <div class="movie-summary">
-          <p>Sau khi bản thân bỗng nhiên sở hữu “Bàn tay diệt quỷ”, võ sĩ MMA Yong Hoo (Park Seo Joon thủ vai) đã dấn
-            thân vào hành trình trừ tà, trục quỷ đối đầu với Giám Mục Bóng Tối (Woo Do Hwan) – tên quỷ Satan đột lốt
-            người. Từ đó sự thật về cái chết của cha Yong Hoo cũng dần được hé lộ cũng như nguyên nhân anh trở thành
-            “người được chọn”.
-            Sau khi bản thân bỗng nhiên sở hữu “Bàn tay diệt quỷ”, võ sĩ MMA Yong Hoo (Park Seo Joon thủ vai) đã dấn
-            thân vào hành trình trừ tà, trục quỷ đối đầu với Giám Mục Bóng Tối (Woo Do Hwan) – tên quỷ Satan đột lốt
-            người. </p>
+          <% if (movie.MoTa != 'NULL') { %>
+          <p><%= movie.MoTa %></p>
+          <% } %>
         </div>
       </div>
-      <a href="#" class="custom-button">book tickets</a>
+      <a href="/getDatVe?rap=<%= idCinema %>&phim=<%= movie.ID %>" class="custom-button">book tickets</a>
+      <% if (movie.Trailer != 'NULL') { %>
+      <iframe width="800" height="420" src="<%= movie.Trailer %>"> </iframe>
+      <% } %>
     </div>
   </div>
 </section>
+
 <!-- ==========Book-Section========== -->
 
 <style>
@@ -64,22 +56,22 @@
     font-size: 40px;
   }
 
-  .poster{
+  .poster {
     height: 350px;
     width: 100%;
   }
 
-  .movie-summary{
+  .movie-summary {
     width: 600px;
     word-break: break-word;
     margin: 0px 20px;
   }
-  
-  .book-section{
+
+  .book-section {
     margin-block-end: 150px;
   }
 
-  .details-banner-content{
+  .details-banner-content {
     font-weight: bold;
   }
 </style>

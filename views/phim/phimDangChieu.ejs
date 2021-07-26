@@ -294,7 +294,7 @@
             <div>
                 <div class="movie-card">
                     <!--movie-header-->
-                    <a href="/chi-tiet-phim/<%= showTimeList[i].IDPhim %>">
+                    <a href="/chi-tiet-phim/<%= showTimeList[i].IDPhim %>?rap=<%= showTimeList[i].IDRap %>">
                         <div class="movie-header">
                             <div class="header-icon-container">
                                 <img class="img-poster" src="<%= showTimeList[i].Poster %>" alt="">
@@ -303,7 +303,7 @@
                         <!--movie-content-->
                         <div class="movie-content">
                             <div class="movie-content-header">
-                                <a href="#">
+                                <a href="/chi-tiet-phim/<%= showTimeList[i].IDPhim %>?rap=<%= showTimeList[i].IDRap %>">
                                     <h5 class="movie-title">
                                         <%= showTimeList[i].Ten %>
                                     </h5>
@@ -313,7 +313,7 @@
                                 <!--the loai-->
                                 <div class="info-section">
                                     <label>Thể Loại</label>
-                                    <span>Hành Động</span>
+                                    <span><%= showTimeList[i].TheLoai %></span>
                                 </div>
                                 <!--ngay khoi chieu-->
                                 <div class="info-section">
@@ -330,15 +330,6 @@
                                     </span>
                                 </div>
                             </div>
-                            <!-- <div class="movie-price">
-                                
-                                <div class="price-section">
-                                    <label>Giá Vé</label>
-                                    <span>
-                                        <%= showTimeList[i].GiaVe %> VNĐ
-                                    </span>
-                                </div>
-                            </div> -->
                         </div>
                     </a>
 

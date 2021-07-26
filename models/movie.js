@@ -23,6 +23,18 @@ const Phim = db.define('Phim', {
     ThoiLuong: {
         type: Sequelize.STRING,
         allowNull: true
+    },
+    MoTa: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    Trailer: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    TheLoai: {
+        type: Sequelize.STRING,
+        allowNull: true
     }
 }, {
     tableName: 'Phim',
