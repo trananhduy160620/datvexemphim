@@ -13,16 +13,17 @@
         <h3 class="title">
           <%= movie.Ten %>
         </h3>
+        <br>
         <a href="#" class="button">Hành Động</a>
         <div class="social-and-duration">
           <div class="duration-area">
             <div class="item">
-              <i class="fas fa-calendar-alt"></i><span>
+              <span>
                 <%= movie.NgayCongChieu %>
               </span>
             </div>
             <div class="item">
-              <i class="far fa-clock"></i><span>
+              <span>
                 <%= movie.ThoiLuong %>
               </span>
             </div>
@@ -59,11 +60,8 @@
 
 <style>
   .title {
-    text-transform: uppercase;
-  }
-
-  .details-banner-thumb{
-    padding-bottom: -450px;
+    text-transform: capitalize;
+    font-size: 40px;
   }
 
   .poster{
@@ -78,6 +76,10 @@
   }
   
   .book-section{
-    margin-block-end: 200px;
+    margin-block-end: 150px;
+  }
+
+  .details-banner-content{
+    font-weight: bold;
   }
 </style>
