@@ -394,6 +394,7 @@
                                 <th>STT</th>
                                 <th>Tên phim</th>
                                 <th>Tên rạp</th>
+                                <th> Ngày tháng </th>
                                 <th>Tổng tiền</th>
                             </tr>
                             <% for (let i = 0; i < chitietdoanhthu.length; i++) { %>
@@ -401,11 +402,12 @@
                                 <td> <%= i + 1 %> </td>
                                 <td> <%= chitietdoanhthu[i].tenphim %> </td>
                                 <td> <%= chitietdoanhthu[i].tenrap %> </td>
+                                <td> <%= chitietdoanhthu[i].ngay %> </td>
                                 <td> <%= chitietdoanhthu[i].tienve %> </td>
                             </tr>
                             <% } %>
                             <tr>
-                                <td colspan='3'>Tổng doanh thu: </td>
+                                <td colspan='4'>Tổng doanh thu: </td>
                                 <td> <%= tongdoanhthu %> </td>
                               </tr>
                         </table>

@@ -19,10 +19,10 @@ module.exports.showFormDoanhThuTheoCumRap = async function (req, res) {
 module.exports.thongkeDoanhThuTheoCumRap = async function (req, res) {
     var idCumRap = req.body.cum_rap
     const sql1 = `
-        SELECT p."Ten" as TenPhim, cr."Ten" as TenCumRap, dt."TongTien" as TienVe
+        SELECT p."Ten" as TenPhim, cr."Ten" as TenCumRap, dt."ThoiDiemDatVe" as Ngay, dt."TongTien" as TienVe
         FROM "DatCho" dt JOIN "SuatChieu" sc on dt."IDSuatChieu" = sc."IDSuatChieu" JOIN "Rap" r on sc."IDRap" = r."ID" join "Phim" p on sc."IDPhim" = p."ID" JOIN "CumRap" cr on cr."ID" = r."IDCumRap"
         WHERE r."IDCumRap" = ${idCumRap}
-        GROUP BY  p."Ten", cr."Ten", dt."TongTien" 
+        GROUP BY  p."Ten", cr."Ten", dt."TongTien", dt."ThoiDiemDatVe" 
     `
     const sql2 = `
         SELECT  SUM(dt."TongTien")
@@ -60,10 +60,10 @@ module.exports.thongkeDoanhThuTheoPhim = async function (req, res) {
     var idPhim = req.body.id_phim
 
     const sql = `
-        SELECT p."Ten" as TenPhim, r."Ten" as TenRap, dt."TongTien" as TienVe
+        SELECT p."Ten" as TenPhim, r."Ten" as TenRap, dt."ThoiDiemDatVe" as Ngay, dt."TongTien" as TienVe
         FROM "DatCho" dt JOIN "SuatChieu" sc on dt."IDSuatChieu" = sc."IDSuatChieu" JOIN "Rap" r on sc."IDRap" = r."ID" join "Phim" p on sc."IDPhim" = p."ID" JOIN "CumRap" cr on cr."ID" = r."IDCumRap"
         WHERE p."ID" = ${idPhim}
-        GROUP BY  p."Ten", r."Ten", dt."TongTien" 
+        GROUP BY  p."Ten", r."Ten", dt."TongTien", dt."ThoiDiemDatVe" 
     `
     const listOfMovie = await Movie.findAll({
         attributes: ["ID", "Ten", "NgayCongChieu", "Poster", "ThoiLuong"],
@@ -72,7 +72,7 @@ module.exports.thongkeDoanhThuTheoPhim = async function (req, res) {
     const chitietdoanhthu = await sequelize.query(sql, { type: QueryTypes.SELECT });
     var tongdoanhthu = 0 
     for (var i = 0; i < chitietdoanhthu.length; i++) {
-        tongdoanhthu = tongdoanhthu + chitietdoanhthu[0].tienve
+        tongdoanhthu = tongdoanhthu + chitietdoanhthu[i].tienve
     }
     res.render('doanh-thu-theo-phim', { 
         chitietdoanhthu: chitietdoanhthu,
