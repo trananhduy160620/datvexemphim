@@ -3,6 +3,8 @@ const Movie = require("../models/movie");
 const Booking = require("../models/booking");
 const Ticket = require("../models/ticket");
 const Cinema = require("../models/cinema");
+const Email = require("../models/email");
+const User = require("../models/user");
 const { QueryTypes } = require("sequelize");
 const db = require("../models/db");
 
@@ -34,7 +36,7 @@ exports.getDatVe = async (req, res, next) => {
     'select "Ve"."MaGhe" from "Ve" join "DatCho" on "Ve"."IDDatCho" = "DatCho"."ID" where "DatCho"."IDSuatChieu" = ' +
     String(showTimeList[0].IDSuatChieu);
   const seatBooked = await db.query(sql, { type: QueryTypes.SELECT });
-  
+
   const seats = [];
 
   for (let x = 0; x < SEATS_ROWS; x++) {
@@ -44,15 +46,15 @@ exports.getDatVe = async (req, res, next) => {
       dict["code"] = row + (y + 1).toString();
       dict["isAvailable"] = true;
       for (let i = 0; i < seatBooked.length; i++) {
-          if (dict["code"] == seatBooked[i].MaGhe) {
-            dict["isAvailable"] = false;
-            break;
-          } 
+        if (dict["code"] == seatBooked[i].MaGhe) {
+          dict["isAvailable"] = false;
+          break;
+        }
       }
       seats.push(dict);
     }
   }
-  
+
   res.render("datve", {
     isAuthenticated: req.session.userId,
     showTimeList: showTimeList,
@@ -67,6 +69,14 @@ exports.postDatVe = async (req, res, next) => {
   const idCinema = req.query.rap;
   const thoiDiemBatDau = req.body.selected_showtime;
   const bookingTicket = req.body.seats;
+
+  const movie = await Movie.findOne({
+    ID: idMovie,
+  });
+
+  const cinema = await Cinema.findOne({
+    where: { ID: idCinema },
+  });
 
   const showTime = await ShowTime.findOne({
     where: { IDPhim: idMovie, IDRap: idCinema, ThoiDiemBatDau: thoiDiemBatDau },
@@ -100,15 +110,34 @@ exports.postDatVe = async (req, res, next) => {
       dict["code"] = row + (y + 1).toString();
       dict["isAvailable"] = true;
       for (let i = 0; i < seatBooked.length; i++) {
-          if (dict["code"] == seatBooked[i].MaGhe) {
-            dict["isAvailable"] = false;
-            break;
-          } 
+        if (dict["code"] == seatBooked[i].MaGhe) {
+          dict["isAvailable"] = false;
+          break;
+        }
       }
       seats.push(dict);
     }
   }
-  
+
+  // send mailing
+  const context =
+    "THÔNG TIN ĐẶT VÉ:\n- Mã vé: " +
+    booking.ID +
+    "\n- Rạp: " +
+    cinema.Ten +
+    "\n- Tên phim: " +
+    movie.Ten +
+    "\n- Thời gian: " +
+    showTime.ThoiDiemBatDau +
+    "\n- Mã ghế: " +
+    bookingTicket.join(", ");
+
+  const user =await User.findOne({
+    where: { id: req.session.userId}
+  });
+
+  Email.send(user.Email, "Ticket Booking", context);
+
   return res.send(seats);
 };
 
@@ -116,7 +145,7 @@ exports.postSeats = async (req, res, next) => {
   const selected = req.body.selected_showtime;
   const idMovie = req.body.idMovie;
   const idCinema = req.body.idCinema;
-  
+
   const showTime = await ShowTime.findOne({
     where: { IDRap: idCinema, IDPhim: idMovie, ThoiDiemBatDau: selected },
   });
@@ -135,14 +164,14 @@ exports.postSeats = async (req, res, next) => {
       dict["code"] = row + (y + 1).toString();
       dict["isAvailable"] = true;
       for (let i = 0; i < seatBooked.length; i++) {
-          if (dict["code"] == seatBooked[i].MaGhe) {
-            dict["isAvailable"] = false;
-            break;
-          } 
+        if (dict["code"] == seatBooked[i].MaGhe) {
+          dict["isAvailable"] = false;
+          break;
+        }
       }
       seats.push(dict);
     }
   }
-  
+
   return res.send(seats);
 };

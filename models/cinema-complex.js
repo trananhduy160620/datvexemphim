@@ -4,7 +4,7 @@ const db = require('./db')
 const CinemaComplex = db.define('CumRap', {
     ID: {
         type: Sequelize.INTEGER,
-        allowNull: true,
+        unique: true,
         primaryKey: true
     },
     Ten: {

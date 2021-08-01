@@ -20,7 +20,7 @@
 
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-icon">
 
-    <title>Boleto - Online Ticket Booking Website HTML Template</title>
+    <title>Online Ticket Booking Website</title>
 
     <style>
         .movie-content {
@@ -111,31 +111,31 @@
             <div class="tab">
                 <div class="section-header-2">
                     <div class="left">
-                        <h2 class="title">coming soon</h2>
-                        <p>Be sure not to miss these upcoming Movies.</p>
+                        <h2 class="title">Top Movies</h2>
+                        <p>most watched movies .</p>
                     </div>
                 </div>
                 <div class="tab-area mb-30-none">
                     <div class="tab-item active">
                         <div class="owl-carousel owl-theme tab-slider">
-                            <% for (let i=0; i < comingSoon.length; i++) { %>
+                            <% for (let i=0; i < topMovie.length; i++) { %>
                                 <div class="item">
                                     <div class="movie-grid">
                                         <div class="movie-thumb c-thumb">
                                             <a href="#0">
-                                                <img class="img-poster" src="<%= comingSoon[i].Poster %>" alt="movie">
+                                                <img class="img-poster" src="<%= topMovie[i].Poster %>" alt="movie">
                                             </a>
                                         </div>
                                         <div class="movie-content bg-one">
                                             <h5 class="title m-0">
                                                 <a href="#0">
-                                                    <%= comingSoon[i].Ten %>
+                                                    <%= topMovie[i].Ten %>
                                                 </a>
                                             </h5>
                                         </div>
                                     </div>
                                 </div>
-                                <% } %>
+                            <% } %>
                         </div>
                     </div>
                 </div>

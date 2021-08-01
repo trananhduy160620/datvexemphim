@@ -5,24 +5,23 @@ const express = require("express");
 const asyncHandler = require("express-async-handler");
 const Movies = require("../models/movie");
 const { Op } = require("sequelize");
-const { format, addMonths } = require("date-fns");
+const db = require("../models/db");
+const { QueryTypes } = require("sequelize");
 
-exports.getHomePage = async (req, res, next) => {
+exports.getHomePage = asyncHandler(async (req, res, next) => {
   const nowShowing = await Movies.findAll({
     limit: 10,
     order: [["ID", "ASC"]],
   });
-  const comingSoon = await Movies.findAll({
-    limit: 10,
-    order: [["ID", "DESC"]],
-  });
+  var sql = 'SELECT SUM("foo"."SLDat") as "SoLuong", "foo"."Ten", "foo"."Poster" from (SELECT COUNT("DatCho"."IDSuatChieu") AS "SLDat", "Phim"."Ten", "Phim"."Poster" FROM "DatCho", "SuatChieu", "Phim" WHERE "DatCho"."IDSuatChieu" = "SuatChieu"."IDSuatChieu" AND "SuatChieu"."IDPhim" = "Phim"."ID" GROUP BY "DatCho"."IDSuatChieu", "Phim"."Ten", "Phim"."Poster" ORDER BY COUNT("DatCho"."IDSuatChieu") DESC ) AS "foo" GROUP BY "foo"."Ten", "foo"."Poster" ORDER BY "SoLuong" DESC'
+  const topMovie = await db.query(sql, { type: QueryTypes.SELECT });
 
   res.render("home", {
     isAuthenticated: req.session.userId,
     nowShowing: nowShowing,
-    comingSoon: comingSoon,
+    topMovie: topMovie,
   });
-};
+});
 
 exports.getRegister = async (req, res, next) => {
   res.render("register", { isAuthenticated: req.session.userId });
