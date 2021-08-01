@@ -4,7 +4,7 @@ const Booking = require("../models/booking");
 const Ticket = require("../models/ticket");
 const Cinema = require("../models/cinema");
 const Email = require("../models/email");
-const User = require("../models/user");
+const User = require("../models/User");
 const { QueryTypes } = require("sequelize");
 const db = require("../models/db");
 
