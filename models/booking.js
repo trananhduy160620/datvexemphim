@@ -8,17 +8,14 @@ const Booking = db.define('DatCho', {
     },
     IDNguoiDung: {
         type: Sequelize.INTEGER,
-        unique: 'actions_unique',
         allowNull: true
     },
     IDSuatChieu: {
         type: Sequelize.INTEGER,
-        unique: 'actions_unique',
         allowNull: true
     },
     ThoiDiemDatVe: {
         type: Sequelize.DATE,
-        unique: 'actions_unique',
         defaultValue: Sequelize.fn('now'),
     },
     TongTien: {
@@ -30,10 +27,5 @@ const Booking = db.define('DatCho', {
     createdAt: false,
     freezeTableName: true,
     updatedAt: false,
-    uniqueKeys: {
-        actions_unique: {
-            fields: ['IDNguoiDung', 'IDSuatChieu', 'ThoiDiemDatVe']
-        }
-    }
 })
 module.exports = Booking
