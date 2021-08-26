@@ -12,6 +12,10 @@ router.get("/send", home.verifyUser);
 router.get("/login", home.getLogin);
 router.post("/login", home.postLogin);
 router.get("/logout", home.logout);
+router.get("/forget-password", home.getForgetPassword);
+router.post("/forget-password", home.postForgetPassword);
+router.get("/change-password", home.getChangePassword);
+router.post("/change-password", home.postChangePassword);
 
 
 module.exports = router;

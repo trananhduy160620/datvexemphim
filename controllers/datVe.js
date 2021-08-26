@@ -15,6 +15,7 @@ const SEATS_COLUMNS = 14;
 exports.getDatVe = async (req, res, next) => {
   const idMovie = req.query.phim;
   const idCinema = req.query.rap;
+  console.log(req.session.userId);
 
   if (!req.session.userId) {
     res.redirect("/login");

@@ -7,6 +7,7 @@ const Movies = require("../models/movie");
 const { Op } = require("sequelize");
 const db = require("../models/db");
 const { QueryTypes } = require("sequelize");
+const { use } = require("../routers/Homepage");
 
 exports.getHomePage = asyncHandler(async (req, res, next) => {
   const nowShowing = await Movies.findAll({
@@ -79,3 +80,40 @@ exports.logout = (req, res) => {
   delete req.session.userId;
   res.redirect("/");
 };
+
+exports.getForgetPassword = async (req, res, next) => {
+  res.render("forgetPassword", { isAuthenticated: req.session.userId });
+};
+
+exports.postForgetPassword = async (req, res, next) => {
+  const { email } = req.body;
+  const code = randomString(6);
+  req.session.Code = code;
+  console.log(req.session.Code);
+  const found = await User.findByEmail(email);
+  if (found) {
+    const context =
+      "To change your password, please click here: localhost:3000/change-password?code=" +
+      code +
+      "&userId=" +
+      found.id;
+    Email.send(email, "Change Password", context);
+    res.redirect("/forget-password");
+  } else {
+    alert("Email not found");
+  }
+};
+
+exports.getChangePassword = async (req, res, next) => {
+  const userId  = req.query.userId;
+  req.session.Code = userId;
+  res.render("changePassword", { isAuthenticated: req.session.userId });
+}
+
+exports.postChangePassword = async (req, res, next) => {
+  console.log(req.session.Code);
+  const { password } = req.body;
+  console.log(password);
+  User.changePassword(req.session.Code, password);
+  res.render("login", { isAuthenticated: req.session.userId })
+}

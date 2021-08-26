@@ -37,7 +37,7 @@ User.resetCode = async function(id){
         where:{
           id: id
         }
-  });
+    });
 };
 
 User.findByEmail = async function(email){
@@ -55,5 +55,13 @@ User.findbyId = async function(id){
 User.register = async function(Email , MatKhau, HoTen, Code){
     return await User.create({Email:Email, MatKhau:MatKhau, HoTen:HoTen, Code:Code});
 };
+
+User.changePassword = async function(id , password){
+    return await User.update({MatKhau: password},{
+        where:{
+          id: id
+        }
+    });
+}
 
 module.exports = User;
