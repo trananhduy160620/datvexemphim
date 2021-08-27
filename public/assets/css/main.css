@@ -7957,6 +7957,14 @@ input[type="submit"] {
   color: rgba(255, 255, 255, 0.7);
 }
 
+.account-area .account-form .form-group a {
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  /* color: rgba(255, 255, 255, 0.7); */
+  color: #31d7a9;
+  margin-left: 70%;
+}
+
 .account-area .account-form .form-group label span {
   color: #f1481f;
 }
